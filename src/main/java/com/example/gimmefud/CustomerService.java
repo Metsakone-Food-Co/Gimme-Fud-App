@@ -1,8 +1,8 @@
 package com.example.gimmefud;
 
 
-import Data.Customer;
-import Data.CustomerRepository;
+import com.example.gimmefud.data.Customer;
+import com.example.gimmefud.data.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

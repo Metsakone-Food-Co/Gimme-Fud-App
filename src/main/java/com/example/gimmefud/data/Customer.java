@@ -1,4 +1,4 @@
-package Data;
+package com.example.gimmefud.data;
 
 import javax.persistence.*;
 
