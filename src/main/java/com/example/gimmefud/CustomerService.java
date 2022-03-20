@@ -16,7 +16,7 @@ public class CustomerService {
 
     @PostConstruct
     public void init(){
-        Customer c = customerRepo.findById("1").orElse(null);
+        Customer c = customerRepo.findById("Adonis69").orElse(null);
 
         if(c != null ){
             System.out.println("*******************"+c.firstName);
