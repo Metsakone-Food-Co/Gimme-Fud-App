@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class welcomeController  {
+public class MainController {
 
     @Autowired
     CustomerService customerService;
