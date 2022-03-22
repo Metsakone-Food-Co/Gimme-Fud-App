@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 @Service
 public class CustomerService {
@@ -13,12 +14,8 @@ public class CustomerService {
     CustomerRepository customerRepo;
 
     @PostConstruct
-    public void init(){
-        Customer c =  customerRepo.findById(1).orElse(null);
-
-        if( c != null ){
-            System.out.println("***********"+c.firstName);
-        }
+    public List<Customer> getcustomer(){
+    return customerRepo.findAll();
     }
 
 }
