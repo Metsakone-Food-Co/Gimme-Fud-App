@@ -1,6 +1,6 @@
 package com.example.gimmefud.controllers;
 
-import com.example.gimmefud.RestaurantService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import com.example.gimmefud.data.Restaurant;
 import com.example.gimmefud.data.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +15,18 @@ import java.util.List;
 public class RestaurantController {
 
     @Autowired
-    RestaurantService restaurantService;
+    RestaurantRepository restaurantRepo;
 
 
     @GetMapping
     public List<Restaurant> getAllRestaurants() {
-        return restaurantService.getRestaurant();
+        return restaurantRepo.findAll();
+    }
+
+
+    @PostMapping
+    public Restaurant createRestaurant(@RequestBody Restaurant newRestaurant){
+        return restaurantRepo.save(newRestaurant);
     }
 
 }
