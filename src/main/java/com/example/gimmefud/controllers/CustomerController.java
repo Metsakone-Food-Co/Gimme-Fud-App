@@ -1,7 +1,7 @@
 package com.example.gimmefud.controllers;
 
-import com.example.gimmefud.CustomerService;
 import com.example.gimmefud.data.Customer;
+import com.example.gimmefud.data.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,11 +16,10 @@ import java.util.List;
 public class CustomerController {
 
     @Autowired
-    CustomerService customerService;
+    CustomerRepository customerRepo;
 
     @GetMapping
-    public List<Customer> getAllCustomers(){
-        return customerService.getcustomer() ;
+    public List<Customer> getAllCustomers(){return customerRepo.findAll()  ;
     }
 
 
