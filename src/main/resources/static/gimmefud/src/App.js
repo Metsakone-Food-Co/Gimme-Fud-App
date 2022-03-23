@@ -3,9 +3,16 @@ import './App.css';
 import HomepageComponent from './components/HomepageComponent'
 import ListCustomerComponent from './components/ListCustomerComponent'
 import ListRestaurantComponent from './components/ListRestaurantComponent'
+import CreateRestaurantComponent from './components/CreateRestaurantComponent'
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
+
 function App() {
+
   return (
     <BrowserRouter>
     <div >
@@ -19,6 +26,7 @@ function App() {
         <Route path="/" element={ <HomepageComponent/>}/>
         <Route path="ListCustomerComponent" element={<ListCustomerComponent/>}/>
         <Route path="ListRestaurantComponent" element={<ListRestaurantComponent/>}/>
+        <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent />}/>
       </Routes>
     </div>
     </BrowserRouter>
