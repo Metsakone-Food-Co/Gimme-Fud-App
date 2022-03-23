@@ -7,6 +7,11 @@ function App() {
     <div >
       <ListCustomerComponent />
     </div>
+<<<<<<< Updated upstream
+=======
+    <h1>lol</h1>
+    </BrowserRouter>
+>>>>>>> Stashed changes
   );
 }
 

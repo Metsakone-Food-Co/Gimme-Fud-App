@@ -19,7 +19,9 @@ public class CustomerController {
     CustomerRepository customerRepo;
 
     @GetMapping
+
     public List<Customer> getAllCustomers(){return customerRepo.findAll()  ;
+
 
     }
 
