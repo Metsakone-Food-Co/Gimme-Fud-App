@@ -3,24 +3,44 @@ package com.example.gimmefud.controllers;
 import com.example.gimmefud.data.Customer;
 import com.example.gimmefud.data.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/v1/customers")
+@RequestMapping("/api/v1")
 public class CustomerController {
 
     @Autowired
     CustomerRepository customerRepo;
 
-    @GetMapping
+    @GetMapping("/customers")
     public List<Customer> getAllCustomers(){
         return customerRepo.findAll() ;
+    }
+
+    @GetMapping("/customers/{id}")
+    public Customer getSingleCustomer(@PathVariable Integer customerId){
+        return customerRepo.findById(customerId).get();
+    }
+
+    @PostMapping("/customers")
+    public Customer saveCustomerDetails(@RequestBody Customer customer) {
+        return  customerRepo.save(customer);
+    }
+
+    @PutMapping("/customers")
+    public Customer updateCustomerDetails(@RequestBody Customer customer) {
+        return  customerRepo.save(customer);
+    }
+
+    @DeleteMapping("/customer/{id}")
+    public ResponseEntity<HttpStatus> deleteCustomerById(@PathVariable Integer customerId){
+        customerRepo.deleteById(customerId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 
