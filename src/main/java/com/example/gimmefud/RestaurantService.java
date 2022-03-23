@@ -1,4 +1,4 @@
-package com.example.gimmefud;
+/*package com.example.gimmefud;
 
 import com.example.gimmefud.data.Restaurant;
 import com.example.gimmefud.data.RestaurantRepository;
@@ -15,9 +15,7 @@ public class RestaurantService {
     @Autowired
     RestaurantRepository restaurantRepo;
 
-    @PostConstruct
-    public List<Restaurant> getRestaurant(){
-        return restaurantRepo.findAll();
-    }
 
-}
+
+
+}*/
