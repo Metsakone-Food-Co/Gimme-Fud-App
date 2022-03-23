@@ -1,12 +1,22 @@
-import axios from 'axios'
+import httpClient from "../http-common";
 
-const CUSTOMER_BASE_REST_API_URL = 'http://localhost:8080/api/v1/customers'
-
-class CustomerService{
-
-    getAllCustomers(){
-        return axios.get(CUSTOMER_BASE_REST_API_URL)
-    }
+const getAll = () => {
+    return httpClient.get('/customers');
 }
 
-export default new CustomerService();
+const create = data => {
+    return httpClient.post("/customers", data);
+}
+
+const get = id => {
+    return httpClient.get(`/customers/${id}`);
+}
+
+const update = data => {
+    return httpClient.put('/customers', data);
+}
+
+const remove = id => {
+    return httpClient.delete(`/customers/${id}`);
+}
+export default { getAll, create, get, update, remove };
