@@ -1,34 +1,150 @@
-import React from 'react'
+import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react/cjs/react.development";
+import CustomerService from "../services/CustomerService";
 
-export default function CreateCustomerComponent() {
+const CreateCustomerComponent = () => {
+    const[customerId, setCustomerId] = useState('');
+    const[username, setUserName] = useState('');
+    const[password, setPassword] = useState('');
+    const[firstName, setFirstName] = useState('');
+    const[lastName, setLastName] = useState('');
+    const[address, setAddress] = useState('');
+    const[phoneNumber, setPhoneNumber] = useState('');
+
+
+    const {id} = useParams();
+
+    const saveCustomer = (e) => {
+        e.preventDefault();
+        
+        const customer = {customerId, username, password, firstName, lastName,address, phoneNumber };
+        if (id) {
+            //update
+            CustomerService.update(e)
+                .then(response => {
+                    console.log('Customer data updated successfully', response.data);
+                    
+                })
+                .catch(error => {
+                    console.log('Something went wrong', error);
+                }) 
+        } else {
+            //create
+            CustomerService.create(customer)
+            .then(response => {
+                console.log("Customer added successfully", response.data);
+              
+            })
+            .catch(error => {
+                console.log('something went wroing', error);
+            })
+        }
+    }
+    useEffect(() => {
+        if (customerId) {
+            CustomerService.get(customerId)
+                .then(customer => {
+                    setCustomerId(customer.data.customerId);
+                    setUserName(customer.data.username);
+                    setPassword(customer.data.password);
+                    setFirstName(customer.data.firstName);
+                    setLastName(customer.data.lastName);
+                    setAddress(customer.data.address);
+                    setPhoneNumber(customer.data.phoneNumber);
+
+
+                   
+                })
+                .catch(error => {
+                    console.log('Something went wrong', error);
+                })
+        }
+    }, [])
+
+
 
 
   return (
-    <div className=""> 
+    <div className="container"> 
         <h1> Create account  </h1>
-    <div className="">
-    <form action="/" method="get" class = "row g-3">
-    <label htmlFor="header-search">
-    </label>
+    <div className="createCustomer">
+    <form  class = "row g-3">
+        
+<div class = "col-md-6">
+    <label for = "inputUserId" class="form-label">UserId</label>
+    <input
+    type="text"
+    class="form-control"
+    id="userid"
+    value={customerId}
+    onChange={(e) => setCustomerId(e.target.value)}
+    placeholder="Userid"
+    name="s" 
+    />
+</div>
+
 
 <div class = "col-md-6">
-    <label for = "inputEmail4" class="form-label">Username</label>
+    <label for = "inputUserName" class="form-label">Username</label>
     <input
-    type="email"
+    type="text"
     class="form-control"
-    id="inputEmail4"
+    id="username"
+    value={username}
+    onChange={(e) => setUserName(e.target.value)}
     placeholder="Username"
     name="s" 
     />
 </div>
 
 <div class = "col-md-6">
-    <label for = "inputPassword4" class="form-label">Password</label>
+    <label for = "inputPassword" class="form-label">Password</label>
     <input
     type="Password"
     class="form-control"
-    id="inputPassword4"
+    id="password"
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
     placeholder="Password"
+    name="s" 
+    />
+</div>
+
+<div class = "col-md-6">
+    <label for = "inputFirstName" class="form-label">First name</label>
+    <input
+    type="text"
+    class="form-control"
+    id="firstName"
+    value={firstName}
+    onChange={(e) => setFirstName(e.target.value)}
+    placeholder="First name"
+    name="s" 
+    />
+</div>
+
+<div class = "col-md-6">
+    <label for = "LastName" class="form-label">Last name</label>
+    <input
+    type="text"
+    class="form-control"
+    id="inputlastName"
+    value={lastName}
+    onChange={(e) => setLastName(e.target.value)}
+    placeholder="Last name"
+    name="s" 
+    />
+</div>
+<div class = "col-md-6">
+    <label for = "Phonenumber" class="form-label">Phone number</label>
+    <input
+    type="text"
+    class="form-control"
+    id="phonenumber"
+    value={phoneNumber}
+    onChange={(e) => setPhoneNumber(e.target.value)}
+    placeholder="Phone number"
     name="s" 
     />
 </div>
@@ -39,46 +155,17 @@ export default function CreateCustomerComponent() {
     type="text"
     class="form-control"
     id="inputAddress"
+    value={address}
+    onChange={(e) => setAddress(e.target.value)}
     placeholder="SomeAddress 69"
     name="s" 
     />
 </div>
 
-<div class = "col-12">
-    <label for = "inputAddress2" class="form-label">Address 2</label>
-    <input
-    type="text"
-    class="form-control"
-    id="inputAddress2"
-    placeholder="Hellhole Appartment-complex"
-    name="s" 
-    />
-</div>
 
-<div class="col-md-6">
-    <label for="inputCity" class="form-label">City</label>
-    <input
-     type="text" 
-     class="form-control" 
-     id="inputCity" />
-  </div>
 
-  <div class="col-md-4">
-    <label for="inputState" class="form-label">Region</label>
-    <select id="inputState" class="form-select">
-      <option selected>Choose...</option>
-      <option>Turku</option>
-      <option>Somewhere else..</option>
-    </select>
-  </div>
 
-  <div class="col-md-2">
-    <label for="inputZip" class="form-label">Zip</label>
-    <input
-     type="text" 
-     class="form-control"
-      id="inputZip" />
-  </div>
+
 
   <div class="col-12">
     <div class="form-check">
@@ -91,7 +178,7 @@ export default function CreateCustomerComponent() {
     </div>
   </div>
 <div class="col-12">
-    <button type="submit" class = "btn btn-primary">Add me</button>
+    <button  onClick={(e) => saveCustomer(e)} type="submit" class = "btn btn-primary">Add me</button>
 
     </div>   
     </form>
@@ -101,3 +188,5 @@ export default function CreateCustomerComponent() {
         </div>
   )
 }
+
+export default CreateCustomerComponent;

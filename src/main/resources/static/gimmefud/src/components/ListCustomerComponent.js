@@ -1,59 +1,68 @@
-import React, { useState, useEffect } from 'react'
-import CustomerService from '../services/CustomerService'
-import {Link} from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import CustomerService from '../services/CustomerService';
 
 const ListCustomerComponent = () => {
 
- const [customer, setCustomer] = useState([])
+  const [customers, setCustomers] = useState([]);
 
- useEffect(() => {
+  const init = () => {
+    CustomerService.getAll()
+      .then(response => {
+        console.log('Printing customer data', response.data);
+        setCustomers(response.data);
+      })
+      .catch(error => {
+        console.log('Something went wrong', error);
+      }) 
+  }
 
-    CustomerService.getAllCustomers().then((response) => {
-        setCustomer(response.data)
-        console.log(response.data);
-    }).catch((error) => {
-        console.log(error);
-    })
+  useEffect(() => {
+    init();
+  }, []);
 
- }, [])
  
+  
 
   return (
     <div className="container">
-        <h2 className="text-center"> List Customers</h2>
+      <h3>List of Customers</h3>
+      <hr/>
+      <div>
+  
         <table className="table table-bordered table-striped">
-            <thead>
-                <th>Customer Id</th>
-                <th>Customer Username</th>
-                <th>Customer Password</th>
-                <th>Customer First Name</th>
-                <th>Customer Last Name</th>
-                <th>Customer Address</th>
-                <th>Customer Phone number</th>
-            </thead>
-            <tbody> 
-                {
-                    customer.map(
-                        customer =>
-                        <tr key = {customer.customerId}>
-                            <td>{customer.customerId}</td>
-                            <td>{customer.username}</td>
-                            <td>{customer.password}</td>
-                            <td>{customer.firstName}</td>
-                            <td>{customer.lastName}</td>
-                            <td>{customer.address}</td>
-                            <td>{customer.phoneNumber}</td>
+          <thead className="thead-dark">
+            <tr>
+              <th>Username</th>
+              <th>Password</th>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Address</th>
+              <th>Phone number</th>
 
-                        </tr>
-                    )
-                
-                }
-                
-                </tbody>
+            </tr>
+          </thead>
+          <tbody>
+          {
+            customers.map(customer => (
+              <tr key={customer.customerId}>
+                <td>{customer.username}</td>
+                <td>{customer.password}</td>
+                <td>{customer.firstName}</td>
+                <td>{customer.lastName}</td>
+                <td>{customer.address}</td>
+                <td>{customer.phoneNumber}</td>
 
+
+
+              </tr>
+            ))
+          }
+          </tbody>
         </table>
+        
+      </div>
     </div>
-  )
+  );
 }
 
 export default ListCustomerComponent
