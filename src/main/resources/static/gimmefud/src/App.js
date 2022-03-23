@@ -1,7 +1,7 @@
 
 import './App.css';
 import ListCustomerComponent from './components/ListCustomerComponent';
-import ListCoursesComponent from 'C:\\Users\\joona\\Työpöytä\\Projetki_kevat2022\\gimme-fud-app\\src\\main\\resources\\static\\gimmefud\\src\\components\\ListCoursesComponents.js';
+import ListCoursesComponent from '/components/ListCoursesComponent';
 
 function App() {
   return (
