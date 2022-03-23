@@ -19,12 +19,8 @@ public class CustomerController {
     CustomerRepository customerRepo;
 
     @GetMapping
-<<<<<<< Updated upstream
     public List<Customer> getAllCustomers(){return customerRepo.findAll()  ;
-=======
-    public List<Customer> getAllCustomers(){
-        return customerRepo.findAll() ;
->>>>>>> Stashed changes
+
     }
 
 
