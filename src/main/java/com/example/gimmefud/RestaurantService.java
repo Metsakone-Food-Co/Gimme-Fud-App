@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import javax.sound.midi.Soundbank;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class RestaurantService {
@@ -14,12 +16,8 @@ public class RestaurantService {
     RestaurantRepository restaurantRepo;
 
     @PostConstruct
-    public void init(){
-        Restaurant r = restaurantRepo.findById(1).orElse(null);
-
-        if(r != null){
-            System.out.println(r.rname);
-        }
+    public List<Restaurant> getRestaurant(){
+        return restaurantRepo.findAll();
     }
 
 }
