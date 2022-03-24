@@ -22,9 +22,9 @@ public class CustomerController {
         return customerRepo.findAll() ;
     }
 
-    @GetMapping("/customers/{customer_id}")
-    public Customer getSingleCustomer(@PathVariable Integer customer_id){
-        return customerRepo.findById(customer_id).get();
+    @GetMapping("/customers/{id}")
+    public Customer getSingleCustomer(@PathVariable Integer customerId){
+        return customerRepo.findById(customerId).get();
     }
 
     @PostMapping("/customers")
