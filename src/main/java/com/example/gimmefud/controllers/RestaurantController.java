@@ -11,16 +11,21 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/v1/restaurants")
+@RequestMapping("/api/v1")
 public class RestaurantController {
 
     @Autowired
     RestaurantRepository restaurantRepo;
 
 
-    @GetMapping
+    @GetMapping("/restaurants")
     public List<Restaurant> getAllRestaurants() {
         return restaurantRepo.findAll();
+    }
+
+    @GetMapping("/restaurants/{restaurant_id}")
+    public Restaurant getSingleRestaurant(@PathVariable Integer restaurant_id){
+        return restaurantRepo.findById(restaurant_id).get();
     }
 
 
