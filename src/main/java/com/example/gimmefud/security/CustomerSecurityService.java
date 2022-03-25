@@ -43,7 +43,6 @@ public class CustomerSecurityService {
         Algorithm alg = Algorithm.HMAC256(jwtSecret);
 
         return JWT.create()
-                .withSubject(c.username)
                 .sign(alg);
     }
 
@@ -58,8 +57,8 @@ public class CustomerSecurityService {
             DecodedJWT jwt = verifier.verify(jwtToken);
 
             customer = new Customer(
-                 jwt.getSubject(),
-                    null
+                 jwt.getSubject()
+
 
 
             );
@@ -82,5 +81,5 @@ public class CustomerSecurityService {
     source.registerCorsConfiguration("/**", configuration);
 
     return source;
-}
+} */
     }

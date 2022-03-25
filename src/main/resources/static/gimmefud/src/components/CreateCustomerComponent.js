@@ -13,7 +13,6 @@ const CreateCustomerComponent = () => {
     const {customerId} = useParams();
 
 
-    const {id} = useParams();
 
     const saveCustomer = (e) => {
         e.preventDefault();

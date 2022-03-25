@@ -8,12 +8,12 @@ import javax.persistence.*;
 @Table(name = "customer")
 public class Customer {
 
-
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
     public Integer customerId;
 
-    @Id
+
     @Column(name = "username")
     public String username;
     @JsonIgnore // Blokkaa ettei selain näytä salasanaa
