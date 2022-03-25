@@ -149,10 +149,6 @@ const CreateCustomerComponent = () => {
 </div>
 
 
-
-
-
-
   <div class="col-12">
     <div class="form-check">
       <input class="form-check-input"
