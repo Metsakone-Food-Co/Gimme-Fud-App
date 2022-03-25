@@ -27,7 +27,7 @@ public class CustomerSecurityService {
 
     @Autowired
     CustomerPwEncoder encoder;
-
+/*
     public String checkAuthentication (String username, String password ){
 
        Customer c = customerService.findByUsername(username);
