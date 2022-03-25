@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.util.List;
 
+
 @Service
 public class CustomerService {
     @Autowired
@@ -17,21 +18,20 @@ public class CustomerService {
 
     @PostConstruct
     public void init(){
-        List<Customer> customers = customerRepo.findAll();
-
-        for(Customer c : customers){
-            System.out.println(c.firstName);
-        }
-        List<Customer> cust = customerRepo.findByUsername("Seppo");
-
-        for (Customer c : cust){
-            System.out.println(c.username);
-        }
-
-    }
-        public List<Customer> getCustomer(){
-            return customerRepo.findAll();
 
 
     }
+
+   public Customer findByUsername(String username){
+        return customerRepo.findByUsername(username);
+    }
+
+
+
+    public List<Customer> getCustomer(){
+        return customerRepo.findAll();
+
+
+    }
+
 }
