@@ -1,15 +1,13 @@
 package com.example.gimmefud.data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="restaurant")
 public class Restaurant {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="restaurant_id")
     public Integer restaurant_id;
 

@@ -4,13 +4,13 @@ import { useEffect } from "react/cjs/react.development";
 import CustomerService from "../services/CustomerService";
 
 const CreateCustomerComponent = () => {
-    const[customerId, setCustomerId] = useState('');
     const[username, setUserName] = useState('');
     const[password, setPassword] = useState('');
     const[firstName, setFirstName] = useState('');
     const[lastName, setLastName] = useState('');
     const[address, setAddress] = useState('');
     const[phoneNumber, setPhoneNumber] = useState('');
+    const {customerId} = useParams();
 
 
     const {id} = useParams();
@@ -18,9 +18,9 @@ const CreateCustomerComponent = () => {
     const saveCustomer = (e) => {
         e.preventDefault();
         
-        const customer = {customerId, username, password, firstName, lastName,address, phoneNumber };
-        if (id) {
-            //update
+        const customer = { username, password, firstName, lastName,address, phoneNumber };
+        if (customerId) {
+           
             CustomerService.update(e)
                 .then(response => {
                     console.log('Customer data updated successfully', response.data);
@@ -30,14 +30,14 @@ const CreateCustomerComponent = () => {
                     console.log('Something went wrong', error);
                 }) 
         } else {
-            //create
+            
             CustomerService.create(customer)
             .then(response => {
                 console.log("Customer added successfully", response.data);
               
             })
             .catch(error => {
-                console.log('something went wroing', error);
+                console.log('something went wrong', error);
             })
         }
     }
@@ -45,7 +45,6 @@ const CreateCustomerComponent = () => {
         if (customerId) {
             CustomerService.get(customerId)
                 .then(customer => {
-                    setCustomerId(customer.data.customerId);
                     setUserName(customer.data.username);
                     setPassword(customer.data.password);
                     setFirstName(customer.data.firstName);
@@ -71,18 +70,6 @@ const CreateCustomerComponent = () => {
     <div className="createCustomer">
     <form  class = "row g-3">
         
-<div class = "col-md-6">
-    <label for = "inputUserId" class="form-label">UserId</label>
-    <input
-    type="text"
-    class="form-control"
-    id="userid"
-    value={customerId}
-    onChange={(e) => setCustomerId(e.target.value)}
-    placeholder="Userid"
-    name="s" 
-    />
-</div>
 
 
 <div class = "col-md-6">

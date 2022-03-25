@@ -1,21 +1,21 @@
 import { useState } from 'react'
-import { Link, useHistory } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import RestaurantService from '../services/RestaurantService'
 
 const CreateRestaurant = () => {
-    const[restaurant_id, setRestaurant_id] = useState('');
     const[owner_id, setOwner_id] = useState('');
     const[rname, setRname] = useState('');
     const[raddress, setRaddress] = useState('');
     const[service_hours, setServiceHours] = useState('');
     const[rtype, setRtype] = useState('');
     const[price_range, setPriceRange] = useState('');
-    //const history = useHistory();
+
+    const {restaurant_id} = useParams();
 
     const saveRestaurant = (r) => {
         r.preventDefault();
         
-        const restaurant = {restaurant_id, owner_id, rname, raddress, service_hours, rtype, price_range};
+        const restaurant = {owner_id, rname, raddress, service_hours, rtype, price_range};
         RestaurantService.create(restaurant)
         .then(response => {
             console.log("restaurant added successfully", response.data);
@@ -30,17 +30,6 @@ const CreateRestaurant = () => {
             <h3>Create Restaurant</h3>
             <hr/>
             <form>
-                <div className="form-group">
-                    <input 
-                        type="text" 
-                        className="form-control col-4"
-                        id="rID"
-                        value={restaurant_id}
-                        onChange={(r) => setRestaurant_id(r.target.value)}
-                        placeholder="Enter restaurant ID"
-                    />
-
-                </div>
                 <div className="form-group">
                     <input 
                         type="text" 
