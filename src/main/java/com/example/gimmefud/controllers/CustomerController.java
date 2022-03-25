@@ -1,5 +1,6 @@
 package com.example.gimmefud.controllers;
 
+import com.example.gimmefud.CustomerService;
 import com.example.gimmefud.data.Customer;
 import com.example.gimmefud.data.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,12 @@ public class CustomerController {
     @Autowired
     CustomerRepository customerRepo;
 
+    @Autowired
+    CustomerService customerService;
+
     @GetMapping("/customers")
-    public List<Customer> getAllCustomers(){
-        return customerRepo.findAll() ;
+    public List<Customer> getCustomer(){
+        return customerService.getCustomer() ;
     }
 
     @GetMapping("/customers/{customer_id}")

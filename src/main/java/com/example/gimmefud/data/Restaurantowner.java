@@ -1,5 +1,7 @@
 package com.example.gimmefud.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,7 +15,7 @@ public class Restaurantowner {
 
     @Column(name="username")
     public String username;
-
+    @JsonIgnore // Blokkaa ettei selain näytä salasanaa
     @Column(name="password")
     public String password;
 
