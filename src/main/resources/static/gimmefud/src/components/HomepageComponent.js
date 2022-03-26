@@ -18,6 +18,7 @@ export default function Homepage() {
           </div>
         <Link to="/CreateCustomerComponent"><button type="button" class="btn btn-primary btn-lg ">Create customer</button></Link>
         <Link to="/CreateOwnerComponent"> <button type="button" class="btn btn-primary btn-lg ">Create owner</button></Link>
+        <Link to="/CreateCoursesComponent"> <button type="button" class="btn btn-primary btn-lg ">Create course</button></Link>
    </form>
    </div>
 

@@ -32,8 +32,8 @@ const ListCoursesComponent = () => {
         <table className="table table-bordered table-striped">
           <thead className="thead-dark">
             <tr>
-              <th>Courses ID</th>
-              <th>Restaurant ID</th>
+              <th>Course name</th>
+              <th>Restaurant name</th>
               <th>Meal name</th>
               <th>Meal type</th>
               <th>Meal price</th>
@@ -44,9 +44,9 @@ const ListCoursesComponent = () => {
           {
             courses.map(courses => (
 
-              <tr key={courses.coursesId}>
-                <td>{courses.coursesId}</td>
-                <td>{courses.restaurantid}</td>
+              <tr key={courses.courseName}>
+                <td>{courses.courseName}</td>
+                <td>{courses.rname}</td>
                 <td>{courses.mealname}</td>
                 <td>{courses.mealtype}</td>
                 <td>{courses.mealprice}</td>

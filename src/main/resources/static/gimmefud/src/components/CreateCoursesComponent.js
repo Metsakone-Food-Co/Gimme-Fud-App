@@ -4,20 +4,17 @@ import { useEffect } from "react/cjs/react.development";
 import CoursesService from "../services/CoursesService";
 
 const CreateCoursesComponent = () => {
-    const[coursesId, setCoursesId] = useState('');
-    const[restaurantid, setRestaurantId] = useState('');
+    const[coursename, setCourseName] = useState('');
+    const[rname, setRname] = useState('');
     const[mealname, setMealName] = useState('');
     const[mealtype, setMealType] = useState('');
     const[mealprice, setMealPrice] = useState('');
     
 
-
-    const {id} = useParams();
-
     const saveCourse = (e) => {
         e.preventDefault();
         
-        const course = {coursesId, restaurantid, mealname, mealtype, mealprice};
+        const course = {coursename, rname, mealname, mealtype, mealprice};
         CoursesService.create(course)
             .then(response => {
                 console.log("Course added successfully", response.data);
@@ -35,28 +32,28 @@ const CreateCoursesComponent = () => {
     <form  class = "row g-3">
         
 <div class = "col-md-6">
-    <label for = "inputcourseid" class="form-label">CoursesId</label>
+    <label for = "inputcoursename" class="form-label">Courses name</label>
     <input
     type="text"
     class="form-control"
-    id="courseId"
-    value={coursesId}
-    onChange={(e) => setCoursesId(e.target.value)}
-    placeholder="CoursesId"
+    id="coursename"
+    value={coursename}
+    onChange={(e) => setCourseName(e.target.value)}
+    placeholder="CourseName"
     name="s" 
     />
 </div>
 
 
 <div class = "col-md-6">
-    <label for = "inputrestaurantid" class="form-label">Restaurant ID</label>
+    <label for = "inputrestaurantname" class="form-label">Restaurant name</label>
     <input
     type="text"
     class="form-control"
-    id="restaurantid"
-    value={restaurantid}
-    onChange={(e) => setRestaurantId(e.target.value)}
-    placeholder="RestaurantId"
+    id="rname"
+    value={rname}
+    onChange={(e) => setRname(e.target.value)}
+    placeholder="rname"
     name="s" 
     />
 </div>
