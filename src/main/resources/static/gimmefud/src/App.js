@@ -1,5 +1,7 @@
 
 import './App.css';
+import ListCoursesComponent from './components/ListCoursesComponent'
+import CreateCoursesComponent from './components/CreateCoursesComponent'
 import HomepageComponent from './components/HomepageComponent'
 import ListCustomerComponent from './components/ListCustomerComponent'
 import ListOwnerComponent from './components/ListOwnerComponent'
@@ -27,6 +29,8 @@ function App() {
         <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
         <Link to="/ListCustomerComponent"><div>Customer list</div></Link>
         <Link to="/ListOwnerComponent"><div>Restaurant owners</div></Link>
+        <Link to="/ListCoursesComponent"><div>Courses list</div></Link>
+        <Link to="/CreateCoursesComponent"><div>Create course</div></Link>
       </div>
       <Routes>
         <Route path="/" element={ <HomepageComponent/>}/>
@@ -36,6 +40,8 @@ function App() {
         <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
         <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
         <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent />}/>
+        <Route path="CreateCoursesComponent" element={<CreateCoursesComponent />}/>
+        <Route path="ListCoursesComponent" element={<ListCoursesComponent/>}/>
 
       </Routes>
     </div>
