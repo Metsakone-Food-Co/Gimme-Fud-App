@@ -1,5 +1,7 @@
 
 import './App.css';
+import ListCoursesComponent from './components/ListCoursesComponent'
+import CreateCoursesComponent from './components/CreateCoursesComponent'
 import HomepageComponent from './components/HomepageComponent'
 import ListCustomerComponent from './components/ListCustomerComponent'
 import ListOwnerComponent from './components/ListOwnerComponent'
@@ -37,6 +39,8 @@ function App() {
         <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
         <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
         <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent />}/>
+        <Route path="CreateCoursesComponent" element={<CreateCoursesComponent />}/>
+        <Route path="ListCoursesComponent" element={<ListCoursesComponent/>}/>
 
       </Routes>
     </div>
