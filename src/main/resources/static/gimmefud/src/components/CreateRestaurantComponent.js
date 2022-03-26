@@ -99,7 +99,7 @@ const CreateRestaurant = () => {
                     />
                 </div>
                 <div >
-                    <button onClick={(r) => saveRestaurant(r)} className="btn btn-primary">Save</button>
+                   <Link to="/"><button onClick={(r) => saveRestaurant(r)} className="btn btn-primary">Save</button></Link>
                 </div>
             </form>
           

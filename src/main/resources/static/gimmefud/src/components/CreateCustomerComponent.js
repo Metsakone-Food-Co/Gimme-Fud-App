@@ -160,7 +160,7 @@ const CreateCustomerComponent = () => {
     </div>
   </div>
 <div class="col-12">
-    <button  onClick={(e) => saveCustomer(e)} type="submit" class = "btn btn-primary">Add me</button>
+<Link to="/HomePageComponent"><button  onClick={(e) => saveCustomer(e)} type="submit" class = "btn btn-primary">Add me</button></Link>
 
     </div>   
     </form>

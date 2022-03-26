@@ -16,7 +16,7 @@ public class Customer {
 
     @Column(name = "username")
     public String username;
-    @JsonIgnore // Blokkaa ettei selain näytä salasanaa
+
     @Column(name = "password")
     public String password;
 

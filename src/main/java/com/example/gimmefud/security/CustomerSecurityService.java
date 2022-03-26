@@ -27,7 +27,7 @@ public class CustomerSecurityService {
 
     @Autowired
     CustomerPwEncoder encoder;
-/*
+
     public String checkAuthentication (String username, String password ){
 
        Customer c = customerService.findByUsername(username);
@@ -57,13 +57,19 @@ public class CustomerSecurityService {
             DecodedJWT jwt = verifier.verify(jwtToken);
 
             customer = new Customer(
-                 jwt.getSubject()
-
-
+                    customer.customerId,
+                 jwt.getSubject(),
+                    customer.password,
+                    customer.firstName,
+                    customer.lastName,
+                    customer.address,
+                    customer.phoneNumber
 
             );
 
         }catch(JWTCreationException e){}
+
+        return customer;
     }
 
 
@@ -81,5 +87,5 @@ public class CustomerSecurityService {
     source.registerCorsConfiguration("/**", configuration);
 
     return source;
-} */
+}
     }
