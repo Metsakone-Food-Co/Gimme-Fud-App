@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -21,20 +22,25 @@ public class CustomerService {
 
 
     @PostConstruct
-    public void init(){
+    public void init() {
 /*
-        customerRepo.save(new Customer("Niibi", encoder.encode("Niibi"), "Niko", "Naumanen", "Ilmarikuja 1","0500666666" ));
+        customerRepo.save(new Customer("Sepi", encoder.encode("Sepi69"), "Niko", "Naumanen", "Ilmarikuja 1","0500666666" ));
 */
+  Customer c = customerRepo.findById("Niibi").orElse(null);
+        System.out.println(c.address);
 
     }
 
+    public Customer getCustomer(String username) {
+        return customerRepo.findById(username).orElse(null);
 
 
+    }
 
-    public List<Customer> getCustomer(){
+    public List<Customer> getCustomers() {
         return customerRepo.findAll();
 
 
     }
-
 }
+

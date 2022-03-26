@@ -27,10 +27,10 @@ public class CustomerSecurityService {
 
     @Autowired
     CustomerPwEncoder encoder;
-/*
+
     public String checkAuthentication (String username, String password ){
 
-       Customer c = customerService.findByUsername(username);
+       Customer c = customerService.getCustomer(username);
        if( c == null){
            return null;
        }
@@ -43,6 +43,7 @@ public class CustomerSecurityService {
         Algorithm alg = Algorithm.HMAC256(jwtSecret);
 
         return JWT.create()
+                .withClaim("userId",c.username)
                 .sign(alg);
     }
 
@@ -56,15 +57,8 @@ public class CustomerSecurityService {
         try {
             DecodedJWT jwt = verifier.verify(jwtToken);
 
-            customer = new Customer(
-                 jwt.getSubject(),
-                    customer.password,
-                    customer.firstName,
-                    customer.lastName,
-                    customer.address,
-                    customer.phoneNumber
-
-            );
+            customer = new Customer();
+            customer.username = jwt.getClaim("userId").asString();
 
         }catch(JWTCreationException e){}
 
@@ -88,5 +82,5 @@ public class CustomerSecurityService {
     return source;
 }
 
- */
+
     }

@@ -27,20 +27,20 @@ public class CustomerController {
     CustomerSecurityService customerSecurity;
 
     @GetMapping("/customers")
-    public List<Customer> getCustomer(){
-        return customerService.getCustomer() ;
+    public List<Customer> getCustomers(){
+        return customerService.getCustomers() ;
     }
-/*
-    @GetMapping("/customers/{customer_id}")
-    public Customer getSingleCustomer(@PathVariable Integer customer_id){
-        return customerRepo.findById().get();
+
+    @GetMapping("/customer")
+    public Customer getCustomer(@PathVariable String username){
+        return customerRepo.findById(username).get();
     }
-*/
+
     @PostMapping("/customers")
     public Customer saveCustomerDetails(@RequestBody Customer customer) {
         return  customerRepo.save(customer);
     }
-/*
+
     @PostMapping("/login")
     public ResponseEntity<Map<String,String>> login(@RequestBody Map<String,String> credentials){
         String token = customerSecurity.checkAuthentication(
@@ -53,7 +53,7 @@ public class CustomerController {
         return new ResponseEntity<>( Map.of("token", token), HttpStatus.OK);
     }
 
- */
+
 
     @PutMapping("/customers")
     public Customer updateCustomerDetails(@RequestBody Customer customer) {
