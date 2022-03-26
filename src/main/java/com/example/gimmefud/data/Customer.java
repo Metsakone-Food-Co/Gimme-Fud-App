@@ -6,11 +6,11 @@ import javax.persistence.*;
 @Table(name = "customer")
 public class Customer {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id")
-    public Integer customerId;
 
+
+
+
+    @Id
     @Column(name = "username")
     public String username;
 
@@ -26,11 +26,10 @@ public class Customer {
     @Column(name = "address")
     public String address;
 
-    @Column(name = "phone_number")
+    @Column(name = "phone")
     public String phoneNumber;
 
-    public Customer(Integer customerId, String username, String password, String firstName, String lastName, String address, String phoneNumber) {
-        this.customerId = customerId;
+    public Customer(String username, String password, String firstName, String lastName, String address, String phoneNumber) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -38,5 +37,7 @@ public class Customer {
         this.address = address;
         this.phoneNumber = phoneNumber;
     }
+
+
     public Customer(){}
 }

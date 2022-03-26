@@ -1,65 +1,36 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import CustomerService from "../services/CustomerService";
 
+
+
 const CreateCustomerComponent = () => {
-    const[username, setUserName] = useState('');
+    const [username, setUserName] = useState('');
     const[password, setPassword] = useState('');
     const[firstName, setFirstName] = useState('');
     const[lastName, setLastName] = useState('');
     const[address, setAddress] = useState('');
     const[phoneNumber, setPhoneNumber] = useState('');
-    const {customerId} = useParams();
+
+   
 
 
-    const {id} = useParams();
+
 
     const saveCustomer = (e) => {
         e.preventDefault();
         
         const customer = { username, password, firstName, lastName,address, phoneNumber };
-        if (customerId) {
-           
-            CustomerService.update(e)
-                .then(response => {
-                    console.log('Customer data updated successfully', response.data);
-                    
-                })
-                .catch(error => {
-                    console.log('Something went wrong', error);
-                }) 
-        } else {
-            
-            CustomerService.create(customer)
-            .then(response => {
-                console.log("Customer added successfully", response.data);
-              
-            })
-            .catch(error => {
-                console.log('something went wrong', error);
-            })
-        }
+        CustomerService.create(customer)
+        .then(response => {
+            console.log("customer added successfully", response.data);
+
+        })
+        .catch(error => {
+            console.log('something went wrong', error);
+        })
     }
-    useEffect(() => {
-        if (customerId) {
-            CustomerService.get(customerId)
-                .then(customer => {
-                    setUserName(customer.data.username);
-                    setPassword(customer.data.password);
-                    setFirstName(customer.data.firstName);
-                    setLastName(customer.data.lastName);
-                    setAddress(customer.data.address);
-                    setPhoneNumber(customer.data.phoneNumber);
-
-
-                   
-                })
-                .catch(error => {
-                    console.log('Something went wrong', error);
-                })
-        }
-    }, [])
 
 
 
@@ -150,10 +121,6 @@ const CreateCustomerComponent = () => {
 </div>
 
 
-
-
-
-
   <div class="col-12">
     <div class="form-check">
       <input class="form-check-input"
@@ -165,7 +132,7 @@ const CreateCustomerComponent = () => {
     </div>
   </div>
 <div class="col-12">
-    <button  onClick={(e) => saveCustomer(e)} type="submit" class = "btn btn-primary">Add me</button>
+<button  onClick={(e) => saveCustomer(e)} type="submit" class = "btn btn-primary">Add me</button>
 
     </div>   
     </form>

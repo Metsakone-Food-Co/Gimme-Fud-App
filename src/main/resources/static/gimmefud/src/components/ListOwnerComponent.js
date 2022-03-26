@@ -30,7 +30,6 @@ const ListOwnerComponent = () => {
         <table className="table table-bordered table-striped">
           <thead className="thead-dark">
             <tr>
-              <th>Owner ID</th>
               <th>Username</th>
               <th>Password</th>
               <th>First name</th>
@@ -42,9 +41,8 @@ const ListOwnerComponent = () => {
           <tbody>
           {
             owners.map(owner => (
-              <tr key={owner.owner_id}>
-                <td>{owner.owner_id}</td>
-                <td>{owner.username}</td>
+              <tr key={owner.username}>
+                <td>{owner.usernamer}</td>
                 <td>{owner.password}</td>
                 <td>{owner.fname}</td>
                 <td>{owner.lname}</td>

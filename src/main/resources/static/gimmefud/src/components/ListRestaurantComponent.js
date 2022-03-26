@@ -30,8 +30,7 @@ const ListRestaurantComponent = () => {
         <table className="table table-bordered table-striped">
           <thead className="thead-dark">
             <tr>
-              <th>Restaurant ID</th>
-              <th>Owner ID</th>
+              <th>Owner name</th>
               <th>Restaurant name</th>
               <th>Restaurant address</th>
               <th>Service hours</th>
@@ -42,9 +41,8 @@ const ListRestaurantComponent = () => {
           <tbody>
           {
             restaurants.map(restaurant => (
-              <tr key={restaurant.restaurant_id}>
-                <td>{restaurant.restaurant_id}</td>
-                <td>{restaurant.owner_id}</td>
+              <tr key={restaurant.rname}>
+                <td>{restaurant.usernamer}</td>
                 <td>{restaurant.rname}</td>
                 <td>{restaurant.raddress}</td>
                 <td>{restaurant.service_hours}</td>

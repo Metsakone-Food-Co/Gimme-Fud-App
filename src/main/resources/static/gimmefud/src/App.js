@@ -24,13 +24,12 @@ function App() {
       <div className="navbar">
         <Link to="/"><div>Home</div></Link>
         <Link to="/ListRestaurantComponent"><div>Restaurant list</div></Link>
+        <Link to="/ListCustomerComponent"><div>Customer list</div></Link>
+        <Link to="/ListOwnerComponent"><div>Restaurant owners</div></Link>
         <Link to="/CreateCustomerComponent"><div>Create customer</div></Link>
         <Link to="/CreateOwnerComponent"><div>Create owner</div></Link>
         <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
-        <Link to="/ListCustomerComponent"><div>Customer list</div></Link>
-        <Link to="/ListOwnerComponent"><div>Restaurant owners</div></Link>
-        <Link to="/ListCoursesComponent"><div>Courses list</div></Link>
-        <Link to="/CreateCoursesComponent"><div>Create course</div></Link>
+
       </div>
       <Routes>
         <Route path="/" element={ <HomepageComponent/>}/>
