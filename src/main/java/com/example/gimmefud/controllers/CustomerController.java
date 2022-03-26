@@ -41,17 +41,7 @@ public class CustomerController {
         return  customerRepo.save(customer);
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<Map<String,String>> login(@RequestBody Map<String,String> credentials){
-        String token = customerSecurity.checkAuthentication(
-                credentials.get("username"),
-                credentials.get("password"));
-        if(token == null){
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-        }
 
-        return new ResponseEntity<>( Map.of("token", token), HttpStatus.OK);
-    }
 
 
 
@@ -66,5 +56,26 @@ public class CustomerController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<Map<String,String>> login(@RequestBody Map<String,String> credentials){
+        String token = customerSecurity.checkAuthentication(
+                credentials.get("username"),
+                credentials.get("password"));
+        if(token == null){
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+
+        return new ResponseEntity<>( Map.of("token", token), HttpStatus.OK);
+    }
+
+    @GetMapping("/private")
+    public ResponseEntity<Customer> getPrivate(@RequestHeader("Authorization") String bearer){
+        Customer c = customerSecurity.validateBearerToken(bearer);
+
+        if (c==null){
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        }
+        return new ResponseEntity<>(c,HttpStatus.OK);
+    }
 
 }
