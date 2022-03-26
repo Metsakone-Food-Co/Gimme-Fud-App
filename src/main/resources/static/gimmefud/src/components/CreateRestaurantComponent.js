@@ -3,19 +3,19 @@ import { Link, useParams } from "react-router-dom";
 import RestaurantService from '../services/RestaurantService'
 
 const CreateRestaurant = () => {
-    const[owner_id, setOwner_id] = useState('');
+    const[usernamer, setUsernamer] = useState('');
     const[rname, setRname] = useState('');
     const[raddress, setRaddress] = useState('');
     const[service_hours, setServiceHours] = useState('');
     const[rtype, setRtype] = useState('');
     const[price_range, setPriceRange] = useState('');
 
-    const {restaurant_id} = useParams();
+
 
     const saveRestaurant = (r) => {
         r.preventDefault();
         
-        const restaurant = {owner_id, rname, raddress, service_hours, rtype, price_range};
+        const restaurant = {usernamer, rname, raddress, service_hours, rtype, price_range};
         RestaurantService.create(restaurant)
         .then(response => {
             console.log("restaurant added successfully", response.data);
@@ -37,8 +37,8 @@ const CreateRestaurant = () => {
                         type="text" 
                         className="form-control"
                         id="oID"
-                        value={owner_id}
-                        onChange={(r) => setOwner_id(r.target.value)}
+                        value={usernamer}
+                        onChange={(r) => setUsernamer(r.target.value)}
                         placeholder="Enter owner ID"
                     />
 
@@ -99,7 +99,7 @@ const CreateRestaurant = () => {
                     />
                 </div>
                 <div >
-                   <Link to="/"><button onClick={(r) => saveRestaurant(r)} className="btn btn-primary">Save</button></Link>
+                   <button onClick={(r) => saveRestaurant(r)} className="btn btn-primary">Save</button>
                 </div>
             </form>
           

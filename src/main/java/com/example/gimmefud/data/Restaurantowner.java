@@ -8,13 +8,10 @@ import javax.persistence.*;
 @Table(name="restaurantowner")
 public class Restaurantowner {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="owner_id")
-    public Integer owner_id;
 
-    @Column(name="username")
-    public String username;
+    @Id
+    @Column(name="usernamer")
+    public String usernamer;
 
     @Column(name="password")
     public String password;
@@ -28,17 +25,17 @@ public class Restaurantowner {
     @Column(name="address")
     public String address;
 
-    @Column(name="phone_number")
+    @Column(name="phone")
     public String phone_number;
 
-    public Restaurantowner(Integer owner_id, String username, String password, String fname, String lname, String address, String phone_number) {
-        this.owner_id = owner_id;
-        this.username = username;
+    public Restaurantowner(String usernamer, String password, String fname, String lname, String address, String phone_number) {
+        this.usernamer = usernamer;
         this.password = password;
         this.fname = fname;
         this.lname = lname;
         this.address = address;
         this.phone_number = phone_number;
     }
+
     public Restaurantowner(){}
 }

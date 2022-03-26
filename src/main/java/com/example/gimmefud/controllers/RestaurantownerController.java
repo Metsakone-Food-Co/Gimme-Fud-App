@@ -24,10 +24,6 @@ public class RestaurantownerController {
         return ownerRepo.findAll();
     }
 
-    @GetMapping("/restaurantowners/{owner_id}")
-    public Restaurantowner getSingleOwner(@PathVariable Integer owner_id){
-        return ownerRepo.findById(owner_id).get();
-    }
 
     @PostMapping("/restaurantowners")
     public Restaurantowner createOwner(@RequestBody Restaurantowner newOwner){
@@ -40,8 +36,8 @@ public class RestaurantownerController {
     }
 
     @DeleteMapping("/restaurantowners/{owner_id}")
-    public ResponseEntity<HttpStatus> deleteOwner(@PathVariable Integer owner_id){
-        ownerRepo.deleteById(owner_id);
+    public ResponseEntity<HttpStatus> deleteOwner(@PathVariable String rname){
+        ownerRepo.deleteById(rname);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

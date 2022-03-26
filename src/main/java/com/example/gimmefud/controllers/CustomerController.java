@@ -30,17 +30,17 @@ public class CustomerController {
     public List<Customer> getCustomer(){
         return customerService.getCustomer() ;
     }
-
+/*
     @GetMapping("/customers/{customer_id}")
     public Customer getSingleCustomer(@PathVariable Integer customer_id){
-        return customerRepo.findById(customer_id).get();
+        return customerRepo.findById().get();
     }
-
+*/
     @PostMapping("/customers")
     public Customer saveCustomerDetails(@RequestBody Customer customer) {
         return  customerRepo.save(customer);
     }
-
+/*
     @PostMapping("/login")
     public ResponseEntity<Map<String,String>> login(@RequestBody Map<String,String> credentials){
         String token = customerSecurity.checkAuthentication(
@@ -53,14 +53,16 @@ public class CustomerController {
         return new ResponseEntity<>( Map.of("token", token), HttpStatus.OK);
     }
 
+ */
+
     @PutMapping("/customers")
     public Customer updateCustomerDetails(@RequestBody Customer customer) {
         return  customerRepo.save(customer);
     }
 
     @DeleteMapping("/customer/{id}")
-    public ResponseEntity<HttpStatus> deleteCustomerById(@PathVariable Integer customerId){
-        customerRepo.deleteById(customerId);
+    public ResponseEntity<HttpStatus> deleteCustomerById(@PathVariable String username){
+        customerRepo.deleteById(username);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

@@ -41,8 +41,8 @@ const ListOwnerComponent = () => {
           <tbody>
           {
             owners.map(owner => (
-              <tr key={owner.owner_id}>
-                <td>{owner.username}</td>
+              <tr key={owner.username}>
+                <td>{owner.usernamer}</td>
                 <td>{owner.password}</td>
                 <td>{owner.fname}</td>
                 <td>{owner.lname}</td>

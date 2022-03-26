@@ -27,7 +27,7 @@ public class CustomerSecurityService {
 
     @Autowired
     CustomerPwEncoder encoder;
-
+/*
     public String checkAuthentication (String username, String password ){
 
        Customer c = customerService.findByUsername(username);
@@ -57,7 +57,6 @@ public class CustomerSecurityService {
             DecodedJWT jwt = verifier.verify(jwtToken);
 
             customer = new Customer(
-                    customer.customerId,
                  jwt.getSubject(),
                     customer.password,
                     customer.firstName,
@@ -88,4 +87,6 @@ public class CustomerSecurityService {
 
     return source;
 }
+
+ */
     }
