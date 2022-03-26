@@ -11,10 +11,10 @@ public class Courses {
 
     @Id
     @Column(name="course_name")
-    public String courseName;
+    public String coursename;
 
-     @Column(name="rname")
-     public String rname;
+    @Column(name="rname")
+    public String rname;
 
     @Column(name = "meal_name")
     public String mealname;
@@ -25,8 +25,8 @@ public class Courses {
     @Column(name = "meal_price")
     public String mealprice;
 
-    public Courses(String courseName, String rname, String mealname, String mealtype, String mealprice) {
-        this.courseName = courseName;
+    public Courses(String coursename, String rname, String mealname, String mealtype, String mealprice) {
+        this.coursename = coursename;
         this.rname = rname;
         this.mealname = mealname;
         this.mealtype = mealtype;
