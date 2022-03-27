@@ -1,12 +1,13 @@
 import { useState } from "react";
 import LoginService from "../services/LoginService";
-import {BrowserRouter,Routes, Route, Link } from 'react-router-dom'
+import {useNavigate, Link } from 'react-router-dom'
 
 const LoginComponent = () => {
 
   const [username, setUserName] = useState('');
   const[password, setPassword] = useState('');
 
+  const navigate = useNavigate();
 
   const loginCustomer = (e) => {
     e.preventDefault();
@@ -15,7 +16,7 @@ const LoginComponent = () => {
     LoginService.create(customer)
     .then(response => {
         console.log("customer logged successfully", response.data);
-
+        navigate("/CreationSuccesfull");
     })
     .catch(error => {
         console.log('something went wrong', error);

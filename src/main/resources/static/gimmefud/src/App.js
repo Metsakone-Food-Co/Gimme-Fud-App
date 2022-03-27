@@ -14,42 +14,60 @@ import CreationSuccesfull from './Messages/CreationSuccesfull';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {useState} from 'react';
 
 
 
 
 function App() {
 
+  const [isuserLoggedIn, setIsUserLoggedIn] = useState(false);
+
+  let authRoutes = <>
+   <Route path="LoginComponent" element={<LoginComponent/>}/>
+   <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
+   <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
+  </>
+
+  if (isuserLoggedIn == true) {
+    authRoutes = <>
+      <Route path="ListCoursesComponent" element={<ListCoursesComponent/>}/>
+      <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
+      <Route path="ListCustomerComponent" element={<ListCustomerComponent/>}/>
+      <Route path="ListOwnerComponent" element={<ListOwnerComponent/>}/>
+      <Route path="ListRestaurantComponent" element={<ListRestaurantComponent/>}/>
+      <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
+      <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
+      <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent/>}/>
+      <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
+    </>
+  }
+
+  let authLinks = <>
+   <Link to="/CreateCustomerComponent"><div>Create customer</div></Link>
+        <Link to="/CreateOwnerComponent"><div>Create owner</div></Link>
+        <Link to="/LoginComponent"><div>Login</div></Link>
+  
+  </>
+
+  if (isuserLoggedIn == true) {
+    authLinks = <>
+       <Link to="/ListRestaurantComponent"><div>Restaurant list</div></Link>
+        <Link to="/ListCustomerComponent"><div>Customer list</div></Link>
+        <Link to="/ListOwnerComponent"><div>Restaurant owners</div></Link> 
+        <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
+    </>
+  }
   return (
     <BrowserRouter>
     <div >
       <div className="navbar">
         <Link to="/"><div>Home</div></Link>
-        <Link to="/ListRestaurantComponent"><div>Restaurant list</div></Link>
-        <Link to="/ListCustomerComponent"><div>Customer list</div></Link>
-        <Link to="/ListOwnerComponent"><div>Restaurant owners</div></Link>
-        <Link to="/CreateCustomerComponent"><div>Create customer</div></Link>
-        <Link to="/CreateOwnerComponent"><div>Create owner</div></Link>
-        <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
-        <Link to="/LoginComponent"><div>Login</div></Link>
-
-
+        {authLinks}
       </div>
       <Routes>
-        <Route path="/" element={ <HomepageComponent/>}/>
-        <Route path="ListCustomerComponent" element={<ListCustomerComponent/>}/>
-        <Route path="ListRestaurantComponent" element={<ListRestaurantComponent/>}/>
-        <Route path="ListOwnerComponent" element={<ListOwnerComponent/>}/>
-        <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
-        <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
-        <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent />}/>
-        <Route path="CreateCoursesComponent" element={<CreateCoursesComponent />}/>
-        <Route path="ListCoursesComponent" element={<ListCoursesComponent/>}/>
-        <Route path="LoginComponent" element={<LoginComponent/>}/>
-        <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
-
-
-
+        <Route path="/" element={ <HomepageComponent userLoggedIn={isuserLoggedIn}/>}/>
+        {authRoutes}
       </Routes>
     </div>
     </BrowserRouter>
