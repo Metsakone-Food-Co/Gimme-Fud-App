@@ -21,15 +21,16 @@ import {useState} from 'react';
 
 function App() {
 
-  const [isuserLoggedIn, setIsUserLoggedIn] = useState(false);
+
+  const [userJwt, setUserJwt] = useState(null);
 
   let authRoutes = <>
-   <Route path="LoginComponent" element={<LoginComponent/>}/>
+   <Route path="LoginComponent" element={<LoginComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
   </>
 
-  if (isuserLoggedIn == true) {
+  if (userJwt != null) {
     authRoutes = <>
       <Route path="ListCoursesComponent" element={<ListCoursesComponent/>}/>
       <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
@@ -50,7 +51,7 @@ function App() {
   
   </>
 
-  if (isuserLoggedIn == true) {
+  if (userJwt != null) {
     authLinks = <>
        <Link to="/ListRestaurantComponent"><div>Restaurant list</div></Link>
         <Link to="/ListCustomerComponent"><div>Customer list</div></Link>
@@ -66,8 +67,9 @@ function App() {
         {authLinks}
       </div>
       <Routes>
-        <Route path="/" element={ <HomepageComponent userLoggedIn={isuserLoggedIn}/>}/>
+        <Route path="/" element={ <HomepageComponent userLoggedIn={userJwt != null}/>}/>
         {authRoutes}
+        <Route path="*" element={<HomepageComponent userLoggedIn={userJwt != null}/>}/>
       </Routes>
     </div>
     </BrowserRouter>

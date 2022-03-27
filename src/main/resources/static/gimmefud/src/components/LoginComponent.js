@@ -2,7 +2,7 @@ import { useState } from "react";
 import LoginService from "../services/LoginService";
 import {useNavigate, Link } from 'react-router-dom'
 
-const LoginComponent = () => {
+const LoginComponent = (props) => {
 
   const [username, setUserName] = useState('');
   const[password, setPassword] = useState('');
@@ -16,11 +16,15 @@ const LoginComponent = () => {
     LoginService.create(customer)
     .then(response => {
         console.log("customer logged successfully", response.data);
-        navigate("/CreationSuccesfull");
+        const resivedJWT = response.data.token;
+        props.login(resivedJWT);
+        navigate("/", {replace: true});
+
     })
     .catch(error => {
         console.log('something went wrong', error);
     })
+
 }
 
     return (
@@ -55,8 +59,6 @@ const LoginComponent = () => {
     class = "btn btn-primary">Login</button>
 
     </div> 
-          <Link to="/CreateCustomerComponent"><button type="button" class="btn btn-primary btn-lg ">Create customer</button></Link>
-          <Link to="/CreateOwnerComponent"> <button type="button" class="btn btn-primary btn-lg ">Create owner</button></Link>
      </form>
      </div>
   

@@ -19,6 +19,7 @@ export default function Homepage(props) {
             <>
            <Link to="/LoginComponent"><button type="button" class="btn btn-primary btn-lg ">Login</button></Link>
            <Link to="/CreateCustomerComponent"><button type="button" class="btn btn-primary btn-lg ">Create customer</button></Link>
+           <Link to="/CreateOwnerComponent"><button type="button" class="btn btn-primary btn-lg ">Create owner</button></Link>
            </>
    
    }
