@@ -2,6 +2,11 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import RestaurantService from '../services/RestaurantService';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Card from "react-bootstrap/Card";
+import CardGroup from 'react-bootstrap/CardGroup'
+import Row from 'react-bootstrap/Row'
+
 const ListRestaurantComponent = () => {
 
   const [restaurants, setRestaurants] = useState([]);
@@ -22,42 +27,46 @@ const ListRestaurantComponent = () => {
   }, []);
 
 
-  return (
-    <div className="container">
-      <h3>List of Restaurants</h3>
-      <hr/>
-      <div>
-        <table className="table table-bordered table-striped">
-          <thead className="thead-dark">
-            <tr>
-              <th>Owner name</th>
-              <th>Restaurant name</th>
-              <th>Restaurant address</th>
-              <th>Service hours</th>
-              <th>Restaurant type</th>
-              <th>Price range</th>
+  
+    return (
+      <div className="container">
+        <h3>List of Restaurants</h3>
+          
+        <Row xs={1} md={3} className="g-4">
+          {restaurants.map(restaurant =>(
+            <tr key={restaurant.rname}>
+                
+                <Card style={{ width: '18rem' }}>
+                <Card.Body>
+              <Card.Img variant="top" src="https://m.media-amazon.com/images/I/71GBQJBNEKL._SX679_.jpg"/>
+              <Card.Title>{restaurant.rname}</Card.Title>
+              
+              
+              <Card.Text>
+                  
+                  {restaurant.rtype}
+              
+              </Card.Text>
+              <Card.Link href="#">Tilaa</Card.Link>
+              <Card.Link href="#">Arvostele</Card.Link>
+  
+              </Card.Body>
+              </Card>
+              
             </tr>
-          </thead>
-          <tbody>
-          {
-            restaurants.map(restaurant => (
-              <tr key={restaurant.rname}>
-                <td>{restaurant.usernamer}</td>
-                <td>{restaurant.rname}</td>
-                <td>{restaurant.raddress}</td>
-                <td>{restaurant.service_hours}</td>
-                <td>{restaurant.rtype}</td>
-                <td>{restaurant.price_range}</td>
-              </tr>
-            ))
+          ))
           }
-          </tbody>
-        </table>
+          </Row>
+          
+           
+          
+          
+          
+            
         
       </div>
-    </div>
-  );
-}
+    );
+  }
 
 export default ListRestaurantComponent;
 /*import React, { useState, useEffect } from 'react'

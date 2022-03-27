@@ -4,6 +4,8 @@ import CustomerService from '../services/CustomerService';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from "react-bootstrap/Card";
+import CardGroup from 'react-bootstrap/CardGroup'
+import Row from 'react-bootstrap/Row'
 
 const CustomerCardTest = () => {
 
@@ -31,25 +33,36 @@ const CustomerCardTest = () => {
   return (
     <div className="container">
       <h3>List of Customers</h3>
-      
-        <Card style={{ width: '18rem' }}>
-          <Card.Body>
+        
+      <Row xs={1} md={3} className="g-4">
         {customers.map(customer =>(
           <tr key={customer.firstname}>
-            <div class="card" widht="50px">
-            <Card.Img variant="top" src="https://fi.wikipedia.org/wiki/Nakkis%C3%A4mpyl%C3%A4#/media/Tiedosto:Hot_dog_with_mustard.png" />
+              
+              <Card style={{ width: '18rem' }}>
+              <Card.Body>
+            <Card.Img variant="top" src="https://m.media-amazon.com/images/I/71GBQJBNEKL._SX679_.jpg"/>
             <Card.Title>{customer.firstName}</Card.Title>
-              <div class="card-body">
-                <div class="card-title">{customer.lastName}</div>
-              </div>
-            </div>
+            
+            
+            <Card.Text>
+                
+                {customer.lastName}
+            
+            </Card.Text>
+            <Card.Link href="#">Card Link</Card.Link>
+            <Card.Link href="#">Another Link</Card.Link>
+
+            </Card.Body>
+            </Card>
+            
           </tr>
-          
         ))
-        
         }
-        </Card.Body>
-        </Card>
+        </Row>
+        
+         
+        
+        
         
           
       
