@@ -97,10 +97,14 @@ const CreateCoursesComponent = () => {
     />
 </div>
 
+
+
 <div class="col-12">
     <button  onClick={(e) => saveCourse(e)} type="submit" class = "btn btn-primary">Add me</button>
 
     </div>   
+
+    
     </form>
                 
                 

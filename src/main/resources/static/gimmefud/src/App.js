@@ -1,5 +1,6 @@
 
 import './App.css';
+import CustomerCardTest from './components/CustomerCardTest'
 import ListCoursesComponent from './components/ListCoursesComponent'
 import CreateCoursesComponent from './components/CreateCoursesComponent'
 import HomepageComponent from './components/HomepageComponent'
@@ -12,6 +13,8 @@ import CreateRestaurantComponent from './components/CreateRestaurantComponent'
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {card} from "react-bootstrap";
+
 
 
 
@@ -31,6 +34,9 @@ function App() {
         <Link to="/CreateCustomerComponent"><div>Create customer</div></Link>
         <Link to="/CreateOwnerComponent"><div>Create owner</div></Link>
         <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
+       
+        <Link to="/CustomerCardTest"><div>CardTest</div></Link>
+
 
       </div>
       <Routes>
@@ -43,11 +49,14 @@ function App() {
         <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
         <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent />}/>
         <Route path="CreateCoursesComponent" element={<CreateCoursesComponent />}/>
+        <Route path="CustomerCardTest" element={<CustomerCardTest />}/>
         
 
       </Routes>
     </div>
     </BrowserRouter>
+
+    
   );
 }
 

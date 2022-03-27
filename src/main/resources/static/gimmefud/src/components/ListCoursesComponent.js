@@ -44,18 +44,23 @@ const ListCoursesComponent = () => {
           {
             courses.map(courses => (
 
-              <tr key={courses.courseName}>
-                <td>{courses.courseName}</td>
+              <tr key={courses.coursename}>
+                <td>{courses.coursename}</td>
                 <td>{courses.rname}</td>
                 <td>{courses.mealname}</td>
                 <td>{courses.mealtype}</td>
                 <td>{courses.mealprice}</td>
 
+                
+
               </tr>
+              
             ))
           }
           </tbody>
         </table>
+
+        
         
       </div>
     </div>
