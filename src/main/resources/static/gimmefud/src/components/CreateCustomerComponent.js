@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Link, useParams, } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import CustomerService from "../services/CustomerService";
+
 
 
 
@@ -14,7 +15,7 @@ const CreateCustomerComponent = () => {
     const[phoneNumber, setPhoneNumber] = useState('');
 
    
-
+    const navigate = useNavigate();
 
 
 
@@ -25,7 +26,7 @@ const CreateCustomerComponent = () => {
         CustomerService.create(customer)
         .then(response => {
             console.log("customer added successfully", response.data);
-
+            navigate("/CreationSuccesfull");
         })
         .catch(error => {
             console.log('something went wrong', error);

@@ -3,7 +3,7 @@ import { Link, useParams} from "react-router-dom";
 import OwnerService from '../services/OwnerService'
 
 const CreateOwner = () => {
-    const[usernamer, setUsernamer] = useState('');
+    const[username, setUsername] = useState('');
     const[password, setPassword] = useState('');
     const[fname, setFname] = useState('');
     const[lname, setLname] = useState('');
@@ -15,11 +15,11 @@ const CreateOwner = () => {
     const saveOwner = (o) => {
         o.preventDefault();
         
-        const owner = {usernamer, password, fname, lname, address, phone_number};
+        const owner = {username, password, fname, lname, address, phone_number};
         OwnerService.create(owner)
         .then(response => {
             console.log("restaurant owner added successfully", response.data);
-       
+            //history.push("/");
         })
         .catch(error => {
             console.log('something went wrong', error);
@@ -37,8 +37,8 @@ const CreateOwner = () => {
                         type="text" 
                         className="form-control"
                         id="uname"
-                        value={usernamer}
-                        onChange={(o) => setUsernamer(o.target.value)}
+                        value={username}
+                        onChange={(o) => setUsername(o.target.value)}
                         placeholder="Enter username"
                     />
 

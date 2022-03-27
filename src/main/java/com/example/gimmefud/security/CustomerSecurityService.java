@@ -47,12 +47,18 @@ public class CustomerSecurityService {
                 .sign(alg);
     }
 
+    public Customer validateBearerToken(String bearer){
+        if(bearer.startsWith("Bearer")){
+            String token = bearer.substring("Bearer".length()+1 );
+             return this.validateJwt(token);
+        }
+        return null;
+    }
+
     public Customer validateJwt(String jwtToken){
         Algorithm alg = Algorithm.HMAC256(jwtSecret);
         JWTVerifier verifier = JWT.require(alg).build();
         Customer customer = null;
-
-
 
         try {
             DecodedJWT jwt = verifier.verify(jwtToken);
