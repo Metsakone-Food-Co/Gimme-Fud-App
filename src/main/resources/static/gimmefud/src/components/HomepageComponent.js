@@ -6,6 +6,7 @@ export default function Homepage(props) {
   return (
 
     <div className="container">
+
         <h1>Home Page lol</h1>
         <div>User login status: { props.userLoggedIn ? "is logged in" : "is not logged in" } </div>
         <div>
@@ -25,6 +26,7 @@ export default function Homepage(props) {
    }
         
        </div>
+
    </div>
 
   )

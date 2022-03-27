@@ -10,13 +10,11 @@ import javax.persistence.*;
 public class Courses {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="courses_id")
-    public Integer coursesId;
+    @Column(name="course_name")
+    public String coursename;
 
-
-    @Column(name="restaurant_id")
-    public Integer restaurantid;
+    @Column(name="rname")
+    public String rname;
 
     @Column(name = "meal_name")
     public String mealname;
@@ -27,13 +25,12 @@ public class Courses {
     @Column(name = "meal_price")
     public String mealprice;
 
-
-    public Courses(Integer courses_id, Integer restaurant_id, String meal_name, String meal_type, String meal_price) {
-        this.coursesId = courses_id;
-        this.restaurantid = restaurant_id;
-        this.mealname = meal_name;
-        this.mealtype = meal_type;
-        this.mealprice = meal_price;
+    public Courses(String coursename, String rname, String mealname, String mealtype, String mealprice) {
+        this.coursename = coursename;
+        this.rname = rname;
+        this.mealname = mealname;
+        this.mealtype = mealtype;
+        this.mealprice = mealprice;
     }
 
     public Courses(){}
