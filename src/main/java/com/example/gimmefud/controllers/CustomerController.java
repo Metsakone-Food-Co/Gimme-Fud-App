@@ -3,6 +3,7 @@ package com.example.gimmefud.controllers;
 import com.example.gimmefud.CustomerService;
 import com.example.gimmefud.data.Customer;
 import com.example.gimmefud.data.CustomerRepository;
+import com.example.gimmefud.security.CustomerPwEncoder;
 import com.example.gimmefud.security.CustomerSecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,6 +27,9 @@ public class CustomerController {
     @Autowired
     CustomerSecurityService customerSecurity;
 
+    @Autowired
+    CustomerPwEncoder encoder;
+
     @GetMapping("/customers")
     public List<Customer> getCustomers(){
         return customerService.getCustomers() ;
@@ -38,7 +42,7 @@ public class CustomerController {
 
     @PostMapping("/customers")
     public Customer saveCustomerDetails(@RequestBody Customer customer) {
-        return  customerRepo.save(customer);
+        return   customerRepo.save(customer);
     }
 
 
