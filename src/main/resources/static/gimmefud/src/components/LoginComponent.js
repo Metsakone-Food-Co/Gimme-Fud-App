@@ -49,7 +49,9 @@ const LoginComponent = () => {
               <label for = "loginPassword" >Password</label>
             </div>
             <div class="col-12">
-<button  onClick={(e) => loginCustomer(e)} type="submit" class = "btn btn-primary">Login</button>
+
+    <button  onClick={(e) => loginCustomer(e) } type="submit" 
+    class = "btn btn-primary">Login</button>
 
     </div> 
           <Link to="/CreateCustomerComponent"><button type="button" class="btn btn-primary btn-lg ">Create customer</button></Link>
