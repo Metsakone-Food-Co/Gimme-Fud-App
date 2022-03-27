@@ -31,20 +31,27 @@ const ListRestaurantComponent = () => {
     return (
       <div className="container">
         <h3>List of Restaurants</h3>
-          
         <Row xs={1} md={3} className="g-4">
           {restaurants.map(restaurant =>(
             <tr key={restaurant.rname}>
                 
-                <Card style={{ width: '18rem' }}>
-                <Card.Body>
+                <Card style={{ width: '18rem'  }} >
+                <Card.Body style={{border: '50px'}}>
+                <Card.Header>{restaurant.rname}</Card.Header>
               <Card.Img variant="top" src="https://m.media-amazon.com/images/I/71GBQJBNEKL._SX679_.jpg"/>
-              <Card.Title>{restaurant.rname}</Card.Title>
-              
-              
+              <Card.Title>{restaurant.rype}</Card.Title>
               <Card.Text>
-                  
-                  {restaurant.rtype}
+
+              <p>Aukioloajat:</p>
+              
+              {restaurant.service_hours}        
+              
+              </Card.Text>
+              <Card.Text>
+                
+              <p>Hintaluokka:</p>
+              
+              {restaurant.price_range}   
               
               </Card.Text>
               <Card.Link href="#">Tilaa</Card.Link>

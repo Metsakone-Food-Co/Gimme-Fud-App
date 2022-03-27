@@ -1,6 +1,6 @@
 
 import './App.css';
-import CustomerCardTest from './components/CustomerCardTest'
+
 import ListCoursesComponent from './components/ListCoursesComponent'
 import CreateCoursesComponent from './components/CreateCoursesComponent'
 import HomepageComponent from './components/HomepageComponent'
@@ -35,7 +35,7 @@ function App() {
         <Link to="/CreateOwnerComponent"><div>Create owner</div></Link>
         <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
        
-        <Link to="/CustomerCardTest"><div>CardTest</div></Link>
+        
 
 
       </div>
@@ -49,7 +49,7 @@ function App() {
         <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
         <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent />}/>
         <Route path="CreateCoursesComponent" element={<CreateCoursesComponent />}/>
-        <Route path="CustomerCardTest" element={<CustomerCardTest />}/>
+        
         
 
       </Routes>
