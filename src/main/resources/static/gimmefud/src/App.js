@@ -9,6 +9,8 @@ import ListRestaurantComponent from './components/ListRestaurantComponent'
 import CreateCustomerComponent from './components/CreateCustomerComponent'
 import CreateOwnerComponent from './components/CreateOwnerComponent'
 import CreateRestaurantComponent from './components/CreateRestaurantComponent'
+import LoginComponent from './components/LoginComponent'
+import CreationSuccesfull from './Messages/CreationSuccesfull';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -29,6 +31,8 @@ function App() {
         <Link to="/CreateCustomerComponent"><div>Create customer</div></Link>
         <Link to="/CreateOwnerComponent"><div>Create owner</div></Link>
         <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
+        <Link to="/LoginComponent"><div>Login</div></Link>
+
 
       </div>
       <Routes>
@@ -41,6 +45,10 @@ function App() {
         <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent />}/>
         <Route path="CreateCoursesComponent" element={<CreateCoursesComponent />}/>
         <Route path="ListCoursesComponent" element={<ListCoursesComponent/>}/>
+        <Route path="LoginComponent" element={<LoginComponent/>}/>
+        <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
+
+
 
       </Routes>
     </div>
