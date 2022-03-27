@@ -38,6 +38,8 @@ const ListCustomerComponent = () => {
               <th>Last name</th>
               <th>Address</th>
               <th>Phone number</th>
+              <th>Role</th>
+
 
             </tr>
           </thead>
@@ -51,6 +53,8 @@ const ListCustomerComponent = () => {
                 <td>{customer.lastName}</td>
                 <td>{customer.address}</td>
                 <td>{customer.phoneNumber}</td>
+                <td>{customer.role}</td>
+
 
 
 

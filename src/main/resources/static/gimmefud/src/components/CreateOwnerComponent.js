@@ -9,17 +9,18 @@ const CreateOwner = () => {
     const[lname, setLname] = useState('');
     const[address, setAddress] = useState('');
     const[phone_number, setPhone_number] = useState('');
+    const[role, setRole] = useState('');
 
  
 
     const saveOwner = (o) => {
         o.preventDefault();
         
-        const owner = {username, password, fname, lname, address, phone_number};
-        OwnerService.create(owner)
+        const owner = {username, password, fname, lname, address, phone_number,role};
+        OwnerService.create(owner,setRole("OWNER"))
         .then(response => {
             console.log("restaurant owner added successfully", response.data);
-            //history.push("/");
+          
         })
         .catch(error => {
             console.log('something went wrong', error);

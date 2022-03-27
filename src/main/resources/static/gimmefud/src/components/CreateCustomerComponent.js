@@ -13,17 +13,21 @@ const CreateCustomerComponent = () => {
     const[lastName, setLastName] = useState('');
     const[address, setAddress] = useState('');
     const[phoneNumber, setPhoneNumber] = useState('');
+    const[role, setRole]= useState('');
 
+  
    
     const navigate = useNavigate();
+
 
 
 
     const saveCustomer = (e) => {
         e.preventDefault();
         
-        const customer = { username, password, firstName, lastName,address, phoneNumber };
-        CustomerService.create(customer)
+      
+        const customer = { username, password, firstName, lastName,address, phoneNumber,role };
+        CustomerService.create(customer,setRole("CUSTOMER"))
         .then(response => {
             console.log("customer added successfully", response.data);
             navigate("/CreationSuccesfull");
@@ -94,6 +98,8 @@ const CreateCustomerComponent = () => {
     placeholder="Last name"
     name="s" 
     />
+
+    
 </div>
 <div class = "col-md-6">
     <label for = "Phonenumber" class="form-label">Phone number</label>
@@ -133,7 +139,7 @@ const CreateCustomerComponent = () => {
     </div>
   </div>
 <div class="col-12">
-<button  onClick={(e) => saveCustomer(e)} type="submit" class = "btn btn-primary">Add me</button>
+<button  onClick={(e) =>  saveCustomer(e)} type="submit" class = "btn btn-primary">Add me</button>
 
     </div>   
     </form>

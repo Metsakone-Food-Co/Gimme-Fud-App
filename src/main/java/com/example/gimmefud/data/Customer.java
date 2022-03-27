@@ -29,15 +29,19 @@ public class Customer {
     @Column(name = "phone")
     public String phoneNumber;
 
-    public Customer(String username, String password, String firstName, String lastName, String address, String phoneNumber) {
+    @Column(name="role")
+    @Enumerated(EnumType.STRING)
+    public Role role;
+
+    public Customer(String username, String password, String firstName, String lastName, String address, String phoneNumber, Role role) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.role = role;
     }
-
 
     public Customer(){}
 }
