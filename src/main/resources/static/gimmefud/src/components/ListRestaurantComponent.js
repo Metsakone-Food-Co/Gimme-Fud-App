@@ -12,6 +12,8 @@ import { MdFastfood } from "react-icons/md";
 
 
 
+
+
 const ListRestaurantComponent = () => {
 
   const [restaurants, setRestaurants] = useState([]);
@@ -52,7 +54,7 @@ const ListRestaurantComponent = () => {
                 <Card.Body style={{border: '50px'}}>
               <Card.Img variant="top" src="https://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/master/w_1280,c_limit/the-ultimate-hamburger.jpg"/>
             
-             <Card.Title  >{restaurant.rname} <BsCartPlus/></Card.Title>
+             <Card.Title  >{restaurant.rname} <BsCartPlus /></Card.Title>
 
               <Card.Text>
               <p>Opening hours: {restaurant.service_hours}</p> </Card.Text>

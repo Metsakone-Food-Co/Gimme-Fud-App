@@ -18,21 +18,19 @@ public class CoursesController {
     @Autowired
     CoursesRepository coursesrepo;
 
-    @Autowired
-    CoursesService coursesService;
-
     @GetMapping("/courses")
     public List<Courses> getAllCourses(){
-        return coursesService.GetAllCourses() ;
+        return coursesrepo.findAll() ;
+    }
+
+    @PostMapping("/courses")
+    public Courses createCourse(@RequestBody Courses newCourse){
+        return coursesrepo.save(newCourse);
     }
 
     @GetMapping("/courses/{id}")
     public Courses getSingleCourse(@PathVariable String courseName){return coursesrepo.findById(courseName).get();}
 
-    @PostMapping("/courses")
-    public Courses saveCourseDetails(@RequestBody Courses course) {
-        return  coursesrepo.save(course);
-    }
 
     @PutMapping("/courses")
     public Courses updateCourseDetails(@RequestBody Courses course) {
