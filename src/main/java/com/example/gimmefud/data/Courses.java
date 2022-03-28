@@ -11,26 +11,26 @@ public class Courses {
 
     @Id
     @Column(name="course_name")
-    public String coursename;
+    public String course_name;
 
     @Column(name="rname")
     public String rname;
 
     @Column(name = "meal_name")
-    public String mealname;
+    public String meal_name;
 
     @Column(name = "meal_type")
-    public String mealtype;
+    public String meal_type;
 
     @Column(name = "meal_price")
-    public String mealprice;
+    public String meal_price;
 
-    public Courses(String coursename, String rname, String mealname, String mealtype, String mealprice) {
-        this.coursename = coursename;
+    public Courses(String course_name, String rname, String meal_name, String meal_type, String meal_price) {
+        this.course_name = course_name;
         this.rname = rname;
-        this.mealname = mealname;
-        this.mealtype = mealtype;
-        this.mealprice = mealprice;
+        this.meal_name = meal_name;
+        this.meal_type = meal_type;
+        this.meal_price = meal_price;
     }
 
     public Courses(){}
