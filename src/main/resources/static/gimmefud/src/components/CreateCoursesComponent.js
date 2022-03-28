@@ -1,70 +1,81 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
-import CoursesService from "../services/CoursesService";
+import CustomerService from "../services/CoursesService";
+
+
+
 
 const CreateCoursesComponent = () => {
-    const[coursename, setCourseName] = useState('');
-    const[rname, setRname] = useState('');
-    const[mealname, setMealName] = useState('');
-    const[mealtype, setMealType] = useState('');
-    const[mealprice, setMealPrice] = useState('');
-    
+    const [course_name, setCourseName] = useState('');
+    const[rname, setRname   ] = useState('');
+    const[meal_name, setMealName] = useState('');
+    const[meal_type, setMealType] = useState('');
+    const[meal_price, setMealPrice] = useState('');
+
+   
+    const navigate = useNavigate();
+
+
 
     const saveCourse = (e) => {
         e.preventDefault();
         
-        const course = {coursename, rname, mealname, mealtype, mealprice};
-        CoursesService.create(course)
-            .then(response => {
-                console.log("Course added successfully", response.data);
-              
-            })
-            .catch(error => {
-                console.log('something went wroing', error);
-            })
-        }
+        const course = { course_name, rname, meal_name, meal_type, meal_price};
+        CustomerService.create(course)
+        .then(response => {
+            console.log("Course added successfully", response.data);
+            navigate("/CreationSuccesfull");
+        })
+        .catch(error => {
+            console.log('something went wrong', error);
+        })
+    }
+
+
+
 
   return (
     <div className="container"> 
         <h1> Create course  </h1>
-    <div className="createCourse">
+    <div className="createCustomer">
     <form  class = "row g-3">
         
+
+
 <div class = "col-md-6">
-    <label for = "inputcoursename" class="form-label">Courses name</label>
+    <label for = "inputCourseName" class="form-label">Username</label>
     <input
     type="text"
     class="form-control"
-    id="coursename"
-    value={coursename}
+    id="course_name"
+    value={course_name}
     onChange={(e) => setCourseName(e.target.value)}
     placeholder="CourseName"
     name="s" 
     />
 </div>
 
-
 <div class = "col-md-6">
-    <label for = "inputrestaurantname" class="form-label">Restaurant name</label>
+    <label for = "inputRname" class="form-label">Restaurant name</label>
     <input
     type="text"
     class="form-control"
     id="rname"
     value={rname}
     onChange={(e) => setRname(e.target.value)}
-    placeholder="rname"
+    placeholder="Rname"
     name="s" 
     />
 </div>
 
 <div class = "col-md-6">
-    <label for = "inputMealName" class="form-label">Meal Name</label>
+    <label for = "inputMealName" class="form-label">Meal name</label>
     <input
     type="text"
     class="form-control"
-    id="mealname"
-    value={mealname}
+    id="meal_name"
+    value={meal_name}
     onChange={(e) => setMealName(e.target.value)}
     placeholder="Meal name"
     name="s" 
@@ -72,33 +83,45 @@ const CreateCoursesComponent = () => {
 </div>
 
 <div class = "col-md-6">
-    <label for = "inputMealType" class="form-label">Meal type</label>
+    <label for = "inputMealType" class="form-label">Last name</label>
     <input
     type="text"
     class="form-control"
-    id="mealtype"
-    value={mealtype}
+    id="meal_type"
+    value={meal_type}
     onChange={(e) => setMealType(e.target.value)}
-    placeholder="Meal name"
+    placeholder="Meal type"
     name="s" 
     />
 </div>
-
 <div class = "col-md-6">
-    <label for = "MealPrice" class="form-label">MealPrice</label>
+    <label for = "inputPriceRange" class="form-label">Phone number</label>
     <input
     type="text"
     class="form-control"
-    id="mealprice"
-    value={mealprice}
+    id="price_range"
+    value={meal_price}
     onChange={(e) => setMealPrice(e.target.value)}
-    placeholder="Meal price"
+    placeholder="Price range"
     name="s" 
     />
 </div>
 
+
+
+
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input"
+       type="checkbox" id="gridCheck" />
+      <label class="form-check-label"
+       for="gridCheck">
+        My information is correct
+      </label>
+    </div>
+  </div>
 <div class="col-12">
-    <button  onClick={(e) => saveCourse(e)} type="submit" class = "btn btn-primary">Add me</button>
+<button  onClick={(e) => saveCourse(e)} type="submit" class = "btn btn-primary">Add me</button>
 
     </div>   
     </form>
