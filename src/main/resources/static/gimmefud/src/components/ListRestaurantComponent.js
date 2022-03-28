@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import RestaurantService from '../services/RestaurantService';
+import SearchRestaurant from './SearchRestaurant';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Button, Badge} from "react-bootstrap";
@@ -14,7 +15,12 @@ import { MdFastfood } from "react-icons/md";
 
 const ListRestaurantComponent = () => {
 
+
+
   const [restaurants, setRestaurants] = useState([]);
+  
+
+  
 
   const init = () => {
     RestaurantService.getAll()
@@ -32,6 +38,26 @@ const ListRestaurantComponent = () => {
   }, []);
 
 
+
+  const {searchRestaurant} = window.location;
+  const query = new URLSearchParams(searchRestaurant).get('s');
+  const [searchQuery, setSearchQuery] = useState(query || '');
+  //const query = 'nakit';
+
+  const filterRestaurants = (restaurants, query) => {
+    if(!query){
+      console.log("Perse");
+      return restaurants;
+    }
+    return restaurants.filter((restaurant) => {
+      console.log("Paska");
+      const restaurantName = restaurant.rname.toLowerCase();
+      return restaurantName.includes(query);
+    })
+  }
+
+  const filteredRestaurants = filterRestaurants(restaurants, searchQuery);
+
   return (
     <div className="container">
       
@@ -42,17 +68,21 @@ const ListRestaurantComponent = () => {
    
        </div>
        </div>
+       <h3>Type to search for restaurants</h3>
+       <SearchRestaurant
+       searchQuery={searchQuery}
+       setSearchQuery={setSearchQuery}/>
        
 
         <Row xs={1} md={3} className="g-4">
-          {restaurants.map(restaurant =>(
+          {filteredRestaurants.map(restaurant =>(
             <tr key={restaurant.rname}>
                 
                 <Card style={{ width: '18rem'  }} >
                 <Card.Body style={{border: '50px'}}>
               <Card.Img variant="top" src="https://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/master/w_1280,c_limit/the-ultimate-hamburger.jpg"/>
             
-             <Card.Title  >{restaurant.rname} <BsCartPlus/></Card.Title>
+             <Card.Title>{restaurant.rname} <BsCartPlus/></Card.Title>
 
               <Card.Text>
               <p>Opening hours: {restaurant.service_hours}</p> </Card.Text>

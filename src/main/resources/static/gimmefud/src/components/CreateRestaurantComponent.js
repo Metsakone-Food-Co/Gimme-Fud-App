@@ -32,14 +32,14 @@ const CreateRestaurant = () => {
 
 
                 <div class="col-md-6">
-                <label for = "inputOwnerId" class="form-label">Owner ID</label>
+                <label for = "inputOwnerId" class="form-label">Owner username</label>
                     <input 
                         type="text" 
                         className="form-control"
                         id="oID"
                         value={usernamer}
                         onChange={(r) => setUsernamer(r.target.value)}
-                        placeholder="Enter owner ID"
+                        placeholder="Enter username"
                     />
 
                 </div>

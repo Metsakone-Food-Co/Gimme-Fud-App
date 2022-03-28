@@ -25,7 +25,10 @@ public class RestaurantController {
         return restaurantRepo.findAll();
     }
 
-
+    /*@GetMapping("/restaurants/{id}")
+    public Restaurant getRestaurant (@PathVariable String rname){
+        return restaurantRepo.findById(rname).get();
+    }*/
 
     @PostMapping("/restaurants")
     public Restaurant createRestaurant(@RequestBody Restaurant newRestaurant){
@@ -37,7 +40,7 @@ public class RestaurantController {
         return restaurantRepo.save(updateRestaurant);
     }
 
-    @DeleteMapping("/restaurants/{restaurant_id}")
+    @DeleteMapping("/restaurants/{rname}")
     public ResponseEntity<HttpStatus> deleteRestaurantById(@PathVariable String rname){
         restaurantRepo.deleteById(rname);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
