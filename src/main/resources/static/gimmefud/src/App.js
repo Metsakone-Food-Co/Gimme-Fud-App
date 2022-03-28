@@ -11,6 +11,7 @@ import CreateOwnerComponent from './components/CreateOwnerComponent'
 import CreateRestaurantComponent from './components/CreateRestaurantComponent'
 import LoginComponent from './components/LoginComponent'
 import CreationSuccesfull from './Messages/CreationSuccesfull';
+import SearchRestaurant from './components/SearchRestaurant';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -41,6 +42,7 @@ function App() {
       <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
       <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent/>}/>
       <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
+      <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
     </>
   }
 

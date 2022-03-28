@@ -35,7 +35,7 @@ public class RestaurantownerController {
         return ownerRepo.save(updateOwner);
     }
 
-    @DeleteMapping("/restaurantowners/{owner_id}")
+    @DeleteMapping("/restaurantowners/{rname}")
     public ResponseEntity<HttpStatus> deleteOwner(@PathVariable String rname){
         ownerRepo.deleteById(rname);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
