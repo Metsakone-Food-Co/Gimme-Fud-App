@@ -21,7 +21,7 @@ const CreateCoursesComponent = () => {
     const saveCourse = (e) => {
         e.preventDefault();
         
-        const course = { course_name, rname, meal_name, meal_type,meal_price};
+        const course = { course_name, rname, meal_name, meal_type, meal_price};
         CustomerService.create(course)
         .then(response => {
             console.log("Course added successfully", response.data);

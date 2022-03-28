@@ -29,6 +29,7 @@ function App() {
    <Route path="LoginComponent" element={<LoginComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
+   <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
   </>
 
   if (userJwt != null) {
@@ -49,6 +50,7 @@ function App() {
   let authLinks = <>
    <Link to="/CreateCustomerComponent"><div>Create customer</div></Link>
         <Link to="/CreateOwnerComponent"><div>Create owner</div></Link>
+        <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
         <Link to="/LoginComponent"><div>Login</div></Link>
   
   </>
@@ -58,6 +60,7 @@ function App() {
        <Link to="/ListRestaurantComponent"><div>Restaurant list</div></Link>
         <Link to="/ListCustomerComponent"><div>Customer list</div></Link>
         <Link to="/ListOwnerComponent"><div>Restaurant owners</div></Link> 
+        <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
         <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
     </>
   }
