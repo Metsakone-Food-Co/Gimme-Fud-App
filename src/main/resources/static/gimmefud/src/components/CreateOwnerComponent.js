@@ -9,15 +9,16 @@ const CreateOwner = () => {
     const[lname, setLname] = useState('');
     const[address, setAddress] = useState('');
     const[phone_number, setPhone_number] = useState('');
-    const[roler, setRoler] = useState('');
+    const[roler, setRoler] = useState("OWNER");
 
- 
+  
+
 
     const saveOwner = (o) => {
         o.preventDefault();
         
         const owner = {usernamer, password, fname, lname, address, phone_number, roler};
-        OwnerService.create(owner)
+        OwnerService.create(owner )
         .then(response => {
             console.log("restaurant owner added successfully", response.data);
             setRoler("OWNER");
@@ -26,6 +27,7 @@ const CreateOwner = () => {
         })
         .catch(error => {
             console.log('something went wrong', error);
+         
         })
     }
     return(
@@ -101,6 +103,9 @@ const CreateOwner = () => {
                         placeholder="Enter phone number"
                     />
                 </div>
+
+         
+             
                 
          <div class="col-12">
             <div class="form-check">
