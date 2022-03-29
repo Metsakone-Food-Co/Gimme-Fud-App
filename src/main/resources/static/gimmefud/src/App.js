@@ -72,7 +72,7 @@ function App() {
         {authLinks}
       </div>
       <Routes>
-        <Route path="/" element={ <HomepageComponent userLoggedIn={userJwt != null}/>}/>
+        <Route path="/" element={ <HomepageComponent userLoggedIn={userJwt != null} logout={() =>setUserJwt(null)}/>}/>
         {authRoutes}
         <Route path="*" element={<HomepageComponent userLoggedIn={userJwt != null}/>}/>
       </Routes>
