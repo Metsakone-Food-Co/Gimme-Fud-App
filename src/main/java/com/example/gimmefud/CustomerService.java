@@ -34,7 +34,15 @@ public class CustomerService {
 
  */
     }
+<<<<<<< Updated upstream
     
+=======
+    public Customer saveCustomerDetails(@RequestBody Customer customer) {
+        customer.password = encoder.encode(customer.password);
+                return customerRepo.save(customer);
+
+    }
+>>>>>>> Stashed changes
 
     public Customer getCustomer(String username) {
         return customerRepo.findById(username).orElse(null);

@@ -41,8 +41,13 @@ public class CustomerController {
     }
 
     @PostMapping("/customers")
+<<<<<<< Updated upstream
     public Customer saveCustomerDetails(@RequestBody Customer customer) {
         return   customerRepo.save(customer);
+=======
+    public Customer saveCustomerDetails( @RequestBody  Customer customer) {
+        return  customerService.saveCustomerDetails(customer);
+>>>>>>> Stashed changes
     }
 
 

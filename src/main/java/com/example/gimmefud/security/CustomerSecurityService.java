@@ -43,7 +43,8 @@ public class CustomerSecurityService {
         Algorithm alg = Algorithm.HMAC256(jwtSecret);
 
         return JWT.create()
-                .withClaim("userId",c.username)
+                .withClaim("username",c.username)
+                .withClaim("password",c.password)
                 .sign(alg);
     }
 
@@ -64,7 +65,8 @@ public class CustomerSecurityService {
             DecodedJWT jwt = verifier.verify(jwtToken);
 
             customer = new Customer();
-            customer.username = jwt.getClaim("userId").asString();
+            customer.username = jwt.getClaim("username").asString();
+            customer.password = jwt.getClaim("password").asString();
 
         }catch(JWTCreationException e){}
 
