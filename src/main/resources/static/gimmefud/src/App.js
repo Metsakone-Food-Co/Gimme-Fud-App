@@ -12,6 +12,7 @@ import CreateRestaurantComponent from './components/CreateRestaurantComponent'
 import LoginComponent from './components/LoginComponent'
 import CreationSuccesfull from './Messages/CreationSuccesfull';
 import SearchRestaurant from './components/SearchRestaurant';
+import RestaurantProfileComponent from './components/RestaurantProfileComponent';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,6 +24,7 @@ import {useState} from 'react';
 function App() {
 
 
+
   const [userJwt, setUserJwt] = useState(null);
 
   let authRoutes = <>
@@ -30,6 +32,7 @@ function App() {
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
    <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
+   <Route path="RestaurantProfileComponent" element={<RestaurantProfileComponent/>}/>
   </>
 
   if (userJwt != null) {

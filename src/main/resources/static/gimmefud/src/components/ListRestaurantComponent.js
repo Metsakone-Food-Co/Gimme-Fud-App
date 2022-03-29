@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import RestaurantService from '../services/RestaurantService';
 import SearchRestaurant from './SearchRestaurant';
-
+import ListCoursesComponent from './ListCoursesComponent';
+import RestaurantProfileComponent from './RestaurantProfileComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Button, Badge} from "react-bootstrap";
 import Row from 'react-bootstrap/Row'
@@ -58,6 +59,16 @@ const ListRestaurantComponent = () => {
 
   const filteredRestaurants = filterRestaurants(restaurants, searchQuery);
 
+  
+  //UUTTA
+  const onProfileClick = (resNameCheck) => {
+    console.log("onProfileClick");
+    console.log("Clicked restaurant is: " + resNameCheck);
+    return resNameCheck;
+  }
+  //UUTTA
+  
+
   return (
     <div className="container">
       
@@ -83,7 +94,7 @@ const ListRestaurantComponent = () => {
               <Card.Img variant="top" src="https://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/master/w_1280,c_limit/the-ultimate-hamburger.jpg"/>
             
              <Card.Title>{restaurant.rname} <BsCartPlus/></Card.Title>
-
+             <Button onClick={() => onProfileClick(restaurant.rname)}>Click</Button>
               <Card.Text>
               <p>Opening hours: {restaurant.service_hours}</p> </Card.Text>
               <Card.Text>
@@ -106,6 +117,7 @@ const ListRestaurantComponent = () => {
               </Card>
               
             </tr>
+            
           ))
           }
           </Row>
