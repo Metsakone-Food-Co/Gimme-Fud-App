@@ -1,5 +1,8 @@
 import React from 'react'
 import {BrowserRouter,Routes, Route, Link } from 'react-router-dom'
+import {Navbar, Container, Nav, NavDropdown} from "react-bootstrap";
+
+
 
 
 export default function Homepage(props) {
@@ -8,6 +11,8 @@ export default function Homepage(props) {
     <div className="container">
 
         <h1>Home Page lol</h1>
+
+
         <div>User login status: { props.userLoggedIn ? "is logged in" : "is not logged in" } </div>
         <div>
           { props.userLoggedIn ? 
@@ -19,14 +24,17 @@ export default function Homepage(props) {
            <div><button type = "button" class="btn btn-primary btn-lg"onClick={props.logout}> Logout </button></div>
             </>
              :
-            <>
+             <Navbar expand="lg">
+            <Container>
+            
            <Link to="/LoginComponent"><button type="button" class="btn btn-primary btn-lg ">Login</button></Link>
            <Link to="/LoginOwnerComponent"><button type="button" class="btn btn-primary btn-lg ">Login as a Owner</button></Link>
            <Link to="/CreateCustomerComponent"><button type="button" class="btn btn-primary btn-lg ">Create customer</button></Link>
            <Link to="/CreateOwnerComponent"><button type="button" class="btn btn-primary btn-lg ">Create owner</button></Link>
            <Link to="/CreateCoursesComponent"><button type="button" class="btn btn-primary btn-lg ">Create course</button></Link>
-       
-           </>
+          
+           </Container>
+           </Navbar>
    
    }
         

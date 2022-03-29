@@ -61,6 +61,7 @@ function App() {
 
   if (userJwt != null) {
     authLinks = <>
+    
        <Link to="/ListRestaurantComponent"><div>Restaurant list</div></Link>
         <Link to="/ListCustomerComponent"><div>Customer list</div></Link>
         <Link to="/ListOwnerComponent"><div>Restaurant owners</div></Link> 
@@ -71,8 +72,12 @@ function App() {
   return (
     <BrowserRouter>
     <div >
-      <div className="navbar">
-        <Link to="/"><div>Home</div></Link>
+      <div className="navbar1">
+        <img src="Logo.png" width="150"></img>
+        <Link to="/"><div>Home</div></Link> 
+        
+        <Link to="/ListRestaurantComponent"><button type="button" class="btn btn-primary btn-lg ">List restaurants</button></Link> 
+       
         {authLinks}
       </div>
       <Routes>

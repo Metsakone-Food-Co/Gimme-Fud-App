@@ -1,9 +1,10 @@
-.navbar {
+.navbar1 {
   display: flex;
   background-color: orange;
 }
 
-.navbar > * {
-  margin-right: 10px;;
+.navbar1 > * {
+  margin-right: 30px;;
+
 }
 
