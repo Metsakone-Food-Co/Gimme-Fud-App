@@ -59,7 +59,7 @@ public class RestaurantownerController {
     }
 
     @PostMapping("/loginowner")
-    public ResponseEntity<Map<String, String>> login(@RequestBody Map<String, String> credentials) {
+    public ResponseEntity<Map<String, String>> loginowner(@RequestBody Map<String, String> credentials) {
         String token = ownerSecurity.checkAuthentication(
                 credentials.get("usernamer"),
                 credentials.get("password"));

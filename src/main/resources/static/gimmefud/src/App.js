@@ -12,6 +12,7 @@ import CreateRestaurantComponent from './components/CreateRestaurantComponent'
 import LoginComponent from './components/LoginComponent'
 import CreationSuccesfull from './Messages/CreationSuccesfull';
 import SearchRestaurant from './components/SearchRestaurant';
+import LoginOwnerComponent from './components/LoginOwnerComponent'
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -27,6 +28,7 @@ function App() {
 
   let authRoutes = <>
    <Route path="LoginComponent" element={<LoginComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
+   <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
    <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
@@ -52,6 +54,8 @@ function App() {
         <Link to="/CreateOwnerComponent"><div>Create owner</div></Link>
         <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
         <Link to="/LoginComponent"><div>Login</div></Link>
+        <Link to="/LoginOwnerComponent"><div>Login as a Owner</div></Link>
+
   
   </>
 
