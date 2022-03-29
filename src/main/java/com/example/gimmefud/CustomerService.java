@@ -27,8 +27,7 @@ public class CustomerService {
 /*
         customerRepo.save(new Customer("Sepi", encoder.encode("Sepi69"), "Niko", "Naumanen", "Ilmarikuja 1","0500666666" ));
 */
-  Customer c = customerRepo.findById("Niibi").orElse(null);
-        System.out.println(c.address);
+
 
     }
 

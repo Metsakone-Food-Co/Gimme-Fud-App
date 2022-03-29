@@ -1,7 +1,7 @@
 import httpClient from "../http-common";
 
 const create = data => {
-    return httpClient.post("/login", data);
+    return httpClient.post("/loginowner", data);
 }
 
 
