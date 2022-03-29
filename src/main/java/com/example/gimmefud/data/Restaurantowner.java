@@ -28,13 +28,17 @@ public class Restaurantowner {
     @Column(name="phone")
     public String phone_number;
 
-    public Restaurantowner(String usernamer, String password, String fname, String lname, String address, String phone_number) {
+    @Column(name = "role")
+    public String role;
+
+    public Restaurantowner(String usernamer, String password, String fname, String lname, String address, String phone_number, String role) {
         this.usernamer = usernamer;
         this.password = password;
         this.fname = fname;
         this.lname = lname;
         this.address = address;
         this.phone_number = phone_number;
+        this.role = role;
     }
 
     public Restaurantowner(){}
