@@ -15,7 +15,7 @@ const CreateCustomerComponent = () => {
     const[phoneNumber, setPhoneNumber] = useState('');
     const[role, setRole] = useState('');
    
-    const navigate = useNavigate();
+
 
 
 
@@ -26,7 +26,9 @@ const CreateCustomerComponent = () => {
         CustomerService.create(customer,setRole("CUSTOMER"))
         .then(response => {
             console.log("customer added successfully", response.data);
-            navigate("/CreationSuccesfull");
+            
+      
+            
         })
         .catch(error => {
             console.log('something went wrong', error);

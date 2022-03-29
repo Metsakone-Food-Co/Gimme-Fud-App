@@ -49,7 +49,8 @@ const ListOwnerComponent = () => {
                 <td>{owner.fname}</td>
                 <td>{owner.lname}</td>
                 <td>{owner.address}</td>
-                <td>{owner.role}</td>
+                <td>{owner.phone_number}</td>
+                <td>{owner.roler}</td>
               </tr>
             ))
           }
