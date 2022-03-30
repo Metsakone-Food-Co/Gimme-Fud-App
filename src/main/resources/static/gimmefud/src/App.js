@@ -13,10 +13,12 @@ import LoginComponent from './components/LoginComponent'
 import CreationSuccesfull from './Messages/CreationSuccesfull';
 import SearchRestaurant from './components/SearchRestaurant';
 import LoginOwnerComponent from './components/LoginOwnerComponent'
+import HomepageOwnerComponent from './components/HomepageOwnerComponent';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState} from 'react';
+import {Navbar, Container, Nav, NavDropdown, Carousel} from "react-bootstrap";
 
 
 
@@ -32,8 +34,10 @@ function App() {
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
    <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
-  </>
+   <Route path="HomePageOwnerComponent" element={<HomepageOwnerComponent/>}/>
 
+  </>
+//Jos on täällä niin päästää sisään kun kirjauutnut
   if (userJwt != null) {
     authRoutes = <>
       <Route path="ListCoursesComponent" element={<ListCoursesComponent/>}/>
@@ -46,10 +50,13 @@ function App() {
       <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent/>}/>
       <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
       <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
+      <Route path="HomepageOwnerComponent" element={<HomepageOwnerComponent/>}/>
+     
+
     </>
   }
-
-  let authLinks = <>
+//kun ei ole kirjautunut Yläpalkki
+  let authLinks = <> 
    <Link to="/CreateCustomerComponent"><div>Create customer</div></Link>
         <Link to="/CreateOwnerComponent"><div>Create owner</div></Link>
         <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
@@ -58,26 +65,24 @@ function App() {
 
   
   </>
-
+//Näkyy kun kirjautunut sisään, Yläpalkki
   if (userJwt != null) {
-    authLinks = <>
-    
+    authLinks =<>
        <Link to="/ListRestaurantComponent"><div>Restaurant list</div></Link>
         <Link to="/ListCustomerComponent"><div>Customer list</div></Link>
+        <Link to="/HomepageOwnerComponent"><div>HomepageOwner</div></Link>
         <Link to="/ListOwnerComponent"><div>Restaurant owners</div></Link> 
         <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
         <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
-    </>
+        <div><button type ="button" onClick={()=>setUserJwt(null)} >LOG OUT</button></div>
+        </>
   }
   return (
     <BrowserRouter>
     <div >
       <div className="navbar1">
-        <img src="Logo.png" width="150"></img>
-        <Link to="/"><div>Home</div></Link> 
         
-        <Link to="/ListRestaurantComponent"><button type="button" class="btn btn-primary btn-lg ">List restaurants</button></Link> 
-       
+        <Link to="/"><div>Home</div></Link> 
         {authLinks}
       </div>
       <Routes>

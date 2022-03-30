@@ -18,7 +18,7 @@ const LoginOwnerComponent = (props) => {
         console.log("customer logged successfully", response.data);
         const resivedJWT = response.data.token;
         props.login(resivedJWT);
-        navigate("/", {replace: true});
+        navigate("/HomepageOwnerComponent", {replace: true}); 
 
     })
     .catch(error => {
