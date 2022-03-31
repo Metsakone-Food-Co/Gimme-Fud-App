@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import RestaurantService from '../services/RestaurantService';
 import SearchRestaurant from './SearchRestaurant';
-
+import ListCoursesComponent from './ListCoursesComponent';
+import RestaurantProfileComponent from './RestaurantProfileComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Button, Badge} from "react-bootstrap";
 import Row from 'react-bootstrap/Row'
 import { BsCartPlus} from "react-icons/bs";
 import { MdFastfood } from "react-icons/md";
+
 
 
 
@@ -58,7 +60,26 @@ const ListRestaurantComponent = () => {
 
   const filteredRestaurants = filterRestaurants(restaurants, searchQuery);
 
+  
+  //UUTTA
+
+  const [check, sendData] = useState();
+
+  const onProfileClick = (resnamesave) => {
+    sendData(resnamesave);
+  }
+  //UUTTA
+  
+  // <RestaurantProfileComponent onProfileClick={onProfileClick}/>
+  
+
   return (
+
+    
+
+    
+    
+
     <div className="container">
       
        <div class="card text-white">
@@ -81,14 +102,23 @@ const ListRestaurantComponent = () => {
                 <Card style={{ width: '18rem'  }} >
                 <Card.Body style={{border: '50px'}}>
               <Card.Img variant="top" src="https://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/master/w_1280,c_limit/the-ultimate-hamburger.jpg"/>
+              
+              <Link to="/RestaurantProfileComponent"><Button onClick={() => onProfileClick()} >Click</Button></Link>
+              
+              
+              
+              
+              
+              
             
              <Card.Title>{restaurant.rname} <BsCartPlus/></Card.Title>
-
+             
               <Card.Text>
               <p>Opening hours: {restaurant.service_hours}</p> </Card.Text>
               <Card.Text>
               <p>Price Range: {restaurant.price_range} </p> 
               </Card.Text>
+              
               
       
                 <button type="button" class="btn btn-outline-secondary"> Tilaa <BsCartPlus/></button>
@@ -106,10 +136,12 @@ const ListRestaurantComponent = () => {
               </Card>
               
             </tr>
+            
           ))
           }
           </Row>
        <div class="downcont">
+       <RestaurantProfileComponent testiA={check}/>
       
        </div>
        

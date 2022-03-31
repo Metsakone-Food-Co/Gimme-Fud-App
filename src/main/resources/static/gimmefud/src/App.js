@@ -13,6 +13,7 @@ import LoginComponent from './components/LoginComponent'
 import CreationSuccesfull from './Messages/CreationSuccesfull';
 import SearchRestaurant from './components/SearchRestaurant';
 import LoginOwnerComponent from './components/LoginOwnerComponent'
+import RestaurantProfileComponent from './components/RestaurantProfileComponent'
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -36,7 +37,9 @@ function App() {
 
   if (userJwt != null) {
     authRoutes = <>
+    
       <Route path="ListCoursesComponent" element={<ListCoursesComponent/>}/>
+      <Route path="RestaurantProfileComponent" element={<RestaurantProfileComponent/>}/>
       <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
       <Route path="ListCustomerComponent" element={<ListCustomerComponent/>}/>
       <Route path="ListOwnerComponent" element={<ListOwnerComponent/>}/>
@@ -79,6 +82,7 @@ function App() {
         <Route path="/" element={ <HomepageComponent userLoggedIn={userJwt != null} logout={() =>setUserJwt(null)}/>}/>
         {authRoutes}
         <Route path="*" element={<HomepageComponent userLoggedIn={userJwt != null}/>}/>
+        
       </Routes>
     </div>
     </BrowserRouter>
