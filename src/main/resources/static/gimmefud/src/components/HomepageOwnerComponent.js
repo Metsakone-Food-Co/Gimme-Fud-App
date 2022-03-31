@@ -4,17 +4,11 @@ import {Navbar, Container, Nav, NavDropdown, Carousel} from "react-bootstrap";
 
 export default function HomepageOwnerComponent(props) {
   return (
-    <div>Omistajan homepage
+    <div>
 
-
-        <Link to="/CreateOwnerComponent"><button type="button" class="btn btn-light btn-lg ">Create owner</button></Link>
-        <Link to="/CreateCoursesComponent"><button type="button" class="btn btn-light btn-lg ">Create Courses</button></Link>
-        <Link to="/CreateRestaurantComponent"><button type="button" class="btn btn-light btn-lg ">Create Restaurant</button></Link>
-        <Link to="/ListCoursesComponent"><button type="button" class="btn btn-light btn-lg ">Courses</button></Link> 
-        <Link to="/ListCustomerComponent"><button type="button" class="btn btn-light btn-lg ">List of customers</button></Link>
-        <Link to="/ListOwnerComponent"><button type="button" class="btn btn-light btn-lg ">List of owners</button></Link>
-       
-       
+  
+    <div className="Container">
+   
         <Carousel className="karuselli">
   <Carousel.Item class="item">
     <img
@@ -38,14 +32,18 @@ export default function HomepageOwnerComponent(props) {
      </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
+</div>
+
+<div>
+
+
+   </div>
 
 
 
+</div>
 
 
-
-
-    </div>
 
 
 

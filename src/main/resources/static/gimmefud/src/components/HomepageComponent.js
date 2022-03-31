@@ -8,7 +8,7 @@ import {Navbar, Container, Nav, NavDropdown, Carousel} from "react-bootstrap";
 export default function Homepage(props) {
   return (
 //tämä pitäis näkyä vaan asiakkaalle ja 
-    <div className="Container">
+  /*  <div className="Container">
     <Navbar bg="light" variant="light" expand="lg"><img src="Logo.png" width="8%"></img>
   <Container>
   <Nav.Link to="#/ListRestaurantComponent">Home</Nav.Link>
@@ -30,7 +30,7 @@ export default function Homepage(props) {
     </Navbar.Collapse>
   </Container>
 </Navbar>
-
+*/ <div>
 
 <Carousel className="karuselli">
   <Carousel.Item class="item">
@@ -61,7 +61,6 @@ export default function Homepage(props) {
 
 
 
-
         <div>User login status: { props.userLoggedIn ? "is logged in" : "is not logged in" } </div>
         <div>
           { props.userLoggedIn ? 
@@ -69,16 +68,11 @@ export default function Homepage(props) {
               <div><button type = "button" class="btn btn-primary btn-lg"onClick={props.logout}> Logout </button></div>
               <Link to="/ListRestaurantComponent"><button type="button" class="btn btn-primary btn-lg ">Restaurants</button></Link>
             </>
+            
              :
              
            <>
-            
-           <Link to="/LoginComponent"><button type="button" class="btn btn-primary btn-lg ">Login</button></Link>
-           <Link to="/LoginOwnerComponent"><button type="button" class="btn btn-primary btn-lg ">Login as a Owner</button></Link>
-           <Link to="/CreateCustomerComponent"><button type="button" class="btn btn-primary btn-lg ">Create customer</button></Link>
-           <Link to="/CreateOwnerComponent"><button type="button" class="btn btn-primary btn-lg ">Create owner</button></Link>
-           <Link to="/CreateCoursesComponent"><button type="button" class="btn btn-primary btn-lg ">Create course</button></Link>
-          
+               <Link to="/LoginComponent"><button type="button" class="btn btn-light btn-lg ">Login</button></Link>
          </>
          
    
