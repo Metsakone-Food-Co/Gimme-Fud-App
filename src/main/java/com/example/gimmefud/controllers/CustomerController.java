@@ -31,9 +31,9 @@ public class CustomerController {
         return customerService.getCustomers() ;
     }
 
-    @GetMapping("/customer")
-    public Customer getCustomer(@PathVariable String username){
-        return customerRepo.findById(username).get();
+    @GetMapping("/customers/{id}")
+    public Customer getCustomer( @PathVariable  String username){
+        return customerService.getCustomer(username);
     }
 
     @PostMapping("/customers")

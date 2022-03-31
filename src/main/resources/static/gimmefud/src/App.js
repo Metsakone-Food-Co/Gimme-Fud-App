@@ -13,10 +13,13 @@ import LoginComponent from './components/LoginComponent'
 import CreationSuccesfull from './Messages/CreationSuccesfull';
 import SearchRestaurant from './components/SearchRestaurant';
 import LoginOwnerComponent from './components/LoginOwnerComponent'
+import RestaurantDetails from './components/RestaurantDetails'
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState} from 'react';
+
+
 
 
 
@@ -26,9 +29,11 @@ function App() {
 
   const [userJwt, setUserJwt] = useState(null);
 
+   const [ownerJwt, setOwnerJwt] = useState(null);
+
   let authRoutes = <>
    <Route path="LoginComponent" element={<LoginComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
-   <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
+   <Route path="LoginOwnerComponent" element={<LoginOwnerComponent loginOwner={ (newOwnerJWT) => setOwnerJwt(newOwnerJWT) }/> }/>
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
    <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
@@ -36,6 +41,34 @@ function App() {
 
   if (userJwt != null) {
     authRoutes = <>
+      <Route path="ListCoursesComponent" element={<ListCoursesComponent/>}/>
+      <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
+      <Route path="ListCustomerComponent" element={<ListCustomerComponent/>}/>
+      <Route path="ListOwnerComponent" element={<ListOwnerComponent/>}/>
+
+
+      <Route path="ListRestaurantComponent" element={<ListRestaurantComponent />}/>
+        <Route path=":restaurantId/*" element = { <RestaurantDetails  />}>
+        </Route>
+
+      <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
+      <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
+      <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent/>}/>
+      <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
+      <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
+    </>
+  }
+     
+  let ownerRoutes = <>
+   <Route path="LoginComponent" element={<LoginComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
+   <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
+   <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
+   <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
+   <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
+  </>
+
+  if (ownerJwt != null) {
+    ownerRoutes = <>
       <Route path="ListCoursesComponent" element={<ListCoursesComponent/>}/>
       <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
       <Route path="ListCustomerComponent" element={<ListCustomerComponent/>}/>
@@ -68,20 +101,27 @@ function App() {
         <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
     </>
   }
+
   return (
     <BrowserRouter>
     <div >
       <div className="navbar">
         <Link to="/"><div>Home</div></Link>
         {authLinks}
+
       </div>
       <Routes>
         <Route path="/" element={ <HomepageComponent userLoggedIn={userJwt != null} logout={() =>setUserJwt(null)}/>}/>
         {authRoutes}
+        {ownerRoutes}
         <Route path="*" element={<HomepageComponent userLoggedIn={userJwt != null}/>}/>
       </Routes>
     </div>
+    <div>
+   
+    </div>
     </BrowserRouter>
+    
   );
 }
 

@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import RestaurantService from '../services/RestaurantService';
 import SearchRestaurant from './SearchRestaurant';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Button, Badge} from "react-bootstrap";
 import Row from 'react-bootstrap/Row'
@@ -13,14 +12,14 @@ import { MdFastfood } from "react-icons/md";
 
 
 
-const ListRestaurantComponent = () => {
+const ListRestaurantComponent = (props) => {
 
 
 
   const [restaurants, setRestaurants] = useState([]);
   
 
-  
+
 
   const init = () => {
     RestaurantService.getAll()
@@ -59,8 +58,9 @@ const ListRestaurantComponent = () => {
   const filteredRestaurants = filterRestaurants(restaurants, searchQuery);
 
   return (
+    
     <div className="container">
-      
+         <div> { props.userLoggedIn } </div>
        <div class="card text-white">
        <img src="ruokakuva.png" class="card-img" alt= "background" width="100%" height="400px"/>
        <div class="card-img-overlay">
@@ -73,17 +73,18 @@ const ListRestaurantComponent = () => {
        searchQuery={searchQuery}
        setSearchQuery={setSearchQuery}/>
        
-
+      
         <Row xs={1} md={3} className="g-4">
           {filteredRestaurants.map(restaurant =>(
             <tr key={restaurant.rname}>
-                
+
+               <Link to = {restaurant.rname}>
                 <Card style={{ width: '18rem'  }} >
                 <Card.Body style={{border: '50px'}}>
               <Card.Img variant="top" src="https://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/master/w_1280,c_limit/the-ultimate-hamburger.jpg"/>
             
              <Card.Title>{restaurant.rname} <BsCartPlus/></Card.Title>
-
+            
               <Card.Text>
               <p>Opening hours: {restaurant.service_hours}</p> </Card.Text>
               <Card.Text>
@@ -91,30 +92,37 @@ const ListRestaurantComponent = () => {
               </Card.Text>
               
       
-                <button type="button" class="btn btn-outline-secondary"> Tilaa <BsCartPlus/></button>
-                <Card.Link href="#">Give Feedback</Card.Link>
+                <button  class="btn btn-outline-secondary" > Tilaa <BsCartPlus/></button>
+                <Card.Link href="/">Give Feedback</Card.Link>
                 <Card.Text>
               
                 <Badge bg="light" text="info">{restaurant.rtype}<MdFastfood/></Badge>
-                  
+          
                 </Card.Text>
            
+              
                 
-             
-     
+              
               </Card.Body>
               </Card>
-              
+              </Link>
             </tr>
+          
           ))
           }
           </Row>
+          <div>
+      
+           
+         </div>
        <div class="downcont">
+         
       
        </div>
-       
-        
+      
+       <Outlet />
       </div>
+          
  
   );
 }

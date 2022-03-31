@@ -1,9 +1,10 @@
 import React from 'react'
-import {BrowserRouter,Routes, Route, Link } from 'react-router-dom'
+import {BrowserRouter,Routes, Route, Link, useNavigate } from 'react-router-dom'
 
 
 export default function Homepage(props) {
   return (
+
 
     <div className="container">
 
@@ -16,7 +17,7 @@ export default function Homepage(props) {
            <Link to="/ListCustomerComponent"><button type="button" class="btn btn-primary btn-lg ">List customers</button></Link>
            <Link to="/ListOwnerComponent"><button type="button" class="btn btn-primary btn-lg ">List owners</button></Link>
            <Link to="/ListCoursesComponent"><button type="button" class="btn btn-primary btn-lg ">List courses</button></Link>
-           <div><button type = "button" class="btn btn-primary btn-lg"onClick={props.logout}> Logout </button></div>
+           <div><button  type = "button" class="btn btn-primary btn-lg"  onClick={props.logout} > Logout </button></div>
             </>
              :
             <>
