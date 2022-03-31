@@ -48,7 +48,7 @@ function App() {
 
 
       <Route path="ListRestaurantComponent" element={<ListRestaurantComponent />}/>
-        <Route path=":restaurantId/*" element = { <RestaurantDetails  />}>
+        <Route path=":restaurantId/*" element = { <RestaurantDetails />}>
         </Route>
 
       <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>

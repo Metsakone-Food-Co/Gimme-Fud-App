@@ -45,11 +45,11 @@ const ListRestaurantComponent = (props) => {
 
   const filterRestaurants = (restaurants, query) => {
     if(!query){
-      console.log("Perse");
+      //console.log("Perse");
       return restaurants;
     }
     return restaurants.filter((restaurant) => {
-      console.log("Paska");
+     // console.log("Paska");
       const restaurantName = restaurant.rname.toLowerCase();
       return restaurantName.includes(query);
     })

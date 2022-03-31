@@ -6,33 +6,27 @@ import { useEffect, useState } from 'react';
 
 
  export default function RestaurantDetails() {
-    const init = () => {
-        RestaurantService.getAll()
-          .then(response => {
-            console.log('Printing restaurant', response.data);
-       
-          })
-          .catch(error => {
-            console.log('vituiksmän', error);
-          }) 
-      }
-    
-      useEffect(() => {
-        init();
-      }, []);
 
 
       
     const result = useParams();
     console.log(result);
 
-    const restaurant = RestaurantService.get(restaurant => restaurant.rname === result.rname);
-    if(restaurant === null){
-        return <div>No restaurant found</div>;
+    const ravinteli = RestaurantService.get("Osmo Rilli");
+    console.log("Lol viikset");
+    if(ravinteli == null){
+        console.log("lol");
+        return  <div>
+            No restaurant found
+            </div>;
+        
     }
+
+ 
    return (
      <div>
-        Pertti
+         Tähän pitäisi tulla ravinteli
+     
          
      </div>
    )

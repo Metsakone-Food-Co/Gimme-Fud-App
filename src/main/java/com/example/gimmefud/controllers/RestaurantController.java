@@ -25,7 +25,7 @@ public class RestaurantController {
         return restaurantRepo.findAll();
     }
 
-    @GetMapping("/restaurants/{id}")
+    @GetMapping("/restaurants/{rname}")
     public Restaurant getRestaurant (@PathVariable String rname) {
         return restaurantRepo.findById(rname).get();
     }

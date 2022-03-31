@@ -31,7 +31,7 @@ public class CustomerController {
         return customerService.getCustomers() ;
     }
 
-    @GetMapping("/customers/{id}")
+    @GetMapping("/customers/{username}")
     public Customer getCustomer( @PathVariable  String username){
         return customerService.getCustomer(username);
     }
@@ -50,7 +50,7 @@ public class CustomerController {
         return  customerRepo.save(customer);
     }
 
-    @DeleteMapping("/customer/{id}")
+    @DeleteMapping("/customer/{username}")
     public ResponseEntity<HttpStatus> deleteCustomerById(@PathVariable String username){
         customerRepo.deleteById(username);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
