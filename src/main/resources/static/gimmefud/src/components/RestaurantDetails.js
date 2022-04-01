@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
  import RestaurantService from '../services/RestaurantService';
- import { useParams, } from 'react-router-dom'
+ import { useParams,Outlet} from 'react-router-dom'
 
 
 
@@ -8,26 +8,28 @@ import { useEffect, useState } from 'react';
  export default function RestaurantDetails() {
 
 
-      
+     
     const result = useParams();
-    console.log(result);
+    console.log(result.rname);
 
-    const ravinteli = RestaurantService.get("Osmo Rilli");
-    console.log("Lol viikset");
-    if(ravinteli == null){
-        console.log("lol");
-        return  <div>
-            No restaurant found
-            </div>;
-        
-    }
+    RestaurantService.get(result.rname);
+   
+
+
+
+   
+
 
  
    return (
      <div>
          Tähän pitäisi tulla ravinteli
-     
-         
+       <div>
+      {
+        result.rname
+      }
+      </div>
+         <Outlet />
      </div>
    )
  }

@@ -30,6 +30,8 @@ function App() {
   const [userJwt, setUserJwt] = useState(null);
 
    const [ownerJwt, setOwnerJwt] = useState(null);
+  
+ 
 
   let authRoutes = <>
    <Route path="LoginComponent" element={<LoginComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
@@ -48,7 +50,7 @@ function App() {
 
 
       <Route path="ListRestaurantComponent" element={<ListRestaurantComponent />}/>
-        <Route path=":restaurantId/*" element = { <RestaurantDetails />}>
+        <Route path="ListRestaurantComponent/:rname" element = { <RestaurantDetails />}>
         </Route>
 
       <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
