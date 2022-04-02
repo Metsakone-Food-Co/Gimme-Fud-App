@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import CoursesService from '../services/CoursesService';
 import { Link, Outlet } from 'react-router-dom';
+import SearchCourses from './SearchCourses';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Button, Badge} from "react-bootstrap";
@@ -27,6 +28,26 @@ const ListCoursesComponent = () => {
     init();
   }, []);
 
+  const {searchCourses} = window.location;
+  const query = new URLSearchParams(searchCourses).get('s');
+  const [searchQuery, setSearchQuery] = useState(query || '');
+
+  const filterCourses = (courses, query) => {
+    if(!query){
+      
+      return courses;
+    }
+    return courses.filter((courses) => {
+     
+      const coursesName = courses.rname.toLowerCase();
+      return coursesName.includes(query);
+    })
+  }
+
+  const filteredCourses = filterCourses(courses, searchQuery);
+
+
+
  
   
 
@@ -40,24 +61,28 @@ const ListCoursesComponent = () => {
    
        </div>
        </div>
+       <h2>Course search</h2>
+       <SearchCourses
+       searchQuery={searchQuery}
+       setSearchQuery={setSearchQuery}/>
        
 
         <Row xs={1} md={3} className="g-4">
-          {courses.map(courses =>(
-            <tr key={courses.rname}>
+          {filteredCourses.map(course =>(
+            <tr key={course.rname}>
 
 
-                <Link to={courses.rname}>
+                <Link to={course.rname}>
                 <Card style={{ width: '26rem'  }} >
                 <Card.Body style={{border: '50px'}}>
               <Card.Img variant="top" src="https://im.mtv.fi/image/3408894/landscape16_9/792/446/b51f396b1ebe045cdc114881f1d55017/Lj/grilli.jpg "/>
             
-             <Card.Title  >{courses.rname} <BsCartPlus /></Card.Title>
+             <Card.Title  >{course.rname} <BsCartPlus /></Card.Title>
 
               <Card.Text>
-              <p>Meal name: {courses.meal_name}</p> </Card.Text>
+              <p>Meal name: {course.meal_name}</p> </Card.Text>
               <Card.Text>
-              <p>Price: {courses.meal_price} </p> 
+              <p>Price: {course.meal_price} </p> 
               </Card.Text>
               
       
@@ -65,13 +90,10 @@ const ListCoursesComponent = () => {
                 <Card.Link href="#">Give Feedback</Card.Link>
                 <Card.Text>
               
-                <Badge bg="light" text="info">{courses.mealtype}<MdFastfood/></Badge>
+                <Badge bg="light" text="info">{course.mealtype}<MdFastfood/></Badge>
                   
                 </Card.Text>
            
-                
-             
-     
               </Card.Body>
               </Card>
               </Link>  
@@ -84,7 +106,7 @@ const ListCoursesComponent = () => {
       
        </div>
        
-        
+       <Outlet />
       </div>
  
   );
