@@ -1,13 +1,13 @@
 .navbar1 {
   display: flex;
   background-color: orange;
-}
-
-.navbar1 > * {
-  margin-right: 30px;;
 
 }
+
 .karuselli{
+  display: flex;
   margin-left: 350px;
 }
-
+.kuva{
+  width: 10%;
+}

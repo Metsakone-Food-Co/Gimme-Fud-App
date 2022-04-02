@@ -21,8 +21,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState} from 'react';
 
 
-
-
 function App() {
 
 
@@ -30,34 +28,28 @@ function App() {
   const [userJwt, setUserJwt] = useState(null);
   const [ownerJwt, setOwnerJwt] = useState(null);
 
-  //TÄSSÄ OHJATAAN ROUTESIA
   let authRoutes = <>
    <Route path="LoginComponent" element={<LoginComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
    <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setOwnerJwt(newJWT) }/> }/>
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
-   <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
-   <Route path="HomePageOwnerComponent" element={<HomepageOwnerComponent/>}/>
+
+
   </>
-//Jos on täällä niin päästää sisään kun kirjauutnut
+
   if (userJwt != null) {
     authRoutes = <>
       <Route path="ListCoursesComponent" element={<ListCoursesComponent/>}/>
-      <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
       <Route path="ListCustomerComponent" element={<ListCustomerComponent/>}/>
       <Route path="ListOwnerComponent" element={<ListOwnerComponent/>}/>
       <Route path="ListRestaurantComponent" element={<ListRestaurantComponent/>}/>
       <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
       <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
-      <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent/>}/>
       <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
       <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
-      <Route path="HomepageOwnerComponent" element={<HomepageOwnerComponent/>}/>
 
     </>
   }
-
-//kun ei ole kirjautunut Yläpalkki. TÄMÄ NÄKYY ASIAKKAALLe AJA OMISTAJALLE
 
   let authLinks = <> 
        <Link to="/CreateCustomerComponent"><button type="button" class="btn btn-light btn-lg ">Create customer</button></Link>
@@ -67,7 +59,7 @@ function App() {
         <Link to="/LoginOwnerComponent"><button type="button" class="btn btn-light btn-lg ">Login as a Owner</button></Link>
       
   </>
-//Näkyy kun kirjautunut sisään, Yläpalkki
+
   if (userJwt != null) {
     authLinks =<>
        <Link to="/ListRestaurantComponent"><div>Restaurant list</div></Link>
@@ -79,7 +71,7 @@ function App() {
         </>
   }
 
-// --------------------- 
+
   let ownerRoutes = <>
   <Route path="LoginOwnerComponent" element={<LoginOwnerComponent loginOwner={ (newOwnerJWT) => setOwnerJwt(newOwnerJWT) }/> }/>
   <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
@@ -87,7 +79,7 @@ function App() {
   <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
   <Route path="HomePageOwnerComponent" element={<HomepageOwnerComponent/>}/>
  </>
-//Jos on täällä niin päästää sisään kun kirjauutnut
+
  if (ownerJwt != null) {
    ownerRoutes = <>
      <Route path="ListCoursesComponent" element={<ListCoursesComponent/>}/>
@@ -103,9 +95,10 @@ function App() {
      <Route path="HomepageOwnerComponent" element={<HomepageOwnerComponent/>}/>
 
    </>
- }
-//kun ei ole kirjautunut Yläpalkki
 
+
+
+ }
  let ownerLinks = <> 
 
       <Link to="/CreateCustomerComponent"><div>Create customer</div></Link>
@@ -113,10 +106,9 @@ function App() {
        <Link to="/CreateCoursesComponent"><button type="button" class="btn btn-light btn-lg ">Create Courses</button></Link>
        <Link to="/LoginComponent"><button type="button" class="btn btn-light btn-lg ">Login</button></Link>
        <Link to="/LoginOwnerComponent"><button type="button" class="btn btn-light btn-lg ">Login as a Owner</button></Link>
-       
  
  </>
-//Näkyy kun kirjautunut sisään, Yläpalkki. TÄÄ EI TOIMI 
+
  if (ownerJwt != null) {
    ownerLinks =<>
       <Link to="/ListRestaurantComponent"><div>Restaurant OWNER list</div></Link>
@@ -129,26 +121,15 @@ function App() {
  }
   return (
     <BrowserRouter>
-    <div >
-      <div className="navbar1">
-      <img src="Logo.png" width="8%"></img>
-        <Link to="/"><div>Home</div></Link> 
-        {authLinks} 
-      </div>
-    
-      
+     
       <Routes>
         <Route path="/" element={ <HomepageComponent userLoggedIn={userJwt != null} logout={() =>setUserJwt(null)}/>}/>
-        {authRoutes}
+        <Route path="/HomepageOwnerComponent" element={ <HomepageOwnerComponent ownerLoggedIn={ownerJwt != null} logout={() =>setOwnerJwt(null)}/>}/>
+        {authRoutes} {ownerRoutes}
         <Route path="*" element={<HomepageComponent userLoggedIn={userJwt != null}/>}/>
       </Routes>
-      <Routes>
-        <Route path="/" element={ <HomepageOwnerComponent ownerLoggedIn={ownerJwt != null} logout={() =>setOwnerJwt(null)}/>}/>
-        {ownerRoutes}
-        <Route path="*" element={<HomepageOwnerComponent ownerLoggedIn={ownerJwt != null}/>}/>
-      </Routes>
 
-    </div>
+
     
     </BrowserRouter>
     

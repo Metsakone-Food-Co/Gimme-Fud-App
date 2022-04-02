@@ -1,14 +1,39 @@
 import React from 'react'
 import {BrowserRouter,Routes, Route, Link } from 'react-router-dom'
-import {Navbar, Container, Nav, NavDropdown, Carousel} from "react-bootstrap";
+import {Carousel} from "react-bootstrap";
 
 
 
 
 export default function Homepage(props) {
   return (
-<div>
 
+<div>
+<div className='navbar1'> 
+<img className='kuva'src="Logo.png"></img>
+      <div className='nav2'>
+        <h1>Home Page lol</h1>
+
+      </div>
+
+        <div>User login status: { props.userLoggedIn ? "is logged in" : "is not logged in" } </div>
+        <div>
+          { props.userLoggedIn ? 
+          <>
+              <div><button type = "button" class="btn btn-primary btn-lg"onClick={props.logout}> Logout </button></div>
+              <Link to="/ListRestaurantComponent"><button type="button" class="btn btn-primary btn-lg ">Restaurants</button></Link>
+              <Link to="/ListCoursesComponent"><button type="button" class="btn btn-primary btn-lg ">Courses</button></Link>
+            </>
+             :
+           <>
+               <Link to="/LoginComponent"><button type="button" class="btn btn-light btn-lg ">Login</button></Link>
+         </>
+         
+   }
+</div>
+</div>
+
+<div>
 <Carousel className="karuselli">
   <Carousel.Item class="item">
     <img
@@ -32,22 +57,6 @@ export default function Homepage(props) {
      </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
-
-        <h1>Home Page lol</h1>
-
-        <div>User login status: { props.userLoggedIn ? "is logged in" : "is not logged in" } </div>
-        <div>
-          { props.userLoggedIn ? 
-          <>
-              <div><button type = "button" class="btn btn-primary btn-lg"onClick={props.logout}> Logout </button></div>
-              <Link to="/ListRestaurantComponent"><button type="button" class="btn btn-primary btn-lg ">Restaurants</button></Link>
-            </>
-             :
-           <>
-               <Link to="/LoginComponent"><button type="button" class="btn btn-light btn-lg ">Login</button></Link>
-         </>
-         
-   }
         
        </div>
 
