@@ -110,8 +110,9 @@ function App() {
       <div className="navbar">
         <Link to="/"><div>Home</div></Link>
         {authLinks}
-
       </div>
+
+
       <Routes>
         <Route path="/" element={ <HomepageComponent userLoggedIn={userJwt != null} logout={() =>setUserJwt(null)}/>}/>
         {authRoutes}

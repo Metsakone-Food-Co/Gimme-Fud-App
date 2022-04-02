@@ -10,9 +10,23 @@ import { useEffect, useState } from 'react';
 
      
     const result = useParams();
-    console.log(result.rname);
+    console.log(result);
 
-    RestaurantService.get(result.rname);
+
+    const init = () => {
+      RestaurantService.getAll()
+        .then(response => {
+          console.log('Printing restaurants', response.data);
+       
+        })
+        .catch(error => {
+          console.log('vituiksmän', error);
+        }) 
+    }
+    useEffect(() => {
+      init();
+    }, []);
+ 
    
 
 
@@ -24,11 +38,9 @@ import { useEffect, useState } from 'react';
    return (
      <div>
          Tähän pitäisi tulla ravinteli
-       <div>
-      {
-        result.rname
-      }
-      </div>
+      {result.rtype}
+     
+
          <Outlet />
      </div>
    )
