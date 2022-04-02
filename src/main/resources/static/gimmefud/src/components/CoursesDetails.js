@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
  import CoursesService from '../services/CoursesService';
  import { useParams,Outlet} from 'react-router-dom'
+ import Row from 'react-bootstrap/Row'
+ import 'bootstrap/dist/css/bootstrap.min.css';
+import {Card, Button, Badge} from "react-bootstrap";
 
 
 
@@ -40,20 +43,36 @@ import { useEffect, useState } from 'react';
 
  
    return (
-     <div>
+     <div className="container">
+
+         <div>
+         <Row xs={2} md={1} className="g-4">
+            {courses.map(courses =>(
+            <tr key={courses.rname}>
+
+                <Card style={{ width: '26rem'  }} >
+                <Card.Body style={{border: '50px'}}>
          
-    {courses.map(courses =>(
-    <tr key={courses.rname}>
+    
 
-        <h2>{courses.rname}</h2>
-        <h2>{courses.meal_name}</h2>
-        <h2>{courses.meal_price}</h2>
-
-    </tr>))}
+                <Card.Text>{courses.rname}</Card.Text>
+                <Card.Text>
+              <p>Meal name: {courses.meal_name}</p> </Card.Text>
+              <Card.Text>
+              <p>Price: {courses.meal_price} </p> 
+              </Card.Text>
         
-     
 
+            
+            </Card.Body>
+            </Card>
+        
+            </tr>
+            ))}
+        </Row>
+        </div>
          <Outlet />
+         
      </div>
    )
  }
