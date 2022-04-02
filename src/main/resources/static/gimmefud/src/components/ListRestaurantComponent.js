@@ -7,6 +7,7 @@ import {Card, Button, Badge} from "react-bootstrap";
 import Row from 'react-bootstrap/Row'
 import { BsCartPlus} from "react-icons/bs";
 import { MdFastfood } from "react-icons/md";
+import CoursesService from '../services/CoursesService';
 
 
 
@@ -17,6 +18,7 @@ const ListRestaurantComponent = (props) => {
 
 
   const [restaurants, setRestaurants] = useState([]);
+
   
 
 
@@ -84,6 +86,7 @@ const ListRestaurantComponent = (props) => {
               <Card.Img variant="top" src="https://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/master/w_1280,c_limit/the-ultimate-hamburger.jpg"/>
             
              <Card.Title>{restaurant.rname} <BsCartPlus/></Card.Title>
+             
             
               <Card.Text>
               <p>Opening hours: {restaurant.service_hours}</p> </Card.Text>

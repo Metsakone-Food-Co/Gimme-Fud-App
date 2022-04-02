@@ -14,6 +14,7 @@ import CreationSuccesfull from './Messages/CreationSuccesfull';
 import SearchRestaurant from './components/SearchRestaurant';
 import LoginOwnerComponent from './components/LoginOwnerComponent'
 import RestaurantDetails from './components/RestaurantDetails'
+import CoursesDetails from './components/CoursesDetails'
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -44,6 +45,9 @@ function App() {
   if (userJwt != null) {
     authRoutes = <>
       <Route path="ListCoursesComponent" element={<ListCoursesComponent/>}/>
+      <Route path="ListCoursesComponent/:rname" element = { <CoursesDetails />}>
+        </Route>
+
       <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
       <Route path="ListCustomerComponent" element={<ListCustomerComponent/>}/>
       <Route path="ListOwnerComponent" element={<ListOwnerComponent/>}/>

@@ -10,11 +10,13 @@ import javax.persistence.*;
 public class Courses {
 
     @Id
+    @Column(name="rname")
+    public String rname;
+    
     @Column(name="course_name")
     public String course_name;
 
-    @Column(name="rname")
-    public String rname;
+
 
     @Column(name = "meal_name")
     public String meal_name;
