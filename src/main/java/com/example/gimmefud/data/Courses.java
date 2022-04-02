@@ -12,7 +12,7 @@ public class Courses {
     @Id
     @Column(name="rname")
     public String rname;
-    
+
     @Column(name="course_name")
     public String course_name;
 

@@ -12,6 +12,7 @@ import CreateRestaurantComponent from './components/CreateRestaurantComponent'
 import LoginComponent from './components/LoginComponent'
 import CreationSuccesfull from './Messages/CreationSuccesfull';
 import SearchRestaurant from './components/SearchRestaurant';
+import SearchCourses from './components/SearchCourses'
 import LoginOwnerComponent from './components/LoginOwnerComponent'
 import RestaurantDetails from './components/RestaurantDetails'
 import CoursesDetails from './components/CoursesDetails'
@@ -62,6 +63,7 @@ function App() {
       <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent/>}/>
       <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
       <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
+      <Route path="SearchCourses" element={<SearchCourses/>}/>
     </>
   }
      
@@ -85,6 +87,7 @@ function App() {
       <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent/>}/>
       <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
       <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
+      <Route path="SearchCourses" element={<SearchCourses/>}/>
     </>
   }
 
