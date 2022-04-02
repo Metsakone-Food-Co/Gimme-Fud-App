@@ -28,8 +28,8 @@ public class CoursesController {
         return coursesrepo.save(newCourse);
     }
 
-    @GetMapping("/courses/{id}")
-    public Courses getSingleCourse(@PathVariable String courseName){return coursesrepo.findById(courseName).get();}
+    @GetMapping("/courses/{rname}")
+    public Courses getSingleCourse(@PathVariable String rname){return coursesrepo.findById(rname).get();}
 
 
     @PutMapping("/courses")

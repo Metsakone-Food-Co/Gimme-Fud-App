@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import CoursesService from '../services/CoursesService';
+import { Link, Outlet } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Button, Badge} from "react-bootstrap";
@@ -43,8 +44,10 @@ const ListCoursesComponent = () => {
 
         <Row xs={1} md={3} className="g-4">
           {courses.map(courses =>(
-            <tr key={courses.courses_name}>
-                
+            <tr key={courses.rname}>
+
+
+                <Link to={courses.rname}>
                 <Card style={{ width: '26rem'  }} >
                 <Card.Body style={{border: '50px'}}>
               <Card.Img variant="top" src="https://im.mtv.fi/image/3408894/landscape16_9/792/446/b51f396b1ebe045cdc114881f1d55017/Lj/grilli.jpg "/>
@@ -71,6 +74,7 @@ const ListCoursesComponent = () => {
      
               </Card.Body>
               </Card>
+              </Link>  
               
             </tr>
           ))
