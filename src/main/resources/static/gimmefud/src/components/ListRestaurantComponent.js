@@ -60,7 +60,7 @@ const ListRestaurantComponent = (props) => {
   return (
     
     <div className="container">
-         <div> { props.userLoggedIn } </div>
+       
        <div class="card text-white">
        <img src="ruokakuva.png" class="card-img" alt= "background" width="100%" height="400px"/>
        <div class="card-img-overlay">

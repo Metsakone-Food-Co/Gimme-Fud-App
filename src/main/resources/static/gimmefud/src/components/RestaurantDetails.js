@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 
  export default function RestaurantDetails() {
 
+    const [restaurant, setRestaurant] = useState([]);
 
      
     const result = useParams();
@@ -14,10 +15,10 @@ import { useEffect, useState } from 'react';
 
 
     const init = () => {
-      RestaurantService.getAll()
+      RestaurantService.get(result.rname)
         .then(response => {
           console.log('Printing restaurants', response.data);
-       
+          setRestaurant(response.data);
         })
         .catch(error => {
           console.log('vituiksmän', error);
@@ -26,8 +27,7 @@ import { useEffect, useState } from 'react';
     useEffect(() => {
       init();
     }, []);
- 
-   
+
 
 
 
@@ -38,7 +38,9 @@ import { useEffect, useState } from 'react';
    return (
      <div>
          Tähän pitäisi tulla ravinteli
-      {result.rtype}
+      <h1>{restaurant.rname}</h1>
+      <h2>{restaurant.raddress}</h2>
+     <h1> {restaurant.rtype}</h1>
      
 
          <Outlet />
