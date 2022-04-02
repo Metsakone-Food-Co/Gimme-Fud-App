@@ -15,7 +15,7 @@ const LoginOwnerComponent = (props) => {
     const restaurantowner = { usernamer, password};
     LoginOwnerService.create(restaurantowner)
     .then(response => {
-        console.log("customer logged successfully", response.data);
+        console.log("owner logged successfully", response.data);
         const resivedJWT = response.data.token;
         props.login(resivedJWT);
         navigate("/HomepageOwnerComponent", {replace: true}); 

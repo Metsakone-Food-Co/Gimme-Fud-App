@@ -14,7 +14,7 @@ import CreationSuccesfull from './Messages/CreationSuccesfull';
 import SearchRestaurant from './components/SearchRestaurant';
 import LoginOwnerComponent from './components/LoginOwnerComponent'
 import HomepageOwnerComponent from './components/HomepageOwnerComponent';
-import NavBarComponent from './components/NavBarComponent';
+
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -33,7 +33,7 @@ function App() {
   //TÄSSÄ OHJATAAN ROUTESIA
   let authRoutes = <>
    <Route path="LoginComponent" element={<LoginComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
-   <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
+   <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setOwnerJwt(newJWT) }/> }/>
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
    <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
@@ -81,7 +81,6 @@ function App() {
 
 // --------------------- 
   let ownerRoutes = <>
-  <Route path="LoginComponent" element={<LoginComponent loginOwner={ (newOwnerJWT) => setOwnerJwt(newOwnerJWT) }/> }/>
   <Route path="LoginOwnerComponent" element={<LoginOwnerComponent loginOwner={ (newOwnerJWT) => setOwnerJwt(newOwnerJWT) }/> }/>
   <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
   <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
@@ -143,7 +142,12 @@ function App() {
         {authRoutes}
         <Route path="*" element={<HomepageComponent userLoggedIn={userJwt != null}/>}/>
       </Routes>
-      
+      <Routes>
+        <Route path="/" element={ <HomepageOwnerComponent ownerLoggedIn={ownerJwt != null} logout={() =>setOwnerJwt(null)}/>}/>
+        {ownerRoutes}
+        <Route path="*" element={<HomepageOwnerComponent ownerLoggedIn={ownerJwt != null}/>}/>
+      </Routes>
+
     </div>
     
     </BrowserRouter>

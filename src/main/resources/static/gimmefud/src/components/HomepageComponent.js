@@ -7,30 +7,7 @@ import {Navbar, Container, Nav, NavDropdown, Carousel} from "react-bootstrap";
 
 export default function Homepage(props) {
   return (
-//tämä pitäis näkyä vaan asiakkaalle ja 
-  /*  <div className="Container">
-    <Navbar bg="light" variant="light" expand="lg"><img src="Logo.png" width="8%"></img>
-  <Container>
-  <Nav.Link to="#/ListRestaurantComponent">Home</Nav.Link>
-      <NavDropdown title="Courses" id="basic-nav-dropdown" >
-      <NavDropdown.Item href="#action/3.1">Main</NavDropdown.Item>
-      <NavDropdown.Item href="#action/3.2">Dessert</NavDropdown.Item>
-      <NavDropdown.Item href="#action/3.3">Drinks</NavDropdown.Item>
-      </NavDropdown>
-   
-  
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="mx-auto">
-        <Link to="/ListRestaurantComponent"><button type="button" class="btn btn-light btn-lg ">Restaurants</button></Link>
-        <Link to="/ListCoursesComponent"><button type="button" class="btn btn-light btn-lg ">Courses</button></Link> 
-    
-       
-      </Nav>
-    </Navbar.Collapse>
-  </Container>
-</Navbar>
-*/ <div>
+<div>
 
 <Carousel className="karuselli">
   <Carousel.Item class="item">
@@ -58,9 +35,6 @@ export default function Homepage(props) {
 
         <h1>Home Page lol</h1>
 
-
-
-
         <div>User login status: { props.userLoggedIn ? "is logged in" : "is not logged in" } </div>
         <div>
           { props.userLoggedIn ? 
@@ -68,14 +42,11 @@ export default function Homepage(props) {
               <div><button type = "button" class="btn btn-primary btn-lg"onClick={props.logout}> Logout </button></div>
               <Link to="/ListRestaurantComponent"><button type="button" class="btn btn-primary btn-lg ">Restaurants</button></Link>
             </>
-            
              :
-             
            <>
                <Link to="/LoginComponent"><button type="button" class="btn btn-light btn-lg ">Login</button></Link>
          </>
          
-   
    }
         
        </div>

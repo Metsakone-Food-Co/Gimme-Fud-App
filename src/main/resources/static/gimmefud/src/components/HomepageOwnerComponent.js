@@ -2,11 +2,15 @@ import React from 'react'
 import {BrowserRouter,Routes, Route, Link } from 'react-router-dom'
 import {Navbar, Container, Nav, NavDropdown, Carousel} from "react-bootstrap";
 
-export default function HomepageOwnerComponent(props) {
+export default function HomepageOwnerComponent() {
   return (
     <div>
 
   
+
+
+
+
     <div className="Container">
    
         <Carousel className="karuselli">
