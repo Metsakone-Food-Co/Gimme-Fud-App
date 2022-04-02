@@ -25,10 +25,10 @@ public class RestaurantController {
         return restaurantRepo.findAll();
     }
 
-    /*@GetMapping("/restaurants/{id}")
-    public Restaurant getRestaurant (@PathVariable String rname){
+    @GetMapping("/restaurants/{rname}")
+    public Restaurant getRestaurant (@PathVariable String rname) {
         return restaurantRepo.findById(rname).get();
-    }*/
+    }
 
     @PostMapping("/restaurants")
     public Restaurant createRestaurant(@RequestBody Restaurant newRestaurant){
