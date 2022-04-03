@@ -18,7 +18,7 @@ import {Card, Button, Badge} from "react-bootstrap";
 
 
     const init = () => {
-      CoursesService.getAll(result.rname)
+      CoursesService.get(result.rname)
         .then(response => {
           console.log('Printing courses', response.data);
           setCourses(response.data);

@@ -42,9 +42,6 @@ public class CustomerController {
     }
 
 
-
-
-
     @PutMapping("/customers")
     public Customer updateCustomerDetails(@RequestBody Customer customer) {
         return  customerRepo.save(customer);

@@ -9,7 +9,6 @@ import CustomerService from "../services/CoursesService";
 const CreateCoursesComponent = () => {
     const [course_name, setCourseName] = useState('');
     const[rname, setRname   ] = useState('');
-    const[meal_name, setMealName] = useState('');
     const[meal_type, setMealType] = useState('');
     const[meal_price, setMealPrice] = useState('');
 
@@ -21,7 +20,7 @@ const CreateCoursesComponent = () => {
     const saveCourse = (e) => {
         e.preventDefault();
         
-        const course = { course_name, rname, meal_name, meal_type, meal_price};
+        const course = { course_name, rname, meal_type, meal_price};
         CustomerService.create(course)
         .then(response => {
             console.log("Course added successfully", response.data);
@@ -69,18 +68,6 @@ const CreateCoursesComponent = () => {
     />
 </div>
 
-<div class = "col-md-6">
-    <label for = "inputMealName" class="form-label">Meal name</label>
-    <input
-    type="text"
-    class="form-control"
-    id="meal_name"
-    value={meal_name}
-    onChange={(e) => setMealName(e.target.value)}
-    placeholder="Meal name"
-    name="s" 
-    />
-</div>
 
 <div class = "col-md-6">
     <label for = "inputMealType" class="form-label">Last name</label>

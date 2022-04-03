@@ -16,31 +16,32 @@ import java.util.List;
 public class CoursesController {
 
     @Autowired
-    CoursesRepository coursesrepo;
+    CoursesService coursesService;
+
+
 
     @GetMapping("/courses")
     public List<Courses> getAllCourses(){
-        return coursesrepo.findAll() ;
+        return coursesService.GetAllCourses() ;
     }
 
     @PostMapping("/courses")
-    public Courses createCourse(@RequestBody Courses newCourse){
-        return coursesrepo.save(newCourse);
+    public Courses createCourse(@RequestBody Courses courses){
+        return coursesService.createCourse(courses);
     }
 
     @GetMapping("/courses/{rname}")
-    public Courses getSingleCourse(@PathVariable String rname){return coursesrepo.findById(rname).get();}
+    public Courses getCourse(@PathVariable String rname){return coursesService.GetCourse(rname);}
 
 
     @PutMapping("/courses")
-    public Courses updateCourseDetails(@RequestBody Courses course) {
-        return   coursesrepo.save(course);
+    public Courses updateCourseDetails(@RequestBody Courses courses) {
+        return   coursesService.updateCourse(courses);
     }
 
-    @DeleteMapping("/courses/{id}")
-    public ResponseEntity<HttpStatus> deleteCourseById(@PathVariable String courseName){
-        coursesrepo.deleteById(courseName);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    @DeleteMapping("/courses/{course_name}")
+    public ResponseEntity<HttpStatus> deleteCourse(@PathVariable String course_name){
+      return coursesService.deleteCourseById(course_name);
     }
 
 
