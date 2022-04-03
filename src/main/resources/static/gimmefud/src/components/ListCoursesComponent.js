@@ -28,8 +28,8 @@ const ListCoursesComponent = () => {
     init();
   }, []);
 
-  const {searchCourses} = window.location;
-  const query = new URLSearchParams(searchCourses).get('s');
+  const {searchCourse} = window.location;
+  const query = new URLSearchParams(searchCourse).get('s');
   const [searchQuery, setSearchQuery] = useState(query || '');
 
   const filterCourses = (courses, query) => {
@@ -37,19 +37,14 @@ const ListCoursesComponent = () => {
       
       return courses;
     }
-    return courses.filter((courses) => {
+    return courses.filter((course) => {
      
-      const coursesName = courses.rname.toLowerCase();
-      return coursesName.includes(query);
+      const courseName = course.course_name.toLowerCase();
+      return courseName.includes(query);
     })
   }
 
   const filteredCourses = filterCourses(courses, searchQuery);
-
-
-
- 
-  
 
   return (
     <div className="container">
@@ -69,7 +64,7 @@ const ListCoursesComponent = () => {
 
         <Row xs={1} md={3} className="g-4">
           {filteredCourses.map(course =>(
-            <tr key={course.rname}>
+            <tr key={course.course_name}>
 
 
                 <Link to={course.rname}>
@@ -80,17 +75,17 @@ const ListCoursesComponent = () => {
              <Card.Title  >{course.rname} <BsCartPlus /></Card.Title>
 
               <Card.Text>
-              <p>Meal name: {course.meal_name}</p> </Card.Text>
+              <p>Meal name: {course.course_name}</p> </Card.Text>
               <Card.Text>
               <p>Price: {course.meal_price} </p> 
               </Card.Text>
               
       
-                <button type="button" class="btn btn-outline-secondary"> Tilaa <BsCartPlus/></button>
+                <Button type="button" class="btn btn-outline-secondary"> Tilaa <BsCartPlus/></Button>
                 <Card.Link href="#">Give Feedback</Card.Link>
                 <Card.Text>
               
-                <Badge bg="light" text="info">{course.mealtype}<MdFastfood/></Badge>
+                <Badge bg="light" text="info">{course.meal_type}<MdFastfood/></Badge>
                   
                 </Card.Text>
            
