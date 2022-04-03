@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react';
  import RestaurantService from '../services/RestaurantService';
  import CoursesService from '../services/CoursesService';
  import { useParams,Outlet} from 'react-router-dom'
-import { Card } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Card, Button, Badge} from "react-bootstrap";
+import Row from 'react-bootstrap/Row'
+import { BsCartPlus} from "react-icons/bs";
+import { MdFastfood } from "react-icons/md";
 
 
 
@@ -53,39 +57,78 @@ import { Card } from 'react-bootstrap';
 
  
    return (
-     <div className="restaurantPage">{restaurant.rname}
-     <div className="restaurantContainer">
-       
-         <div className="leftMenu">
-         <ul><b>Courses</b>
-           <li>Appetisers</li>
-           <li>Main courses</li>
-           <li>Desserts</li>
-           <li>Drinks</li>
-         </ul>
-         </div>
+    <div className="container">
+      <h1>Main courses</h1>
+      {courses.map(course => {
+        if(course.rname == restaurant.rname)
+          if(course.meal_type == "Main course")
+        return(
+        <Row xs={1} md={3} className="g-4">
           
-         <div className="centerMenu">
-         <div>Rafla: {restaurant.rname}</div>
-         <div>Ruoka:
-           {courses.map(course => {
-             if(course.rname == restaurant.rname)
-             return <ul>
-               <li>{course.course_name}</li>
-             </ul>
-           })}
-         </div>
-         </div>
-          
-         <div className="rightMenu">
-         <div>{restaurant.raddress}</div>  
-         </div>
-          
-      
-     
+          <Card style={{width: '18rem'}}>
+            <Card.Body style={{border: '50px'}}>
+              <Card.Title>{course.course_name}</Card.Title>
+              <Card.Text>
+                <p>Price: {course.meal_price}€</p>
+              </Card.Text>
+              <Button>Add to cart<BsCartPlus/></Button>
+            </Card.Body>
+          </Card>
+        </Row>
+      )})}
+      <h1>Sides</h1>
+      {courses.map(course => {
+        if(course.rname == restaurant.rname)
+          if(course.meal_type == "Side")
+        return(
+        <Row xs={1} md={3} className="g-4">
+          <Card style={{width: '18rem'}}>
+            <Card.Body style={{border: '50px'}}>
+              <Card.Title>{course.course_name}</Card.Title>
+              <Card.Text>
+                <p>Price: {course.meal_price}€</p>
+              </Card.Text>
+              <Button>Add to cart<BsCartPlus/></Button>
+            </Card.Body>
+          </Card>
+        </Row>
+      )})}
+      <h1>Desserts</h1>
+      {courses.map(course => {
+        if(course.rname == restaurant.rname)
+          if(course.meal_type == "Dessert")
+        return(
+        <Row xs={1} md={3} className="g-4">
+          <Card style={{width: '18rem'}}>
+            <Card.Body style={{border: '50px'}}>
+              <Card.Title>{course.course_name}</Card.Title>
+              <Card.Text>
+                <p>Price: {course.meal_price}€</p>
+              </Card.Text>
+              <Button>Add to cart<BsCartPlus/></Button>
+            </Card.Body>
+          </Card>
+        </Row>
+      )})}
+      <h1>Drinks</h1>
+      {courses.map(course => {
+        if(course.rname == restaurant.rname)
+          if(course.meal_type == "Drink")
+        return(
+        <Row xs={1} md={3} className="g-4">
+          <Card style={{width: '18rem'}}>
+            <Card.Body style={{border: '50px'}}>
+              <Card.Title>{course.course_name}</Card.Title>
+              <Card.Text>
+                <p>Price: {course.meal_price}€</p>
+              </Card.Text>
+              <Button>Add to cart<BsCartPlus/></Button>
+            </Card.Body>
+          </Card>
+        </Row>
+      )})}
 
-         <Outlet />
+
      </div>
-     </div>
-   )
- }
+
+   )}
