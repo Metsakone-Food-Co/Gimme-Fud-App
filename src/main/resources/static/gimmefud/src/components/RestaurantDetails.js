@@ -57,7 +57,13 @@ import { MdFastfood } from "react-icons/md";
 
  
    return (
-    <div className="container">
+  <div className="restaurantPage">
+    <h1>{restaurant.rname}</h1>
+    <div className="restaurantContainer">
+      <div className="leftMenu">
+        
+      </div>
+      <div className="centerMenu">
       <h1>Main courses</h1>
       {courses.map(course => {
         if(course.rname == restaurant.rname)
@@ -68,6 +74,7 @@ import { MdFastfood } from "react-icons/md";
           <Card style={{width: '18rem'}}>
             <Card.Body style={{border: '50px'}}>
               <Card.Title>{course.course_name}</Card.Title>
+              <Card.Text>Tähän annoksen kuva</Card.Text>
               <Card.Text>
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
@@ -85,6 +92,7 @@ import { MdFastfood } from "react-icons/md";
           <Card style={{width: '18rem'}}>
             <Card.Body style={{border: '50px'}}>
               <Card.Title>{course.course_name}</Card.Title>
+              <Card.Text>Tähän annoksen kuva</Card.Text>
               <Card.Text>
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
@@ -102,6 +110,7 @@ import { MdFastfood } from "react-icons/md";
           <Card style={{width: '18rem'}}>
             <Card.Body style={{border: '50px'}}>
               <Card.Title>{course.course_name}</Card.Title>
+              <Card.Text>Tähän annoksen kuva</Card.Text>
               <Card.Text>
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
@@ -119,6 +128,7 @@ import { MdFastfood } from "react-icons/md";
           <Card style={{width: '18rem'}}>
             <Card.Body style={{border: '50px'}}>
               <Card.Title>{course.course_name}</Card.Title>
+              <Card.Text>Tähän annoksen kuva</Card.Text>
               <Card.Text>
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
@@ -128,7 +138,22 @@ import { MdFastfood } from "react-icons/md";
         </Row>
       )})}
 
-
+     
+    </div>
+    <div className="rightMenu">
+     <Row xs={1} md={3} className="g-4">
+       <Card style={{width: '18rem'}}>
+         <Card.Body style={{border: '50px'}}>
+           <Card.Title>Restaurant information</Card.Title>
+           <Card.Text>{restaurant.rname}</Card.Text>
+           <Card.Text>Address: {restaurant.raddress}</Card.Text>
+           <Card.Text>Type: {restaurant.rtype}</Card.Text>
+           <Card.Text>Price range: {restaurant.price_range}</Card.Text>
+         </Card.Body>
+       </Card>
+     </Row>
+    </div>
+     </div>
      </div>
 
    )}
