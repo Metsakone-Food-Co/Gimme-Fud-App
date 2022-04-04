@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import javax.annotation.PostConstruct;
 import java.util.List;
 
-
 @Service
 public class CoursesService {
 
@@ -22,8 +21,7 @@ public class CoursesService {
 
     @PostConstruct
     public void init() {
-
-
+        
     }
 
     public Courses GetCourse(String rname) {

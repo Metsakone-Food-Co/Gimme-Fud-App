@@ -1,14 +1,21 @@
 package com.example.gimmefud.controllers;
 
+import com.cloudinary.*;
 import com.example.gimmefud.CoursesService;
 import com.example.gimmefud.data.CoursesRepository;
 import com.example.gimmefud.data.Courses;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
+
 
 @CrossOrigin("*")
 @RestController
@@ -17,7 +24,6 @@ public class CoursesController {
 
     @Autowired
     CoursesService coursesService;
-
 
 
     @GetMapping("/courses")
