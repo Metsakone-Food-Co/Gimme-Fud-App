@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
  import RestaurantService from '../services/RestaurantService';
  import CoursesService from '../services/CoursesService';
- import { useParams,Outlet} from 'react-router-dom'
+ import { useParams,Outlet,Link} from 'react-router-dom'
 import { Card } from 'react-bootstrap';
-
+import "../RestaurantDetails.css";
 
 
 
@@ -33,7 +33,7 @@ import { Card } from 'react-bootstrap';
     
     
       const cinit = () => {
-        CoursesService.getAll()
+        CoursesService.get(result.rname)
           .then(response => {
             console.log('Printing courses data', response.data);
             setCourses(response.data);
@@ -68,10 +68,13 @@ import { Card } from 'react-bootstrap';
          <div className="centerMenu">
          <div>Rafla: {restaurant.rname}</div>
          <div>Ruoka:
+           
            {courses.map(course => {
              if(course.rname == restaurant.rname)
              return <ul>
+              
                <li>{course.course_name}</li>
+             
              </ul>
            })}
          </div>
@@ -80,12 +83,13 @@ import { Card } from 'react-bootstrap';
          <div className="rightMenu">
          <div>{restaurant.raddress}</div>  
          </div>
-          
+       
       
      
 
          <Outlet />
      </div>
      </div>
-   )
+    
+   ) 
  }
