@@ -9,7 +9,9 @@
     width: 25%
   }
   .centerMenu {
-    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 30px;
     width: 50%;
     border: 1px solid black;
