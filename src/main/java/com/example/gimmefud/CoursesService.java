@@ -26,11 +26,11 @@ public class CoursesService {
 
     }
 
-    public Courses GetCourse(String rname) {
-        return coursesRepo.findById(rname).orElse(null);
+    public List<Courses> getCourse(String rname) {
+        return coursesRepo.findByRname(rname);
     }
 
-    public List<Courses> GetAllCourses() {
+    public List<Courses> getAllCourses() {
         return coursesRepo.findAll();
 
     }
