@@ -89,7 +89,7 @@ const CreateCoursesComponent = () => {
     name="s" 
     />
 </div>
-
+<div>Use dropdown menu below to choose type of meal</div>
 <DropdownButton
 alignRight
 title={meal_type}
