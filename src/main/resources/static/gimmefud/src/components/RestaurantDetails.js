@@ -59,7 +59,7 @@ import '../RestaurantPage.css'
 
 
 
-      const onAdd = (course) => {
+      /*const onAdd = (course) => {
         const exist = items.find((x) => x.id === course.course_name);
         if (exist) {
           setItems(
@@ -72,10 +72,16 @@ import '../RestaurantPage.css'
           setItems([...items, { ...course.course_name, qty: 1 }]);
         }
         console.log("Timo")
-      };
-   
+      };*/
 
+   const onAdd = (item) => {
+     console.log("item on ", item);
+     items.push(item);
+     console.log("items on ", items);
+     setItems(items);
+   }
 
+//Miksi
  
    return (
   <div className="restaurantPage">
@@ -83,14 +89,13 @@ import '../RestaurantPage.css'
     <div className="restaurantContainer">
       <div className="leftMenu">
       <h2>CART ITEMS</h2>
-      {items.map((items) =>(
-        <div key ={items.course_name}>
-          <div>{items.course_name} </div>
+      <div>{items.map(it => {
+        return <div>{it.course_name}</div>;
+      })}</div>
+        
 
 
-          </div>
-      
-      ))}
+
         
       </div>
       <div className="centerMenu">
