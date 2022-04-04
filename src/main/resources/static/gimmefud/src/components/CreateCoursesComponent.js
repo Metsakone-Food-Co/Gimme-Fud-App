@@ -92,7 +92,7 @@ const CreateCoursesComponent = () => {
 
 <DropdownButton
 alignRight
-title="Choose type of meal"
+title={meal_type}
 id="dropdown-menu-align-right"
 onSelect={handleSelect}
 >
