@@ -22,7 +22,7 @@ public class CoursesController {
 
     @GetMapping("/courses")
     public List<Courses> getAllCourses(){
-        return coursesService.GetAllCourses() ;
+        return coursesService.getAllCourses() ;
     }
 
     @PostMapping("/courses")
@@ -31,7 +31,8 @@ public class CoursesController {
     }
 
     @GetMapping("/courses/{rname}")
-    public Courses getCourse(@PathVariable String rname){return coursesService.GetCourse(rname);}
+    public List<Courses> getCourse(@PathVariable String rname)
+    {return coursesService.getCourse(rname);}
 
 
     @PutMapping("/courses")

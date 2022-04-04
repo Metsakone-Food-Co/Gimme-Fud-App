@@ -16,6 +16,7 @@ import SearchCourses from './components/SearchCourses'
 import LoginOwnerComponent from './components/LoginOwnerComponent'
 import RestaurantDetails from './components/RestaurantDetails'
 import CoursesDetails from './components/CoursesDetails'
+import ShoppingCartComponent from './components/ShoppingCartComponent';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -41,6 +42,7 @@ function App() {
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
    <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
+  
   </>
 
   if (userJwt != null) {
@@ -64,6 +66,7 @@ function App() {
       <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
       <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
       <Route path="SearchCourses" element={<SearchCourses/>}/>
+      <Route path="ShoppingCartComponent" element={<ShoppingCartComponent/>}/>
     </>
   }
      
@@ -72,7 +75,7 @@ function App() {
    <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
-   <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
+
   </>
 
   if (ownerJwt != null) {
@@ -88,6 +91,7 @@ function App() {
       <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
       <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
       <Route path="SearchCourses" element={<SearchCourses/>}/>
+      <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
     </>
   }
 
@@ -97,6 +101,7 @@ function App() {
         <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
         <Link to="/LoginComponent"><div>Login</div></Link>
         <Link to="/LoginOwnerComponent"><div>Login as a Owner</div></Link>
+
 
   
   </>
@@ -108,6 +113,7 @@ function App() {
         <Link to="/ListOwnerComponent"><div>Restaurant owners</div></Link> 
         <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
         <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
+        <Link to="/ShoppingCartComponent"><div>Shopping Cart</div></Link>
     </>
   }
 

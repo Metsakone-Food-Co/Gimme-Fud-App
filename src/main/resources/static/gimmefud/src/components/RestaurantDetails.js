@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
  import RestaurantService from '../services/RestaurantService';
  import CoursesService from '../services/CoursesService';
- import { useParams,Outlet} from 'react-router-dom'
+
+ import { useParams,Outlet,Link} from 'react-router-dom'
+import { Card } from 'react-bootstrap';
+import "../RestaurantDetails.css";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Card, Button, Badge} from "react-bootstrap";
 import Row from 'react-bootstrap/Row'
 import { BsCartPlus} from "react-icons/bs";
 import { MdFastfood } from "react-icons/md";
+
 
 
 
@@ -37,7 +41,7 @@ import { MdFastfood } from "react-icons/md";
     
     
       const cinit = () => {
-        CoursesService.getAll()
+        CoursesService.get(result.rname)
           .then(response => {
             console.log('Printing courses data', response.data);
             setCourses(response.data);
@@ -71,6 +75,28 @@ import { MdFastfood } from "react-icons/md";
         return(
         <Row xs={1} md={3} className="g-4">
           
+         <div className="centerMenu">
+         <div>Rafla: {restaurant.rname}</div>
+         <div>Ruoka:
+           
+           {courses.map(course => {
+             if(course.rname == restaurant.rname)
+             return <ul>
+              
+               <li>{course.course_name}</li>
+             
+             </ul>
+           })}
+         </div>
+         </div>
+          
+         <div className="rightMenu">
+         <div>{restaurant.raddress}</div>  
+         </div>
+       
+      
+     
+
           <Card style={{width: '18rem'}}>
             <Card.Body style={{border: '50px'}}>
               <Card.Title>{course.course_name}</Card.Title>
@@ -138,6 +164,7 @@ import { MdFastfood } from "react-icons/md";
         </Row>
       )})}
 
+
      
     </div>
     <div className="rightMenu">
@@ -156,4 +183,10 @@ import { MdFastfood } from "react-icons/md";
      </div>
      </div>
 
-   )}
+    
+   ) 
+ }
+
+
+
+
