@@ -43,14 +43,14 @@ const CreateCoursesComponent = () => {
 
 
 <div class = "col-md-6">
-    <label for = "inputCourseName" class="form-label">Username</label>
+    <label for = "inputCourseName" class="form-label">Name of course</label>
     <input
     type="text"
     class="form-control"
     id="course_name"
     value={course_name}
     onChange={(e) => setCourseName(e.target.value)}
-    placeholder="CourseName"
+    placeholder="Name of course"
     name="s" 
     />
 </div>
@@ -63,35 +63,45 @@ const CreateCoursesComponent = () => {
     id="rname"
     value={rname}
     onChange={(e) => setRname(e.target.value)}
-    placeholder="Rname"
+    placeholder="Restaurant name"
     name="s" 
     />
 </div>
 
 
 <div class = "col-md-6">
-    <label for = "inputMealType" class="form-label">Last name</label>
+    <label for = "inputMealType" class="form-label">Type of meal</label>
     <input
     type="text"
     class="form-control"
     id="meal_type"
     value={meal_type}
     onChange={(e) => setMealType(e.target.value)}
-    placeholder="Meal type"
+    placeholder="Type of meal"
     name="s" 
     />
 </div>
 <div class = "col-md-6">
-    <label for = "inputPriceRange" class="form-label">Phone number</label>
+    <label for = "inputPriceRange" class="form-label">Price</label>
     <input
     type="text"
     class="form-control"
     id="price_range"
     value={meal_price}
     onChange={(e) => setMealPrice(e.target.value)}
-    placeholder="Price range"
+    placeholder="Price"
     name="s" 
     />
+</div>
+
+<div class="dropdown">
+  <button class="dropbutton">Choose type</button>
+  <div class="dropdown-content">
+    <a href="#">Main course</a>
+    <a href="#">Side</a>
+    <a href="#">Dessert</a>
+    <a href="#">Drink</a>
+  </div>
 </div>
 
 
@@ -106,7 +116,7 @@ const CreateCoursesComponent = () => {
     </div>
   </div>
 <div class="col-12">
-<button  onClick={(e) => saveCourse(e)} type="submit" class = "btn btn-primary">Add me</button>
+<button  onClick={(e) => saveCourse(e)} type="submit" class = "btn btn-primary">Add course</button>
 
     </div>   
     </form>

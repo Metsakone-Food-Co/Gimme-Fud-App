@@ -7,6 +7,7 @@ import {Card, Button, Badge} from "react-bootstrap";
 import Row from 'react-bootstrap/Row'
 import { BsCartPlus} from "react-icons/bs";
 import { MdFastfood } from "react-icons/md";
+import '../RestaurantPage.css'
 
 
 
@@ -148,6 +149,7 @@ import { MdFastfood } from "react-icons/md";
            <Card.Text>{restaurant.rname}</Card.Text>
            <Card.Text>Address: {restaurant.raddress}</Card.Text>
            <Card.Text>Type: {restaurant.rtype}</Card.Text>
+           <Card.Text>Service hours: {restaurant.service_hours}</Card.Text>
            <Card.Text>Price range: {restaurant.price_range}</Card.Text>
          </Card.Body>
        </Card>

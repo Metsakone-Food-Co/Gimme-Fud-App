@@ -6,32 +6,37 @@
 .navbar > * {
   margin-right: 10px;;
 }
-.restaurantPage {
-  text-align: center;
-  padding: 30px;
+.dropbutton {
+  background-color: blue;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
 }
-.restaurantContainer {
-  display: flex;
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
-.leftMenu {
-  width: 25%
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: lightblue;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
 }
-.centerMenu {
-  justify-content: space-around;
-  margin-top: 30px;
-  width: 50%;
-  border: 1px solid black;
-  border-radius: 16px;
-  padding: 50px;
-  text-align: center;
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
-.rightMenu {
-  text-align: left;
-  width: 25%;
-  margin-top: 30px;
-  padding: 50px;
+.dropdown-content a:hover {
+  background-color: #ddd;
 }
-.smallInfo {
-  margin-top: 20px;
-  font-size: 20px;
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropbutton {
+  background-color: #3e8e41;
 }
