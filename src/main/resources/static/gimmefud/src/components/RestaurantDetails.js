@@ -74,7 +74,7 @@ import '../RestaurantPage.css'
         return(
         <Row xs={1} md={3} className="g-4">
           
-       
+          <Link to={course.course_name}>
           <Card style={{width: '18rem'}}>
             <Card.Body style={{border: '50px'}}>
               <Card.Title>{course.course_name}</Card.Title>
@@ -82,9 +82,13 @@ import '../RestaurantPage.css'
               <Card.Text>
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
-              <Button>Add to cart<BsCartPlus/></Button>
+            
+              <Button >Add to cart<BsCartPlus/></Button>
+             
             </Card.Body>
           </Card>
+          </Link>
+       
         </Row>
       )})}
       <h1>Sides</h1>
@@ -160,7 +164,9 @@ import '../RestaurantPage.css'
      </Row>
     </div>
      </div>
+     <Outlet />
      </div>
+
 
     
    ) 

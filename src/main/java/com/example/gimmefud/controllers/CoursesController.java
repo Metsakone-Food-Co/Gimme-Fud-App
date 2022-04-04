@@ -35,6 +35,10 @@ public class CoursesController {
     {return coursesService.getCourse(rname);}
 
 
+    @GetMapping("/course/{course_name}")
+    public Courses getCourses(@PathVariable String course_name)
+    {return coursesService.getCourses(course_name);}
+
     @PutMapping("/courses")
     public Courses updateCourseDetails(@RequestBody Courses courses) {
         return   coursesService.updateCourse(courses);

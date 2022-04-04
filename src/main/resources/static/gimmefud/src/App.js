@@ -47,6 +47,7 @@ function App() {
 
   if (userJwt != null) {
     authRoutes = <>
+
       <Route path="ListCoursesComponent" element={<ListCoursesComponent/>}/>
       <Route path="ListCoursesComponent/:rname" element = { <CoursesDetails />}>
         </Route>
@@ -59,6 +60,12 @@ function App() {
       <Route path="ListRestaurantComponent" element={<ListRestaurantComponent />}/>
         <Route path="ListRestaurantComponent/:rname" element = { <RestaurantDetails />}>
         </Route>
+    
+
+        <Route path= "RestaurantDetails" element = { <RestaurantDetails />}/>
+        <Route path= "RestaurantDetails/:course_name" element = { <ShoppingCartComponent />}>
+        </Route>
+ 
 
       <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
       <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
@@ -66,7 +73,12 @@ function App() {
       <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
       <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
       <Route path="SearchCourses" element={<SearchCourses/>}/>
-      <Route path="ShoppingCartComponent" element={<ShoppingCartComponent/>}/>
+     <Route path="ShoppingCartComponent" element={<ShoppingCartComponent/>}/>
+
+  
+       
+
+  
     </>
   }
      

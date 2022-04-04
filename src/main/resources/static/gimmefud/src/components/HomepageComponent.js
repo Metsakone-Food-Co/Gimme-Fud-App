@@ -20,6 +20,7 @@ export default function Homepage(props) {
               <div><button type = "button" class="btn btn-primary btn-lg"onClick={props.logout}> Logout </button></div>
               <Link to="/ListRestaurantComponent"><button type="button" class="btn btn-primary btn-lg ">Restaurants</button></Link>
               <Link to="/ListCoursesComponent"><button type="button" class="btn btn-primary btn-lg ">Courses</button></Link>
+              <Link to= "/ShoppingCartComponent"><button type="button" class="btn btn-primary btn-lg ">Shopping Cart</button></Link>
             </>
              :
            <>

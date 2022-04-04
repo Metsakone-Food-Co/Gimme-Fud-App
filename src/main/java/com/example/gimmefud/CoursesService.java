@@ -29,6 +29,9 @@ public class CoursesService {
     public List<Courses> getCourse(String rname) {
         return coursesRepo.findByRname(rname);
     }
+    public Courses getCourses(String course_name) {
+        return coursesRepo.findById(course_name).orElse(null);
+    }
 
     public List<Courses> getAllCourses() {
         return coursesRepo.findAll();
