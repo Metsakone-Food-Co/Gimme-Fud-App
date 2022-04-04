@@ -18,6 +18,7 @@ import RestaurantDetails from './components/RestaurantDetails'
 import CoursesDetails from './components/CoursesDetails'
 import ShoppingCartComponent from './components/ShoppingCartComponent';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
+import HomepageOwnerComponent from './components/HomepageOwnerComponent';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState} from 'react';
@@ -37,11 +38,10 @@ function App() {
  
 
   let authRoutes = <>
-   <Route path="LoginComponent" element={<LoginComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
-   <Route path="LoginOwnerComponent" element={<LoginOwnerComponent loginOwner={ (newOwnerJWT) => setOwnerJwt(newOwnerJWT) }/> }/>
+  <Route path="LoginComponent" element={<LoginComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
+   <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setOwnerJwt(newJWT) }/> }/>
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
-   <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
   
   </>
 
@@ -70,11 +70,36 @@ function App() {
     </>
   }
      
+  let authLinks = <>
+   <Link to="/CreateCustomerComponent"><div>Create customer</div></Link>
+        <Link to="/CreateOwnerComponent"><div>Create owner</div></Link>
+        <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
+        <Link to="/LoginComponent"><div>Login</div></Link>
+        <Link to="/LoginOwnerComponent"><div>Login as a Owner</div></Link>
+
+  </>
+  if (userJwt != null) {
+    authLinks = <>
+       <Link to="/ListRestaurantComponent"><div>Restaurant list</div></Link>
+        <Link to="/ListCustomerComponent"><div>Customer list</div></Link>
+        <Link to="/ListOwnerComponent"><div>Restaurant owners</div></Link> 
+        <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
+        <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
+        <Link to="/ShoppingCartComponent"><div>Shopping Cart</div></Link>
+        <div><button type ="button" onClick={()=>setUserJwt(null)} >LOG OUT</button></div>
+    </>
+  }
+
+
+
+
+
   let ownerRoutes = <>
    <Route path="LoginComponent" element={<LoginComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
-   <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
+   <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setOwnerJwt(newJWT) }/> }/>
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
+   <Route path="HomePageOwnerComponent" element={<HomepageOwnerComponent/>}/>
 
   </>
 
@@ -92,51 +117,47 @@ function App() {
       <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
       <Route path="SearchCourses" element={<SearchCourses/>}/>
       <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
+      <Route path="HomepageOwnerComponent" element={<HomepageOwnerComponent/>}/>
+
     </>
   }
 
-  let authLinks = <>
-   <Link to="/CreateCustomerComponent"><div>Create customer</div></Link>
-        <Link to="/CreateOwnerComponent"><div>Create owner</div></Link>
-        <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
-        <Link to="/LoginComponent"><div>Login</div></Link>
-        <Link to="/LoginOwnerComponent"><div>Login as a Owner</div></Link>
+  let ownerLinks = <> 
+
+  <Link to="/CreateCustomerComponent"><div>Create customer</div></Link>
+   <Link to="/CreateOwnerComponent"><button type="button" class="btn btn-light btn-lg ">Create owner</button></Link>
+   <Link to="/CreateCoursesComponent"><button type="button" class="btn btn-light btn-lg ">Create Courses</button></Link>
+   <Link to="/LoginComponent"><button type="button" class="btn btn-light btn-lg ">Login</button></Link>
+   <Link to="/LoginOwnerComponent"><button type="button" class="btn btn-light btn-lg ">Login as a Owner</button></Link>
+
+</>
+
+if (ownerJwt != null) {
+ownerLinks =<>
+  <Link to="/ListRestaurantComponent"><div>Restaurant OWNER list</div></Link>
+   <Link to="/ListCustomerComponent"><div>Customer list</div></Link>
+   <Link to="/ListOwnerComponent"><div>Restaurant owners</div></Link> 
+   <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
+   <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
+   <div><button type ="button" onClick={()=>setOwnerJwt(null)} >LOG OUT</button></div> 
+   </>
+}
 
 
-  
-  </>
-
-  if (userJwt != null) {
-    authLinks = <>
-       <Link to="/ListRestaurantComponent"><div>Restaurant list</div></Link>
-        <Link to="/ListCustomerComponent"><div>Customer list</div></Link>
-        <Link to="/ListOwnerComponent"><div>Restaurant owners</div></Link> 
-        <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
-        <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
-        <Link to="/ShoppingCartComponent"><div>Shopping Cart</div></Link>
-    </>
-  }
 
   return (
     <BrowserRouter>
-    <div >
-      <div className="navbar">
-        <Link to="/"><div>Home</div></Link>
-        {authLinks}
-      </div>
+     
+    <Routes>
+      <Route path="/" element={ <HomepageComponent userLoggedIn={userJwt != null} logout={() =>setUserJwt(null)}/>}/>
+      <Route path="/HomepageOwnerComponent" element={ <HomepageOwnerComponent ownerLoggedIn={ownerJwt != null} logout={() =>setOwnerJwt(null)}/>}/>
+      {authRoutes} {ownerRoutes}
+      <Route path="*" element={<HomepageComponent userLoggedIn={userJwt != null}/>}/>
+    </Routes>
 
 
-      <Routes>
-        <Route path="/" element={ <HomepageComponent userLoggedIn={userJwt != null} logout={() =>setUserJwt(null)}/>}/>
-        {authRoutes}
-        {ownerRoutes}
-        <Route path="*" element={<HomepageComponent userLoggedIn={userJwt != null}/>}/>
-      </Routes>
-    </div>
-    <div>
-   
-    </div>
-    </BrowserRouter>
+  
+  </BrowserRouter>
     
   );
 }

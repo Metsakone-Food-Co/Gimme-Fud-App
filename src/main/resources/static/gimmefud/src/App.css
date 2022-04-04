@@ -4,7 +4,7 @@
   background-color: orange;
 }
 
-.navbar > * {
+.navbar1 > * {
   margin-right: 10px;;
 }
 .dropbutton {
@@ -42,3 +42,10 @@
   background-color: #3e8e41;
 }
 
+.karuselli{
+  display: flex;
+  margin-left: 350px;
+}
+.kuva{
+  width: 10%;
+}
