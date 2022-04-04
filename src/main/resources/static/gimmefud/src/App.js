@@ -60,13 +60,6 @@ function App() {
       <Route path="ListRestaurantComponent" element={<ListRestaurantComponent />}/>
         <Route path="ListRestaurantComponent/:rname" element = { <RestaurantDetails />}>
         </Route>
-    
-
-        <Route path= "RestaurantDetails" element = { <RestaurantDetails />}/>
-        <Route path= "RestaurantDetails/:course_name" element = { <ShoppingCartComponent />}>
-        </Route>
- 
-
       <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
       <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
       <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent/>}/>

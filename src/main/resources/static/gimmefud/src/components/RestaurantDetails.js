@@ -18,6 +18,7 @@ import '../RestaurantPage.css'
 
     const [restaurant, setRestaurant] = useState([]);
     const [courses, setCourses] = useState([]);
+    const [items, setItems] = useState([]);
      
     const result = useParams();
     console.log(result);
@@ -37,6 +38,8 @@ import '../RestaurantPage.css'
       init();
     }, []);
 
+  
+
     
     
       const cinit = () => {
@@ -55,6 +58,21 @@ import '../RestaurantPage.css'
       }, []);
 
 
+
+      const onAdd = (course) => {
+        const exist = items.find((x) => x.id === course.course_name);
+        if (exist) {
+          setItems(
+            items.map((x) =>
+              x.id === course.course_name ? { ...exist, qty: exist.qty + 1 } : x
+            )   
+          );
+          console.log("Seppo")
+        } else {
+          setItems([...items, { ...course.course_name, qty: 1 }]);
+        }
+        console.log("Timo")
+      };
    
 
 
@@ -64,6 +82,15 @@ import '../RestaurantPage.css'
     <h1>{restaurant.rname}</h1>
     <div className="restaurantContainer">
       <div className="leftMenu">
+      <h2>CART ITEMS</h2>
+      {items.map((items) =>(
+        <div key ={items.course_name}>
+          <div>{items.course_name} </div>
+
+
+          </div>
+      
+      ))}
         
       </div>
       <div className="centerMenu">
@@ -74,7 +101,7 @@ import '../RestaurantPage.css'
         return(
         <Row xs={1} md={3} className="g-4">
           
-          <Link to={course.course_name}>
+   
           <Card style={{width: '18rem'}}>
             <Card.Body style={{border: '50px'}}>
               <Card.Title>{course.course_name}</Card.Title>
@@ -83,11 +110,11 @@ import '../RestaurantPage.css'
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
             
-              <Button >Add to cart<BsCartPlus/></Button>
+              <Button onClick={() => onAdd(course)} >Add to cart<BsCartPlus/></Button>
              
             </Card.Body>
           </Card>
-          </Link>
+   
        
         </Row>
       )})}
@@ -164,7 +191,6 @@ import '../RestaurantPage.css'
      </Row>
     </div>
      </div>
-     <Outlet />
      </div>
 
 
