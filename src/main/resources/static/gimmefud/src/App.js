@@ -95,10 +95,11 @@ function App() {
 
 
   let ownerRoutes = <>
-   <Route path="LoginComponent" element={<LoginComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
+
    <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setOwnerJwt(newJWT) }/> }/>
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
+   <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
    <Route path="HomePageOwnerComponent" element={<HomepageOwnerComponent/>}/>
 
   </>

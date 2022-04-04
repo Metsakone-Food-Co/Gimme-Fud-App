@@ -17,11 +17,11 @@ export default function HomepageOwnerComponent(props) {
     <div>
       { props.ownerLoggedIn ? 
         <>
-          <Link to="/ListRestaurantComponent"><button type="button" class="btn btn-primary btn-lg ">Restaurants</button></Link>
-          <Link to="/ListCoursesComponent"><button type="button" class="btn btn-primary btn-lg ">Courses</button></Link>
-          <Link to="/CreateCoursesComponent"><button type="button" class="btn btn-primary btn-lg ">Create Courses</button></Link>
-          <Link to="/CreateRestaurantComponent"><button type="button" class="btn btn-primary btn-lg ">Create restaurant</button></Link>
-          <div className="Logout"><button type = "button" class="btn btn-primary btn-lg"onClick={props.logout}> Logout </button></div>
+          <Link to="/ListRestaurantComponent"><button type="button" class="btn btn-light  btn-lg ">Restaurants</button></Link>
+          <Link to="/ListCoursesComponent"><button type="button" class="btn btn-light  btn-lg ">Courses</button></Link>
+          <Link to="/CreateCoursesComponent"><button type="button" class="btn btn-light  btn-lg ">Create Courses</button></Link>
+          <Link to="/CreateRestaurantComponent"><button type="button" class="btn btn-light  btn-lg ">Create restaurant</button></Link>
+          <div className="Logout"><button type = "button" class="btn btn-light btn-lg"onClick={props.logout}> Logout </button></div>
         </>
          :
         <>
