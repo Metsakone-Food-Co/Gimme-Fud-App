@@ -4,8 +4,8 @@ import { Link, Outlet } from 'react-router-dom';
 import SearchCourses from './SearchCourses';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Card, Button, Badge} from "react-bootstrap";
-import Row from 'react-bootstrap/Row'
+import {Card, Button, Badge, ListGroupItem, Image, CardGroup} from "react-bootstrap";
+import {Container , Row, Col} from 'react-bootstrap'  
 import { BsCartPlus} from "react-icons/bs";
 import { MdFastfood } from "react-icons/md";
 
@@ -28,8 +28,8 @@ const ListCoursesComponent = () => {
     init();
   }, []);
 
-  const {searchCourses} = window.location;
-  const query = new URLSearchParams(searchCourses).get('s');
+  const {searchCourse} = window.location;
+  const query = new URLSearchParams(searchCourse).get('s');
   const [searchQuery, setSearchQuery] = useState(query || '');
 
   const filterCourses = (courses, query) => {
@@ -37,77 +37,92 @@ const ListCoursesComponent = () => {
       
       return courses;
     }
-    return courses.filter((courses) => {
+    return courses.filter((course) => {
      
-      const coursesName = courses.rname.toLowerCase();
-      return coursesName.includes(query);
+      const courseName = course.course_name.toLowerCase();
+      return courseName.includes(query);
     })
   }
 
   const filteredCourses = filterCourses(courses, searchQuery);
 
-
-
- 
-  
-
   return (
-    <div className="container">
+    <div className="coursesContainer">
+
       
-       <div class="card text-white">
-       <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Meny_butikkjede_norgesgruppen_logo.jpg" border-box="20px" class="card-img" alt= "background" width="100%" height="400px"/>
-       <div class="card-img-overlay">
-       <h3>List of Courses</h3>
-   
-       </div>
-       </div>
-       <h2>Course search</h2>
+      
+       
+       
+    
+       <div className='courseSearch'>
+       <h3>Course search</h3>
        <SearchCourses
        searchQuery={searchQuery}
        setSearchQuery={setSearchQuery}/>
+       </div>
+
+       <div className="courseTest">
        
 
-        <Row xs={1} md={3} className="g-4">
+        <Row xs={1} md={4} >
           {filteredCourses.map(course =>(
-            <tr key={course.rname}>
-
+            <tr key={course.course_name}>
 
                 <Link to={course.rname}>
-                <Card style={{ width: '26rem'  }} >
-                <Card.Body style={{border: '50px'}}>
-              <Card.Img variant="top" src="https://im.mtv.fi/image/3408894/landscape16_9/792/446/b51f396b1ebe045cdc114881f1d55017/Lj/grilli.jpg "/>
-            
-             <Card.Title  >{course.rname} <BsCartPlus /></Card.Title>
 
-              <Card.Text>
-              <p>Meal name: {course.meal_name}</p> </Card.Text>
-              <Card.Text>
-              <p>Price: {course.meal_price} </p> 
-              </Card.Text>
+              <CardGroup>
+
+                <Card border="warning" className="mb-3" style={{ width: '20rem' }}>
+
+                  <Card.Body >
+                      
+                      <Image 
+                        src="https://im.mtv.fi/image/3408894/landscape16_9/792/446/b51f396b1ebe045cdc114881f1d55017/Lj/grilli.jpg" 
+                        fluid
+                        className='card-image-top'
+                        class='courseImage'
+                      />
+                      <Card.Header  >{course.course_name} </Card.Header>
+                      
+                      <ListGroupItem>
+
+                        Restaurant: {course.rname}
+
+                      </ListGroupItem>
+                      <ListGroupItem>
+
+                        Price: {course.meal_price}
+
+                      </ListGroupItem>
+                      <ListGroupItem>
+              
+                      {course.meal_type}
+                        
+                      </ListGroupItem>
               
       
-                <button type="button" class="btn btn-outline-secondary"> Tilaa <BsCartPlus/></button>
-                <Card.Link href="#">Give Feedback</Card.Link>
-                <Card.Text>
-              
-                <Badge bg="light" text="info">{course.mealtype}<MdFastfood/></Badge>
-                  
-                </Card.Text>
+                      <Button type="button" class="btn btn-outline-secondary"> Tilaa <BsCartPlus/></Button>
+                      <Card.Link href="#">Give Feedback</Card.Link>
+                      
            
-              </Card.Body>
+                  </Card.Body>
               </Card>
+              </CardGroup>
+              
+              
               </Link>  
               
             </tr>
           ))
           }
           </Row>
-       <div class="downcont">
-      
-       </div>
+          </div>
+       
        
        <Outlet />
-      </div>
+       
+       </div>
+      
  
   );
 }

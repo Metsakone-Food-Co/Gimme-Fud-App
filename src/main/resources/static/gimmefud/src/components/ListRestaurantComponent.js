@@ -95,7 +95,7 @@ const ListRestaurantComponent = (props) => {
               </Card.Text>
               
       
-                <button  class="btn btn-outline-secondary" > Tilaa <BsCartPlus/></button>
+                <Button  class="btn btn-outline-secondary" > Tilaa <BsCartPlus/></Button>
                 <Card.Link href="/">Give Feedback</Card.Link>
                 <Card.Text>
               
