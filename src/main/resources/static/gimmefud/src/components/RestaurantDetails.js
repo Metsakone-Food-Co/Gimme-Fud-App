@@ -3,9 +3,7 @@ import { useEffect, useState } from 'react';
  import CoursesService from '../services/CoursesService';
 
  import { useParams,Outlet,Link} from 'react-router-dom'
-import { Card } from 'react-bootstrap';
-import "../RestaurantDetails.css";
-
+import { Card, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row'
 import { BsCartPlus} from "react-icons/bs";
@@ -42,7 +40,7 @@ import '../RestaurantPage.css'
     
     
       const cinit = () => {
-        CoursesService.get(result.rname)
+        CoursesService.getAll()
           .then(response => {
             console.log('Printing courses data', response.data);
             setCourses(response.data);
@@ -76,28 +74,7 @@ import '../RestaurantPage.css'
         return(
         <Row xs={1} md={3} className="g-4">
           
-         <div className="centerMenu">
-         <div>Rafla: {restaurant.rname}</div>
-         <div>Ruoka:
-           
-           {courses.map(course => {
-             if(course.rname == restaurant.rname)
-             return <ul>
-              
-               <li>{course.course_name}</li>
-             
-             </ul>
-           })}
-         </div>
-         </div>
-          
-         <div className="rightMenu">
-         <div>{restaurant.raddress}</div>  
-         </div>
        
-      
-     
-
           <Card style={{width: '18rem'}}>
             <Card.Body style={{border: '50px'}}>
               <Card.Title>{course.course_name}</Card.Title>
