@@ -28,29 +28,6 @@ public class CoursesController {
 
 
 
-    /*@PostMapping("/courses/public")
-    public ResponseEntity<Map> UploadPhoto (@RequestParam("file") MultipartFile mfile) {
-        Cloudinary cl = new Cloudinary(ObjectUtils.asMap(
-                "cloud_name", "gimmefudapp",
-                "api key", "925247245444532",
-                "api secret", "wa5gubYGCS9krH_0XaT8paNhEyY",
-                "secure", true
-        ));
-
-        String imageUrl = "";
-
-        try {
-            Map map = cl.uploader().upload(mfile.getBytes(), ObjectUtils.emptyMap());
-            imageUrl = (String) map.get("url");
-        } catch (IOException e) {
-        }
-
-        Map urlJson = Collections.singletonMap("img_url", imageUrl);
-
-        return new ResponseEntity<Map>(urlJson, HttpStatus.OK);
-    }*/
-
-
     @GetMapping("/courses")
     public List<Courses> getAllCourses(){
         return coursesService.GetAllCourses() ;
