@@ -59,12 +59,13 @@ import '../RestaurantPage.css'
         const newCart = cart.concat(item);
         setCart(newCart);
         console.log("CART: " , cart[1]);
-        console.log(getOccurrence(cart, item));
+        //console.log(getOccurrence(cart, item));
       }
       
-      function getOccurrence(cart, value) {
+      /*function getOccurrence(cart, value) {
         return cart.filter((v) => (v === value)).length;
-      }
+      }*/
+      
 
       function summa(cart){
         let sum = 0;
@@ -128,7 +129,7 @@ import '../RestaurantPage.css'
               <Card.Text>
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
-              <Button>Add to cart<BsCartPlus/></Button>
+              <Button onClick={() => onAddToCart(course)}>Add to cart<BsCartPlus/></Button>
             </Card.Body>
           </Card>
         </Row>
@@ -146,7 +147,7 @@ import '../RestaurantPage.css'
               <Card.Text>
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
-              <Button>Add to cart<BsCartPlus/></Button>
+              <Button onClick={() => onAddToCart(course)}>Add to cart<BsCartPlus/></Button>
             </Card.Body>
           </Card>
         </Row>
@@ -164,7 +165,7 @@ import '../RestaurantPage.css'
               <Card.Text>
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
-              <Button>Add to cart<BsCartPlus/></Button>
+              <Button onClick={() => onAddToCart(course)}>Add to cart<BsCartPlus/></Button>
             </Card.Body>
           </Card>
         </Row>
@@ -196,4 +197,4 @@ import '../RestaurantPage.css'
 
 
 
-//{cart.map(item => item.meal_price).reduce((prev, next) => Number(prev)+ Number(next))}
+
