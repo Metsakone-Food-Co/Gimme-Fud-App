@@ -18,7 +18,11 @@ import '../RestaurantPage.css'
 
     const [restaurant, setRestaurant] = useState([]);
     const [courses, setCourses] = useState([]);
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState([
+     /* {quantity: 1,course_name: 'hampurilainen', meal_price: '5.00'},
+
+    {quantity: 1, course_name: 'Milk', meal_price: '2.00'}*/]);
+    const [qty, setQty] = useState(0);
      
     const result = useParams();
     console.log(result);
@@ -57,14 +61,16 @@ import '../RestaurantPage.css'
 
       const onAddToCart = (item) => {
         const newCart = cart.concat(item);
-        setCart(newCart);
+        item.quantity = + 1;
+          setCart(newCart);
+
+        
+        
         console.log("CART: " , cart[1]);
-        //console.log(getOccurrence(cart, item));
+        
       }
       
-      /*function getOccurrence(cart, value) {
-        return cart.filter((v) => (v === value)).length;
-      }*/
+   
       
 
       function summa(cart){
@@ -88,7 +94,7 @@ import '../RestaurantPage.css'
          <Card.Body style={{border: '50px'}}>
            <Card.Title>CART</Card.Title>
            <Card.Text>Meals: {cart.map(meals => {
-             return <p>{meals.course_name} {meals.meal_price}€</p>
+             return <p>{meals.quantity}x {meals.course_name} {meals.meal_price}€</p>
            })}</Card.Text>
            <Card.Text>Total: {summa(cart)} €</Card.Text>
          </Card.Body>
