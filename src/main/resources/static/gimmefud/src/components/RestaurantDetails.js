@@ -60,12 +60,32 @@ import '../RestaurantPage.css'
       }, []);
 
       const onAddToCart = (item) => {
+        /*
         const newCart = cart.concat(item);
-        item.quantity = + 1;
-          setCart(newCart);
+        
+          if (item.course_name == null) {
+          setCart(newCart, item.quantity = + 1);
+          } else {
+            setCart(item.quantity += 1);
+          }
 
+    */
         
-        
+           let newCart = [...cart];
+
+          let itemClickedIdex = newCart.findIndex(i => item === i.course_name);
+          
+          if(itemClickedIdex != -1) {
+          
+            let newElement = {...newCart[itemClickedIdex]}
+           item.quantity = item.quantity + 1;
+            newCart[itemClickedIdex] = newElement;
+          
+            setCart(newCart);
+          }
+          
+          
+          
         console.log("CART: " , cart[1]);
         
       }
