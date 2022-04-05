@@ -1,12 +1,90 @@
-
 .navbar {
-  display: flex;
+  width: 100%;
+  height: 100px;
   background-color: orange;
+  display: flex;
+  flex-direction: row;
+  border-bottom: white 300px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ 
+}
+.navbar.leftSide{
+flex: 50%;
+height: 100%;
+display: flex;
+align-items: center;
+padding-left: 150px;
+}
+.kuva{
+  width: 160px;
+}
+.navbar.rightSide {
+  flex: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 20px;
 }
 
-.navbar1 > * {
-  margin-right: 10px;;
+.navbar.leftSide{
+padding-left: 50px;
+  
 }
+.Logout{
+  display: contents;
+}
+
+.home{
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.headerContainer {
+  width: auto;
+  margin-left: 50px;
+  color: green;
+}
+.headerContainer button{
+  color: red;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: white;
+  height: 50px;
+  width: 180px;
+  font-size: 20px;
+}
+  .headerContainer h1{
+   font-size: 90px;
+  
+}
+
+@media only screen and (max-width: 650px){
+  .home{
+    justify-content: center;
+    align-items: center;
+  }
+  .headerContainer button{
+    background-color: white;
+    color: black;
+    margin-bottom: 30px;
+  }
+}
+
 .dropbutton {
   background-color: blue;
   color: white;
@@ -42,10 +120,4 @@
   background-color: #3e8e41;
 }
 
-.karuselli{
-  display: flex;
-  margin-left: 350px;
-}
-.kuva{
-  width: 10%;
-}
+
