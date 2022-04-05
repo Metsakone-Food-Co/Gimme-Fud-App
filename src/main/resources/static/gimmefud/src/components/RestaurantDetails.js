@@ -18,6 +18,7 @@ import '../RestaurantPage.css'
 
     const [restaurant, setRestaurant] = useState([]);
     const [courses, setCourses] = useState([]);
+    const [cart, setCart] = useState([]);
      
     const result = useParams();
     console.log(result);
@@ -54,17 +55,44 @@ import '../RestaurantPage.css'
         cinit();
       }, []);
 
+      const onAddToCart = (item) => {
+        const newCart = cart.concat(item);
+        setCart(newCart);
+        console.log("CART: " , cart[1]);
+        console.log(getOccurrence(cart, item));
+      }
+      
+      function getOccurrence(cart, value) {
+        return cart.filter((v) => (v === value)).length;
+      }
 
-   
+      function summa(cart){
+        let sum = 0;
+        let i = cart.length;
+        while(i--){
+          sum += parseInt(cart[i].meal_price) || 0;
+        }
+        return sum;
+      }
 
 
- 
+
    return (
   <div className="restaurantPage">
     <h1>{restaurant.rname}</h1>
     <div className="restaurantContainer">
       <div className="leftMenu">
-        
+      <Row xs={1} md={3} className="g-4">
+       <Card style={{width: '18rem'}}>
+         <Card.Body style={{border: '50px'}}>
+           <Card.Title>CART</Card.Title>
+           <Card.Text>Meals: {cart.map(meals => {
+             return <p>{meals.course_name} {meals.meal_price}€</p>
+           })}</Card.Text>
+           <Card.Text>Total: {summa(cart)} €</Card.Text>
+         </Card.Body>
+       </Card>
+     </Row>
       </div>
       <div className="centerMenu">
       <h1>Main courses</h1>
@@ -82,7 +110,7 @@ import '../RestaurantPage.css'
               <Card.Text>
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
-              <Button>Add to cart<BsCartPlus/></Button>
+              <Button onClick={() => onAddToCart(course)}>Add to cart<BsCartPlus/></Button>
             </Card.Body>
           </Card>
         </Row>
@@ -168,4 +196,4 @@ import '../RestaurantPage.css'
 
 
 
-
+//{cart.map(item => item.meal_price).reduce((prev, next) => Number(prev)+ Number(next))}
