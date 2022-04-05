@@ -46,11 +46,11 @@ const ListRestaurantComponent = () => {
 
   const filterRestaurants = (restaurants, query) => {
     if(!query){
-      console.log("Perse");
+      //console.log("Perse");
       return restaurants;
     }
     return restaurants.filter((restaurant) => {
-      console.log("Paska");
+      //console.log("Paska");
       const restaurantName = restaurant.rname.toLowerCase();
       return restaurantName.includes(query);
     })
@@ -89,6 +89,8 @@ const ListRestaurantComponent = () => {
           {filteredRestaurants.map(restaurant =>(
             <tr key={restaurant.rname}>
                 
+                <Link to = {restaurant.rname}>
+
                 <Card style={{ width: '18rem'  }} >
                 <Card.Body style={{border: '50px'}}>
               <Card.Img variant="top" src="https://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/master/w_1280,c_limit/the-ultimate-hamburger.jpg"/>
@@ -115,7 +117,7 @@ const ListRestaurantComponent = () => {
      
               </Card.Body>
               </Card>
-              
+              </Link>
             </tr>
           ))
           }
