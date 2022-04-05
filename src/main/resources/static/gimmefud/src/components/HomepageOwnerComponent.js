@@ -2,12 +2,10 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import { useParams,Outlet} from 'react-router-dom'
 import {BrowserRouter,Routes, Route, Link } from 'react-router-dom'
-import OwnerService from '../services/OwnerService';
-import { Carousel} from "react-bootstrap";
 import foodd from "../assests/foodd.jpg";
 
 
-const HomepageOwnerComponent= (props)=> {
+const HomepageOwner= (props)=> {
 
 
 
@@ -45,8 +43,6 @@ const HomepageOwnerComponent= (props)=> {
     <div className="headerContainer">
    <h1>Welcome to our App</h1> 
 
-    <button>CLICK here to start</button>
-
 
 
     </div>
@@ -57,4 +53,4 @@ const HomepageOwnerComponent= (props)=> {
 
   )
 }
-export default HomepageOwnerComponent;
+export default HomepageOwner;
