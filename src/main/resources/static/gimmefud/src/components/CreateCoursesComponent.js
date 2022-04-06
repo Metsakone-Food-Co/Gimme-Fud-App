@@ -15,8 +15,6 @@ const CreateCoursesComponent = () => {
     const[rname, setRname   ] = useState('');
     const[meal_type, setMealType] = useState('');
     const[meal_price, setMealPrice] = useState('');
-
-   
     const navigate = useNavigate();
 
   const handleSelect=(e) =>{
@@ -43,6 +41,16 @@ const CreateCoursesComponent = () => {
 
 
   return (
+
+    <div>
+    <div className='navbar'>
+      <div className='leftSide'> 
+        <img className='kuva'src="Logo.png"/>    
+         </div>
+       <div className='rightSide'>
+      <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Home</button>
+         </div>
+
     <div className="container"> 
         <h1> Create course  </h1>
     <div className="createCourses">
@@ -121,6 +129,8 @@ onSelect={handleSelect}
                 
                 
                  </div>
+        </div>
+        </div>
         </div>
   )
 }

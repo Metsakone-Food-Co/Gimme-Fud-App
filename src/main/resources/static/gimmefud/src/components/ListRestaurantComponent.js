@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import RestaurantService from '../services/RestaurantService';
 import SearchRestaurant from './SearchRestaurant';
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Button, Badge} from "react-bootstrap";
@@ -11,16 +12,12 @@ import { MdFastfood } from "react-icons/md";
 
 
 
-
-
 const ListRestaurantComponent = () => {
 
+const navigate = useNavigate();
 
+const [restaurants, setRestaurants] = useState([]);
 
-  const [restaurants, setRestaurants] = useState([]);
-  
-
-  
 
   const init = () => {
     RestaurantService.getAll()
@@ -39,6 +36,7 @@ const ListRestaurantComponent = () => {
 
 
 
+  
   const {searchRestaurant} = window.location;
   const query = new URLSearchParams(searchRestaurant).get('s');
   const [searchQuery, setSearchQuery] = useState(query || '');
@@ -65,7 +63,8 @@ const ListRestaurantComponent = () => {
         <img className='kuva'src="Logo.png"/>    
          </div>
        <div className='rightSide'>
-       <Link to="/HomepageOwnerComponent"><button type="button" class="btn background-color:transparent btn-lg ">Home</button></Link>
+      <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Home</button>
+      
 
          </div>  
      </div>

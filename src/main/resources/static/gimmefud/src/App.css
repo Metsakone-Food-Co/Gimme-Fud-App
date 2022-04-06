@@ -6,6 +6,8 @@
   flex-direction: row;
   border-bottom: white 300px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding-top: 0;
+  padding-bottom: 0;
  
 }
 .navbar.leftSide{
