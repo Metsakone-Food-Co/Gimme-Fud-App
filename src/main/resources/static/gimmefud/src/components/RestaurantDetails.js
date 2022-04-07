@@ -78,6 +78,19 @@ import '../RestaurantPage.css'
         }
       }
         
+      const onRemoveFromCart = (item) => {
+        const remove = cart.map(i => {
+          if(i.course_name === item.course_name){
+           i.amount--;
+          }
+          return i;
+        });
+        setCart(remove);
+      }
+        
+   
+      
+      
    
   
       
@@ -88,7 +101,7 @@ import '../RestaurantPage.css'
           sum += cart[i].amount * cart[i].meal_price;
         }
         return sum;
-        
+
       
       }
 
@@ -104,9 +117,11 @@ import '../RestaurantPage.css'
          <Card.Body style={{border: '50px'}}>
            <Card.Title>CART</Card.Title>
            <Card.Text>Meals: {cart.map(meals => {
-             return <p>{meals.course_name} {meals.meal_price}€ x{meals.amount}</p>
+             return <p>{meals.course_name} {meals.meal_price}€ x{meals.amount} <br></br>
+             <Button onClick={() => onRemoveFromCart(meals)}>Remove</Button> </p>
            })}</Card.Text>
            <Card.Text>Total: {summa(cart)} €</Card.Text>
+          
          </Card.Body>
        </Card>
      </Row>
