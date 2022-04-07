@@ -9,6 +9,7 @@ import Row from 'react-bootstrap/Row'
 import { BsCartPlus} from "react-icons/bs";
 import { MdFastfood } from "react-icons/md";
 import '../RestaurantPage.css'
+import { isCompositeComponentWithType } from 'react-dom/test-utils';
 
 
 
@@ -78,17 +79,34 @@ import '../RestaurantPage.css'
         }
       }
         
+      const onRemoveFromCart = (item) => {
+        const remove = cart.map(i => {
+          
+          if(i.course_name === item.course_name && i.amount > 0){
+            i.amount--;
+           
+          }
+
+          return i;
+        });
+        setCart(remove);
+      }
+        
+   
+      
+      
    
   
       
 
       function summa(cart){
         let sum = 0;
-        let i = cart.length;
-        while(i--){
-          sum += parseInt(cart[i].meal_price) || 0;
+        for(let i = 0; i < cart.length; i++){
+          sum += cart[i].amount * cart[i].meal_price;
         }
         return sum;
+
+      
       }
 
 
@@ -103,9 +121,11 @@ import '../RestaurantPage.css'
          <Card.Body style={{border: '50px'}}>
            <Card.Title>CART</Card.Title>
            <Card.Text>Meals: {cart.map(meals => {
-             return <p>{meals.course_name} {meals.meal_price}€ x{meals.amount}</p>
+             return <p>{meals.course_name} {meals.meal_price}€ x{meals.amount} <br></br>
+             <Button onClick={() => onRemoveFromCart(meals)}>Remove</Button> </p>
            })}</Card.Text>
            <Card.Text>Total: {summa(cart)} €</Card.Text>
+          
          </Card.Body>
        </Card>
      </Row>
