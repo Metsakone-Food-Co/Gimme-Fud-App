@@ -62,49 +62,24 @@ import '../RestaurantPage.css'
       const onAddToCart = (item) => {
    
       
-           let newCart = [cart.concat(item)];
-      
-          let itemClickedIdex = newCart.findIndex(i => item === i.course_name);
-     
 
-          if(itemClickedIdex != -1) {
-           
-
-            let newElement = {...newCart[itemClickedIdex]}
-            newElement.quantity = newElement.quantity + 1;
-            newCart[itemClickedIdex] =newElement;
-          
-            setCart(newCart);
-          
-          }
-          console.log("CART: " , cart[1]);
+        if(!cart.some(i => i.course_name === item.course_name)){
+          item.amount = 1;
+          setCart(cart.concat(item));
         }
+        else{
+          const newCart = cart.map(i => {
+            if(i.course_name === item.course_name){
+              i.amount++;
+            }
+            return i;
+          });
+          setCart(newCart); 
+        }
+      }
         
    
-       
-/*
-        const newCart = cart.concat(item);
-        
-          if (item.quantity== null) {
-          setCart(newCart, item.quantity = + 1);
-          }
-        }
-         */
-/*
-          let newCart = [...cart]
-          newCart.push({item})
-          cart.map(i => {
-            if (i.course_name === item.course_name) {
-              i.quantity = i.quantity + 1;
-              setCart(newCart);
-          }
-          })
-          
-     
-        
-      }
-      
-   */
+  
       
 
       function summa(cart){
@@ -128,7 +103,7 @@ import '../RestaurantPage.css'
          <Card.Body style={{border: '50px'}}>
            <Card.Title>CART</Card.Title>
            <Card.Text>Meals: {cart.map(meals => {
-             return <p>{meals.quantity}x {meals.course_name} {meals.meal_price}€</p>
+             return <p>{meals.course_name} {meals.meal_price}€ x{meals.amount}</p>
            })}</Card.Text>
            <Card.Text>Total: {summa(cart)} €</Card.Text>
          </Card.Body>

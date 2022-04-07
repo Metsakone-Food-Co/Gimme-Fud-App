@@ -47,6 +47,7 @@ function App() {
 
   if (userJwt != null) {
     authRoutes = <>
+
       <Route path="ListCoursesComponent" element={<ListCoursesComponent/>}/>
       <Route path="ListCoursesComponent/:rname" element = { <CoursesDetails />}>
         </Route>
@@ -57,16 +58,21 @@ function App() {
 
 
       <Route path="ListRestaurantComponent" element={<ListRestaurantComponent />}/>
-        <Route path="ListRestaurantComponent/:rname" element = { <RestaurantDetails />}>
+        <Route path="ListRestaurantComponent/:rname" element = { <RestaurantDetails />}> 
         </Route>
-
+        
       <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
       <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
       <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent/>}/>
       <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
       <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
       <Route path="SearchCourses" element={<SearchCourses/>}/>
-      <Route path="ShoppingCartComponent" element={<ShoppingCartComponent/>}/>
+     <Route path="ShoppingCartComponent" element={<ShoppingCartComponent/>}/>
+
+  
+       
+
+  
     </>
   }
      
@@ -95,11 +101,10 @@ function App() {
 
 
   let ownerRoutes = <>
-
+   <Route path="LoginComponent" element={<LoginComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
    <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setOwnerJwt(newJWT) }/> }/>
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
-   <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
    <Route path="HomePageOwnerComponent" element={<HomepageOwnerComponent/>}/>
 
   </>
