@@ -81,9 +81,12 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
         
       const onRemoveFromCart = (item) => {
         const remove = cart.map(i => {
-          if(item.amount > 0){
+          
+          if(i.course_name === item.course_name && i.amount > 0){
             i.amount--;
+           
           }
+
           return i;
         });
         setCart(remove);
