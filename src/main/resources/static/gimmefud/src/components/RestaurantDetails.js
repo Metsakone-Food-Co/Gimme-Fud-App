@@ -83,11 +83,12 @@ import '../RestaurantPage.css'
       
 
       function summa(cart){
-       let sum = 0;
+        let sum = 0;
         for(let i = 0; i < cart.length; i++){
           sum += cart[i].amount * cart[i].meal_price;
-          return sum;
         }
+        return sum;
+        
       
       }
 
