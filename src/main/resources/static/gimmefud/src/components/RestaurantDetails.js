@@ -9,6 +9,7 @@ import Row from 'react-bootstrap/Row'
 import { BsCartPlus} from "react-icons/bs";
 import { MdFastfood } from "react-icons/md";
 import '../RestaurantPage.css'
+import { isCompositeComponentWithType } from 'react-dom/test-utils';
 
 
 
@@ -80,8 +81,8 @@ import '../RestaurantPage.css'
         
       const onRemoveFromCart = (item) => {
         const remove = cart.map(i => {
-          if(i.course_name === item.course_name){
-           i.amount--;
+          if(item.amount > 0){
+            i.amount--;
           }
           return i;
         });
