@@ -34,4 +34,12 @@ public class OrderService {
         return orderRepo.save(order);
 
     }
+    public List<Order> findByRestaurant(String rname) {
+        return orderRepo.findByRname(rname);
+    }
+    public List<Order> findByCustomer(String username) {
+        return orderRepo.findByUsername(username);
+    }
+
+
 }
