@@ -80,9 +80,15 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
       }
         
       const onRemoveFromCart = (item) => {
-        const remove = cart.map(i => {
+      
           
-          if(i.course_name === item.course_name && i.amount > 0){
+          if(item.amount === 0){
+        setCart(cart.filter(i => i.course_name !== item.course_name));
+          }
+          
+         else {
+         const remove = cart.map(i => {
+          if (i.course_name === item.course_name && i.amount > 0){
             i.amount--;
            
           }
@@ -91,6 +97,9 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
         });
         setCart(remove);
       }
+    }
+    
+
         
    
       
