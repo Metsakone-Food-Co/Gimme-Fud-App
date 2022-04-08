@@ -30,4 +30,14 @@ public class OrderController {
         return orderService.updateOrder(order);
     }
 
+    @GetMapping("/orderrest/{rname}")
+    public List<Order>getRestaurantOrder( @PathVariable String rname){
+        return orderService.findByRestaurant(rname);
+    }
+
+    @GetMapping("/ordercust/{username}")
+    public List<Order>getCustomerOrder( @PathVariable String username){
+        return orderService.findByCustomer(username);
+    }
+
 }
