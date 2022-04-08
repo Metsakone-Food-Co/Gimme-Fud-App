@@ -1,11 +1,14 @@
 package com.example.gimmefud;
 
+import com.example.gimmefud.data.Courses;
 import com.example.gimmefud.data.Order;
 import com.example.gimmefud.data.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 @Service
 
@@ -16,7 +19,19 @@ public class OrderService {
     @PostConstruct
     public void init() {
 
-        orderRepo.save(new Order("1","Osmo Rilli", "Ooke", "Osmo liha piirokka x3", "15 €"));
+
     }
 
+    public List<Order> getallOrders(){
+        return orderRepo.findAll();
+    }
+
+    public Order createOrder(@RequestBody Order order) {
+        return orderRepo.save(order);
+
+    }
+    public Order updateOrder(@RequestBody Order order) {
+        return orderRepo.save(order);
+
+    }
 }
