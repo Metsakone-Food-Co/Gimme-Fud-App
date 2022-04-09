@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import '../CreateCoursesPage.css';
+import  Axios  from "axios";
 
 
 
@@ -36,6 +37,20 @@ const CreateCoursesComponent = () => {
             console.log('something went wrong', error);
         })
     }
+
+    const [imageselected, setImageSelected] = useState();
+
+    const uploadImage = () => {
+      const formData = new FormData();
+      formData.append("file", imageselected);
+      formData.append("upload_preset", "v2klxyfb");
+
+      Axios.post("https://api.cloudinary.com/v1_1/gimmefudapp/image/upload", formData).then((response) => {
+      console.log(response.data.secure_url)
+
+          
+      });
+  };
 
 
 
@@ -109,6 +124,17 @@ onSelect={handleSelect}
   <Dropdown.Item eventKey="Dessert">Dessert</Dropdown.Item>
   <Dropdown.Item eventKey="Drink">Drink</Dropdown.Item>
 </DropdownButton>
+
+    <div class = "col-md-6">
+
+          <input type = "file"
+          onChange= {(event) => {
+              setImageSelected(event.target.files[0]);
+          }}
+          />
+          <button onClick={uploadImage}>Upload Image</button>
+
+    </div>
 
 
   <div class="col-12">
