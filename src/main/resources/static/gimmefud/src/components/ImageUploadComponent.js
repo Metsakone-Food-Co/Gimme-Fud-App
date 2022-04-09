@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
+
+
 import UploadService from "../services/UploadService.js";
 import SearchCourses from './SearchCourses';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -45,4 +47,6 @@ const ImageUploadComponent = () => {
 
 };
 
+
 export default ImageUploadComponent;
+
