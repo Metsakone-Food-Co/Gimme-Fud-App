@@ -2,6 +2,10 @@ import { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import CustomerService from "../services/CoursesService";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
+import '../CreateCoursesPage.css';
 
 
 
@@ -11,11 +15,13 @@ const CreateCoursesComponent = () => {
     const[rname, setRname   ] = useState('');
     const[meal_type, setMealType] = useState('');
     const[meal_price, setMealPrice] = useState('');
-
-   
     const navigate = useNavigate();
 
-
+  const handleSelect=(e) =>{
+    console.log(e);
+    setMealType(e)
+  }
+  
 
     const saveCourse = (e) => {
         e.preventDefault();
@@ -35,25 +41,21 @@ const CreateCoursesComponent = () => {
 
 
   return (
+
+    <div>
+    <div className='navbar'>
+      <div className='leftSide'> 
+        <img className='kuva'src="Logo.png"/>    
+         </div>
+       <div className='rightSide'>
+      <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Home</button>
+         </div>
+
     <div className="container"> 
         <h1> Create course  </h1>
-    <div className="createCustomer">
+    <div className="createCourses">
     <form  class = "row g-3">
         
-
-
-<div class = "col-md-6">
-    <label for = "inputCourseName" class="form-label">Username</label>
-    <input
-    type="text"
-    class="form-control"
-    id="course_name"
-    value={course_name}
-    onChange={(e) => setCourseName(e.target.value)}
-    placeholder="CourseName"
-    name="s" 
-    />
-</div>
 
 <div class = "col-md-6">
     <label for = "inputRname" class="form-label">Restaurant name</label>
@@ -63,36 +65,50 @@ const CreateCoursesComponent = () => {
     id="rname"
     value={rname}
     onChange={(e) => setRname(e.target.value)}
-    placeholder="Rname"
+    placeholder="Restaurant name"
     name="s" 
     />
 </div>
 
-
 <div class = "col-md-6">
-    <label for = "inputMealType" class="form-label">Last name</label>
+    <label for = "inputCourseName" class="form-label">Name of course</label>
     <input
     type="text"
     class="form-control"
-    id="meal_type"
-    value={meal_type}
-    onChange={(e) => setMealType(e.target.value)}
-    placeholder="Meal type"
+    id="course_name"
+    value={course_name}
+    onChange={(e) => setCourseName(e.target.value)}
+    placeholder="Name of course"
     name="s" 
     />
 </div>
+
+
+
 <div class = "col-md-6">
-    <label for = "inputPriceRange" class="form-label">Phone number</label>
+    <label for = "inputPriceRange" class="form-label">Price</label>
     <input
     type="text"
     class="form-control"
     id="price_range"
     value={meal_price}
     onChange={(e) => setMealPrice(e.target.value)}
-    placeholder="Price range"
+    placeholder="Price"
     name="s" 
     />
 </div>
+<div>Use dropdown menu below to choose type of meal</div>
+<DropdownButton
+alignRight
+title={meal_type}
+id="dropdown-menu-align-right"
+onSelect={handleSelect}
+>
+  <Dropdown.Item eventKey="Main course">Main course</Dropdown.Item>
+  <Dropdown.Item eventKey="Side">Side</Dropdown.Item>
+  <Dropdown.Item eventKey="Dessert">Dessert</Dropdown.Item>
+  <Dropdown.Item eventKey="Drink">Drink</Dropdown.Item>
+</DropdownButton>
 
 
   <div class="col-12">
@@ -106,13 +122,15 @@ const CreateCoursesComponent = () => {
     </div>
   </div>
 <div class="col-12">
-<button  onClick={(e) => saveCourse(e)} type="submit" class = "btn btn-primary">Add me</button>
+<button  onClick={(e) => saveCourse(e)} type="submit" class = "btn btn-primary">Add course</button>
 
     </div>   
     </form>
                 
                 
                  </div>
+        </div>
+        </div>
         </div>
   )
 }

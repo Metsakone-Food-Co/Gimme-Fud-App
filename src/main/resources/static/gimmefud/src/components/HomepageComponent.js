@@ -1,41 +1,47 @@
 import React from 'react'
 import {BrowserRouter,Routes, Route, Link, useNavigate } from 'react-router-dom'
+import foodd from "../assests/foodd.jpg";
+import {GiShoppingCart} from "react-icons/gi";
 
 
-export default function Homepage(props) {
-  return (
+const Homepage = (props) => {
 
+return (
 
-    <div className="container">
-
-        <h1>Home Page lol</h1>
-        <div>User login status: { props.userLoggedIn ? "is logged in" : "is not logged in" } </div>
-        <div>
-          { props.userLoggedIn ? 
+    <div className='navbar'>
+    <div className='leftSide'> 
+      <img className='kuva'src="Logo.png"/>    
+       </div>
+    <div className='rightSide'> 
+      <div> Login status: { props.userLoggedIn ? "is logged in" : "is not logged in" }</div>
+      
+        { props.userLoggedIn ? 
           <>
-            <Link to="/ListRestaurantComponent"><button type="button" class="btn btn-primary btn-lg ">List restaurants</button></Link> 
-           <Link to="/ListCustomerComponent"><button type="button" class="btn btn-primary btn-lg ">List customers</button></Link>
-           <Link to="/ListOwnerComponent"><button type="button" class="btn btn-primary btn-lg ">List owners</button></Link>
-           <Link to="/ListCoursesComponent"><button type="button" class="btn btn-primary btn-lg ">List courses</button></Link>
-           <Link to="/ImageUploadComponent"><button type="button" class="btn btn-primary btn-lg ">List courses</button></Link>
-           <div><button  type = "button" class="btn btn-primary btn-lg"  onClick={props.logout} > Logout </button></div>
+              <div className="Logout">
+              <Link to="/ListRestaurantComponent"><button type="button" class="btn background-color:transparent btn-lg ">Restaurants</button></Link>
+              <Link to="/ListCoursesComponent"><button type="button" class="btn background-color:transparentt  btn-lg ">Courses</button></Link>
+              <Link to="/ShoppingcartComponent"><button type="button" class="btn background-color:transparentt  btn-lg ">Cart<GiShoppingCart/></button></Link>
+              <button type = "button" class="btn background-color:transparent btn-lg" onClick={props.logout}> Logout </button></div>
             </>
              :
-            <>
-           <Link to="/LoginComponent"><button type="button" class="btn btn-primary btn-lg ">Login</button></Link>
-           <Link to="/LoginOwnerComponent"><button type="button" class="btn btn-primary btn-lg ">Login as a Owner</button></Link>
-           <Link to="/CreateCustomerComponent"><button type="button" class="btn btn-primary btn-lg ">Create customer</button></Link>
-           <Link to="/CreateOwnerComponent"><button type="button" class="btn btn-primary btn-lg ">Create owner</button></Link>
-           <Link to="/CreateCoursesComponent"><button type="button" class="btn btn-primary btn-lg ">Create course</button></Link>
-           <Link to="/ImageUploadComponent"><button type="button" class="btn btn-primary btn-lg ">List courses</button></Link>
-       
-           </>
-   
-   }
-        
-       </div>
+           <>
+               <Link to="/LoginComponent"><button type="button" class="btn background-color:transparentt btn-lg ">Login</button></Link>
+         </>
+         
+        }
+</div>
 
-   </div>
+
+<div className="home" style={{ backgroundImage:  `url(${foodd})` }}>
+    <div className="headerContainer">
+   <h1>Welcome to our App</h1> 
+
+    </div>
+ </div>
+ </div>
+
 
   )
 }
+
+export default Homepage;

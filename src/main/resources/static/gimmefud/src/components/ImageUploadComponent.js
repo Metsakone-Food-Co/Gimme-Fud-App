@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
-import UploadService from "../services/UploadService";
+
+
+import UploadService from "../services/UploadService.js";
 import SearchCourses from './SearchCourses';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Button, Badge, ListGroupItem, Image, CardGroup} from "react-bootstrap";
@@ -45,10 +47,6 @@ const ImageUploadComponent = () => {
 
 };
 
+
 export default ImageUploadComponent;
-
-
-
-
-
 

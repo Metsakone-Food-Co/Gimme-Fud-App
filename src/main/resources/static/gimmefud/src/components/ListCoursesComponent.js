@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import CoursesService from '../services/CoursesService';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import SearchCourses from './SearchCourses';
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Button, Badge, ListGroupItem, Image, CardGroup} from "react-bootstrap";
@@ -11,6 +12,7 @@ import { MdFastfood } from "react-icons/md";
 
 const ListCoursesComponent = () => {
 
+  const navigate = useNavigate();
   const [courses, setCourses] = useState([]);
 
   const init = () => {
@@ -47,12 +49,19 @@ const ListCoursesComponent = () => {
   const filteredCourses = filterCourses(courses, searchQuery);
 
   return (
-    <div className="coursesContainer">
 
+    <div>
+    <div className='navbar'>
+      <div className='leftSide'> 
+        <img className='kuva'src="Logo.png"/>    
+         </div>
+       <div className='rightSide'>
+      <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Home</button>
       
-      
-       
-       
+
+         </div>  
+    
+    <div className="coursesContainer">
     
        <div className='courseSearch'>
        <h3>Course search</h3>
@@ -117,7 +126,8 @@ const ListCoursesComponent = () => {
           }
           </Row>
           </div>
-       
+          </div>
+          </div>
        
        <Outlet />
        

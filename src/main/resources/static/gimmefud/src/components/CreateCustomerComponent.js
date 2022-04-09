@@ -14,6 +14,8 @@ const CreateCustomerComponent = () => {
     const[address, setAddress] = useState('');
     const[phoneNumber, setPhoneNumber] = useState('');
     const[role, setRole] = useState('');
+    const navigate = useNavigate();
+  
    
 
 
@@ -36,9 +38,20 @@ const CreateCustomerComponent = () => {
     }
 
 
-
+    
 
   return (
+
+
+    <div>
+    <div className='navbar'>
+      <div className='leftSide'> 
+        <img className='kuva'src="Logo.png"/>    
+         </div>
+       <div className='rightSide'>
+      <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Home</button>
+         </div>  
+
     <div className="container"> 
         <h1> Create account  </h1>
     <div className="createCustomer">
@@ -141,8 +154,10 @@ const CreateCustomerComponent = () => {
     </form>
                 
                 
-                 </div>
-        </div>
+     </div>
+     </div>
+     </div>  
+     </div>  
   )
 }
 

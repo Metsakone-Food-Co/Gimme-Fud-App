@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
  import RestaurantService from '../services/RestaurantService';
  import CoursesService from '../services/CoursesService';
- import { useParams,Outlet} from 'react-router-dom'
+
+ import { useParams,Outlet,Link} from 'react-router-dom'
+import { Card, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Card, Button, Badge} from "react-bootstrap";
 import Row from 'react-bootstrap/Row'
 import { BsCartPlus} from "react-icons/bs";
 import { MdFastfood } from "react-icons/md";
+import '../RestaurantPage.css'
+import { isCompositeComponentWithType } from 'react-dom/test-utils';
+
 
 
 
@@ -15,6 +19,11 @@ import { MdFastfood } from "react-icons/md";
 
     const [restaurant, setRestaurant] = useState([]);
     const [courses, setCourses] = useState([]);
+    const [cart, setCart] = useState([
+     /* {quantity: 1,course_name: 'hampurilainen', meal_price: '5.00'},
+
+    {quantity: 1, course_name: 'Milk', meal_price: '2.00'}*/]);
+    const [qty, setQty] = useState(0);
      
     const result = useParams();
     console.log(result);
@@ -51,17 +60,84 @@ import { MdFastfood } from "react-icons/md";
         cinit();
       }, []);
 
-
+      const onAddToCart = (item) => {
    
+      
+
+        if(!cart.some(i => i.course_name === item.course_name)){
+          item.amount = 1;
+          setCart(cart.concat(item));
+        }
+        else{
+          const newCart = cart.map(i => {
+            if(i.course_name === item.course_name){
+              i.amount++;
+            }
+            return i;
+          });
+          setCart(newCart); 
+        }
+      }
+        
+      const onRemoveFromCart = (item) => {
+      
+          
+          if(item.amount === 0){
+        setCart(cart.filter(i => i.course_name !== item.course_name));
+          }
+          
+         else {
+         const remove = cart.map(i => {
+          if (i.course_name === item.course_name && i.amount > 0){
+            i.amount--;
+           
+          }
+
+          return i;
+        });
+        setCart(remove);
+      }
+    }
+    
+
+        
+   
+      
+      
+   
+  
+      
+
+      function summa(cart){
+        let sum = 0;
+        for(let i = 0; i < cart.length; i++){
+          sum += cart[i].amount * cart[i].meal_price;
+        }
+        return sum;
+
+      
+      }
 
 
- 
+
    return (
   <div className="restaurantPage">
     <h1>{restaurant.rname}</h1>
     <div className="restaurantContainer">
       <div className="leftMenu">
-        
+      <Row xs={1} md={3} className="g-4">
+       <Card style={{width: '18rem'}}>
+         <Card.Body style={{border: '50px'}}>
+           <Card.Title>CART</Card.Title>
+           <Card.Text>Meals: {cart.map(meals => {
+             return <p>{meals.course_name} {meals.meal_price}€ x{meals.amount} <br></br>
+             <Button onClick={() => onRemoveFromCart(meals)}>Remove</Button> </p>
+           })}</Card.Text>
+           <Card.Text>Total: {summa(cart)} €</Card.Text>
+          
+         </Card.Body>
+       </Card>
+     </Row>
       </div>
       <div className="centerMenu">
       <h1>Main courses</h1>
@@ -71,6 +147,7 @@ import { MdFastfood } from "react-icons/md";
         return(
         <Row xs={1} md={3} className="g-4">
           
+       
           <Card style={{width: '18rem'}}>
             <Card.Body style={{border: '50px'}}>
               <Card.Title>{course.course_name}</Card.Title>
@@ -78,7 +155,7 @@ import { MdFastfood } from "react-icons/md";
               <Card.Text>
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
-              <Button>Add to cart<BsCartPlus/></Button>
+              <Button onClick={() => onAddToCart(course)}>Add to cart<BsCartPlus/></Button>
             </Card.Body>
           </Card>
         </Row>
@@ -96,7 +173,7 @@ import { MdFastfood } from "react-icons/md";
               <Card.Text>
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
-              <Button>Add to cart<BsCartPlus/></Button>
+              <Button onClick={() => onAddToCart(course)}>Add to cart<BsCartPlus/></Button>
             </Card.Body>
           </Card>
         </Row>
@@ -114,7 +191,7 @@ import { MdFastfood } from "react-icons/md";
               <Card.Text>
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
-              <Button>Add to cart<BsCartPlus/></Button>
+              <Button onClick={() => onAddToCart(course)}>Add to cart<BsCartPlus/></Button>
             </Card.Body>
           </Card>
         </Row>
@@ -132,11 +209,12 @@ import { MdFastfood } from "react-icons/md";
               <Card.Text>
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
-              <Button>Add to cart<BsCartPlus/></Button>
+              <Button onClick={() => onAddToCart(course)}>Add to cart<BsCartPlus/></Button>
             </Card.Body>
           </Card>
         </Row>
       )})}
+
 
      
     </div>
@@ -148,6 +226,7 @@ import { MdFastfood } from "react-icons/md";
            <Card.Text>{restaurant.rname}</Card.Text>
            <Card.Text>Address: {restaurant.raddress}</Card.Text>
            <Card.Text>Type: {restaurant.rtype}</Card.Text>
+           <Card.Text>Service hours: {restaurant.service_hours}</Card.Text>
            <Card.Text>Price range: {restaurant.price_range}</Card.Text>
          </Card.Body>
        </Card>
@@ -156,4 +235,10 @@ import { MdFastfood } from "react-icons/md";
      </div>
      </div>
 
-   )}
+    
+   ) 
+ }
+
+
+
+

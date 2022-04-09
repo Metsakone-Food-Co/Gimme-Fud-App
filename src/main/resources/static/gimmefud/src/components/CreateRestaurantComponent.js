@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate} from "react-router-dom";
 import RestaurantService from '../services/RestaurantService'
 
 const CreateRestaurant = () => {
@@ -9,6 +9,8 @@ const CreateRestaurant = () => {
     const[service_hours, setServiceHours] = useState('');
     const[rtype, setRtype] = useState('');
     const[price_range, setPriceRange] = useState('');
+    const navigate = useNavigate();
+  
 
 
 
@@ -26,6 +28,16 @@ const CreateRestaurant = () => {
         })
     }
     return(
+
+        <div>
+    <div className='navbar'>
+      <div className='leftSide'> 
+        <img className='kuva'src="Logo.png"/>    
+         </div>
+       <div className='rightSide'>
+      <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Home</button>
+         </div>
+
         <div className="container">
             <h1>Create Restaurant</h1>
             <form class = "row g-3">
@@ -103,7 +115,8 @@ const CreateRestaurant = () => {
                 </div>
             </form>
           
-            
+             </div>
+             </div>
         </div>
     )
 }
