@@ -42,6 +42,7 @@ function App() {
    <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setOwnerJwt(newJWT) }/> }/>
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
+   <Route path="ShoppingCartComponent" element={<ShoppingCartComponent/>}/>
   
   </>
 
@@ -82,6 +83,7 @@ function App() {
         <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
         <Link to="/LoginComponent"><div>Login</div></Link>
         <Link to="/LoginOwnerComponent"><div>Login as a Owner</div></Link>
+        <Link to="/ShoppingCartComponent"><div>Shopping Cart</div></Link>
 
   </>
   if (userJwt != null) {

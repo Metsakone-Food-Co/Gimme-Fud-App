@@ -134,6 +134,7 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
              <Button onClick={() => onRemoveFromCart(meals)}>Remove</Button> </p>
            })}</Card.Text>
            <Card.Text>Total: {summa(cart)} €</Card.Text>
+           <Button>PLACE ORDER</Button>
           
          </Card.Body>
        </Card>
