@@ -19,6 +19,7 @@ import CoursesDetails from './components/CoursesDetails'
 import ShoppingCartComponent from './components/ShoppingCartComponent';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import HomepageOwnerComponent from './components/HomepageOwnerComponent';
+import HistoryComponent from './components/HistoryComponent';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState} from 'react';
@@ -43,6 +44,7 @@ function App() {
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
    <Route path="ShoppingCartComponent" element={<ShoppingCartComponent/>}/>
+   <Route path="HistoryComponent" element={<HistoryComponent/>}/>
   
   </>
 
@@ -69,6 +71,8 @@ function App() {
       <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
       <Route path="SearchCourses" element={<SearchCourses/>}/>
      <Route path="ShoppingCartComponent" element={<ShoppingCartComponent/>}/>
+     <Route path="HistoryComponent" element={<HistoryComponent/>}/>
+
 
   
        
@@ -84,6 +88,8 @@ function App() {
         <Link to="/LoginComponent"><div>Login</div></Link>
         <Link to="/LoginOwnerComponent"><div>Login as a Owner</div></Link>
         <Link to="/ShoppingCartComponent"><div>Shopping Cart</div></Link>
+        <Link to="/HistoryComponent"><div>Order history</div></Link>
+
 
   </>
   if (userJwt != null) {
@@ -94,6 +100,8 @@ function App() {
         <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
         <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
         <Link to="/ShoppingCartComponent"><div>Shopping Cart</div></Link>
+        <Link to="/HistoryComponent"><div>Order history</div></Link>
+
         <div><button type ="button" onClick={()=>setUserJwt(null)} >LOG OUT</button></div>
     </>
   }

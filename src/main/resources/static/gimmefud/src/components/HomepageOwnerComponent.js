@@ -21,7 +21,7 @@ const HomepageOwner= (props)=> {
         
           { props.ownerLoggedIn ? 
             <>
-              <div className="Logout">
+              <div className="Logoin">
         
               <Link to="/ListRestaurantComponent"><button type="button" class="btn background-color:transparent btn-lg">Restaurant</button></Link>
               <Link to="/ListCoursesComponent"><button type="button" class="btn background-color:transparent  btn-lg ">Courses</button></Link>
