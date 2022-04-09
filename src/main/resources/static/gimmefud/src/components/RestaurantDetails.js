@@ -15,7 +15,7 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
 
 
 
- export default function RestaurantDetails() {
+ export default function RestaurantDetails(props) {
 
     const [restaurant, setRestaurant] = useState([]);
     const [courses, setCourses] = useState([]);
@@ -129,11 +129,14 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
        <Card style={{width: '18rem'}}>
          <Card.Body style={{border: '50px'}}>
            <Card.Title>CART</Card.Title>
+           
            <Card.Text>Meals: {cart.map(meals => {
              return <p>{meals.course_name} {meals.meal_price}€ x{meals.amount} <br></br>
              <Button onClick={() => onRemoveFromCart(meals)}>Remove</Button> </p>
            })}</Card.Text>
            <Card.Text>Total: {summa(cart)} €</Card.Text>
+           <Button onClick={() => props.placeOrder(cart)}>PLACE ORDER</Button>
+           <Link to="/ShoppingCartComponent">Paina</Link>
           
          </Card.Body>
        </Card>

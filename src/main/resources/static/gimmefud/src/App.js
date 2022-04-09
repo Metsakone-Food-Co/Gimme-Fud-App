@@ -30,6 +30,13 @@ import {useState} from 'react';
 
 function App() {
 
+  const [orderList, setOrderList] = useState([]);
+  const placeOrderClicked = (orderStuff) => {
+    console.log("TILAUS ON: ", orderStuff);
+    setOrderList(orderStuff);
+    console.log("ORDER LIST: ", orderList);
+  }
+
 
   const [userJwt, setUserJwt] = useState(null);
 
@@ -58,7 +65,8 @@ function App() {
 
 
       <Route path="ListRestaurantComponent" element={<ListRestaurantComponent />}/>
-        <Route path="ListRestaurantComponent/:rname" element = { <RestaurantDetails />}> 
+        <Route path="ListRestaurantComponent/:rname" element = { <RestaurantDetails placeOrder={placeOrderClicked} />}/>
+          <Route path="ShoppingCartComponent" element = {<ShoppingCartComponent order={orderList} uuser={userJwt}/>}> 
         </Route>
         
       <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
@@ -67,7 +75,7 @@ function App() {
       <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
       <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
       <Route path="SearchCourses" element={<SearchCourses/>}/>
-     <Route path="ShoppingCartComponent" element={<ShoppingCartComponent/>}/>
+     <Route path="ShoppingCartComponent" element={<ShoppingCartComponent order={orderList} />}/>
 
   
        
