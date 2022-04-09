@@ -16,6 +16,8 @@ import SearchCourses from './components/SearchCourses'
 import LoginOwnerComponent from './components/LoginOwnerComponent'
 import RestaurantDetails from './components/RestaurantDetails'
 import CoursesDetails from './components/CoursesDetails'
+
+import ImageUploadComponent from './components/ImageUploadComponent'
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -41,6 +43,7 @@ function App() {
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
    <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
+   <Route path="ImageUploadComponent" element={<ImageUploadComponent/>}/>
   </>
 
   if (userJwt != null) {
@@ -52,6 +55,7 @@ function App() {
       <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
       <Route path="ListCustomerComponent" element={<ListCustomerComponent/>}/>
       <Route path="ListOwnerComponent" element={<ListOwnerComponent/>}/>
+      <Route path="ImageUploadComponent" element={<ImageUploadComponent/>}/>
 
 
       <Route path="ListRestaurantComponent" element={<ListRestaurantComponent />}/>
@@ -73,6 +77,7 @@ function App() {
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
    <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
+   <Route path="ImageUploadComponent" element={<ImageUploadComponent/>}/>
   </>
 
   if (ownerJwt != null) {
@@ -88,6 +93,7 @@ function App() {
       <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
       <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
       <Route path="SearchCourses" element={<SearchCourses/>}/>
+      <Route path="ImageUploadComponent" element={<ImageUploadComponent/>}/>
     </>
   }
 
@@ -97,6 +103,7 @@ function App() {
         <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
         <Link to="/LoginComponent"><div>Login</div></Link>
         <Link to="/LoginOwnerComponent"><div>Login as a Owner</div></Link>
+        <Link to="/ImageUploadComponent"><div>Login as a Owner</div></Link>
 
   
   </>
@@ -108,6 +115,8 @@ function App() {
         <Link to="/ListOwnerComponent"><div>Restaurant owners</div></Link> 
         <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
         <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
+        <Link to="/ImageUploadComponent"><div>Login as a Owner</div></Link>
+        
     </>
   }
 

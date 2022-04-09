@@ -17,6 +17,7 @@ export default function Homepage(props) {
            <Link to="/ListCustomerComponent"><button type="button" class="btn btn-primary btn-lg ">List customers</button></Link>
            <Link to="/ListOwnerComponent"><button type="button" class="btn btn-primary btn-lg ">List owners</button></Link>
            <Link to="/ListCoursesComponent"><button type="button" class="btn btn-primary btn-lg ">List courses</button></Link>
+           <Link to="/ImageUploadComponent"><button type="button" class="btn btn-primary btn-lg ">List courses</button></Link>
            <div><button  type = "button" class="btn btn-primary btn-lg"  onClick={props.logout} > Logout </button></div>
             </>
              :
@@ -26,6 +27,7 @@ export default function Homepage(props) {
            <Link to="/CreateCustomerComponent"><button type="button" class="btn btn-primary btn-lg ">Create customer</button></Link>
            <Link to="/CreateOwnerComponent"><button type="button" class="btn btn-primary btn-lg ">Create owner</button></Link>
            <Link to="/CreateCoursesComponent"><button type="button" class="btn btn-primary btn-lg ">Create course</button></Link>
+           <Link to="/ImageUploadComponent"><button type="button" class="btn btn-primary btn-lg ">List courses</button></Link>
        
            </>
    
