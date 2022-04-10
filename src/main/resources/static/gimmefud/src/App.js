@@ -30,6 +30,31 @@ import {useState} from 'react';
 
 function App() {
 
+  const [orderList, setOrderList] = useState([]);
+  const [uuser, setUuser] = useState('');
+  const [totalSum, setTotalSum] = useState([]);
+
+  const placeOrderClicked = (orderStuff) => {
+    console.log("TILAUS ON: ", orderStuff);
+    setOrderList(orderStuff);
+    console.log("ORDER LIST: ", orderList);
+  }
+  const userOrdering = (ordererName) => {
+    console.log("TILAAJA ON: ", ordererName);
+    setUuser(ordererName);
+    console.log("UUSER ON: ", uuser)
+  }
+  const calculateTotal = (orderStuff) => {
+    let sum = 0;
+    for(let i = 0; i < orderStuff.length; i++){
+      sum += orderStuff[i].amount * orderStuff[i].meal_price;
+    }
+    console.log("TOTAL SUM IS: ", sum)
+    setTotalSum(sum);
+    return sum;
+  }
+  
+
 
   const [userJwt, setUserJwt] = useState(null);
 
@@ -38,7 +63,7 @@ function App() {
  
 
   let authRoutes = <>
-  <Route path="LoginComponent" element={<LoginComponent login={ (newJWT) => setUserJwt(newJWT) }/> }/>
+  <Route path="LoginComponent" element={<LoginComponent login={ (newJWT) => setUserJwt(newJWT) } setAsOrderer={userOrdering}/> }/>
    <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setOwnerJwt(newJWT) }/> }/>
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
@@ -58,7 +83,8 @@ function App() {
 
 
       <Route path="ListRestaurantComponent" element={<ListRestaurantComponent />}/>
-        <Route path="ListRestaurantComponent/:rname" element = { <RestaurantDetails />}> 
+        <Route path="ListRestaurantComponent/:rname" element = { <RestaurantDetails placeOrder={placeOrderClicked} sumTotal={calculateTotal}/>}/>
+          <Route path="ShoppingCartComponent" element = {<ShoppingCartComponent order={orderList} orderer={uuser} total={totalSum}/>}> 
         </Route>
         
       <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
@@ -67,7 +93,7 @@ function App() {
       <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
       <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
       <Route path="SearchCourses" element={<SearchCourses/>}/>
-     <Route path="ShoppingCartComponent" element={<ShoppingCartComponent/>}/>
+     <Route path="ShoppingCartComponent" element={<ShoppingCartComponent order={orderList} />}/>
 
   
        

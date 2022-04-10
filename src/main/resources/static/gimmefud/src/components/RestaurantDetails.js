@@ -15,7 +15,7 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
 
 
 
- export default function RestaurantDetails() {
+ export default function RestaurantDetails(props) {
 
     const [restaurant, setRestaurant] = useState([]);
     const [courses, setCourses] = useState([]);
@@ -108,7 +108,7 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
   
       
 
-      function summa(cart){
+      /*function summa(cart){
         let sum = 0;
         for(let i = 0; i < cart.length; i++){
           sum += cart[i].amount * cart[i].meal_price;
@@ -116,7 +116,7 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
         return sum;
 
       
-      }
+      }*/
 
 
 
@@ -129,11 +129,14 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
        <Card style={{width: '18rem'}}>
          <Card.Body style={{border: '50px'}}>
            <Card.Title>CART</Card.Title>
+           
            <Card.Text>Meals: {cart.map(meals => {
              return <p>{meals.course_name} {meals.meal_price}€ x{meals.amount} <br></br>
              <Button onClick={() => onRemoveFromCart(meals)}>Remove</Button> </p>
            })}</Card.Text>
-           <Card.Text>Total: {summa(cart)} €</Card.Text>
+           <Card.Text>Total: {props.sumTotal(cart)} €</Card.Text>
+           <Button onClick={() => props.placeOrder(cart)}>PLACE ORDER</Button>
+           <Link to="/ShoppingCartComponent">Paina</Link>
           
          </Card.Body>
        </Card>
