@@ -11,7 +11,7 @@ public class Order {
 
     @Id
     @Column(name = "ordername")
-    public String orderName;
+    public String ordername;
 
     @Column(name = "rname")
     public String rname;
@@ -20,19 +20,19 @@ public class Order {
     public String username;
 
     @Column(name = "orderitems")
-    public String orderItems;
+    public String orderitems;
 
     @Column(name = "totalsum")
-    public String totalSum;
+    public String totalsum;
 
 
 
-    public Order(String orderName, String rname, String username, String orderItems, String totalSum) {
-        this.orderName = orderName;
+    public Order(String ordername, String rname, String username, String orderitems, String totalsum) {
+        this.ordername = ordername;
         this.rname = rname;
         this.username = username;
-        this.orderItems = orderItems;
-        this.totalSum = totalSum;
+        this.orderitems = orderitems;
+        this.totalsum = totalsum;
 
     }
 

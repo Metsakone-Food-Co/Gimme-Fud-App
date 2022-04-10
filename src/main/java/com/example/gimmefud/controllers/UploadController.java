@@ -47,5 +47,6 @@ public class UploadController {
         return new ResponseEntity<Map>(urlJson, HttpStatus.OK);
 
     }
+}
 
 
