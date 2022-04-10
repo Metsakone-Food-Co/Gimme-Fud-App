@@ -16,6 +16,7 @@ import SearchCourses from './components/SearchCourses'
 import LoginOwnerComponent from './components/LoginOwnerComponent'
 import RestaurantDetails from './components/RestaurantDetails'
 import CoursesDetails from './components/CoursesDetails'
+import ImageUploadComponent from './components/ImageUploadComponent'
 import ShoppingCartComponent from './components/ShoppingCartComponent';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import HomepageOwnerComponent from './components/HomepageOwnerComponent';
@@ -55,6 +56,8 @@ function App() {
       <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
       <Route path="ListCustomerComponent" element={<ListCustomerComponent/>}/>
       <Route path="ListOwnerComponent" element={<ListOwnerComponent/>}/>
+      <Route path="ImageUploadComponent" element={<ListOwnerComponent/>}/>
+
 
 
       <Route path="ListRestaurantComponent" element={<ListRestaurantComponent />}/>
@@ -82,6 +85,9 @@ function App() {
         <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
         <Link to="/LoginComponent"><div>Login</div></Link>
         <Link to="/LoginOwnerComponent"><div>Login as a Owner</div></Link>
+        <Link to="/ImageUploadComponent"><div>Login as a Owner</div></Link>
+        
+
 
   </>
   if (userJwt != null) {
@@ -124,6 +130,7 @@ function App() {
       <Route path="SearchCourses" element={<SearchCourses/>}/>
       <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
       <Route path="HomepageOwnerComponent" element={<HomepageOwnerComponent/>}/>
+      <Route path="ImageUploadComponent" element={<ImageUploadComponent/>}/>
 
     </>
   }
@@ -135,7 +142,7 @@ function App() {
    <Link to="/CreateCoursesComponent"><button type="button" class="btn btn-light btn-lg ">Create Courses</button></Link>
    <Link to="/LoginComponent"><button type="button" class="btn btn-light btn-lg ">Login</button></Link>
    <Link to="/LoginOwnerComponent"><button type="button" class="btn btn-light btn-lg ">Login as a Owner</button></Link>
-
+   <Link to="/ImageUploadComponent"><button type="button" class="btn background-color:transparent  btn-lg ">Upload image</button></Link>
 </>
 
 if (ownerJwt != null) {
@@ -145,6 +152,7 @@ ownerLinks =<>
    <Link to="/ListOwnerComponent"><div>Restaurant owners</div></Link> 
    <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
    <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
+
    <div><button type ="button" onClick={()=>setOwnerJwt(null)} >LOG OUT</button></div> 
    </>
 }

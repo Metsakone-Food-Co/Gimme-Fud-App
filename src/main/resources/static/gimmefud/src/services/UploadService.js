@@ -1,8 +1,8 @@
 import httpClient from "../http-common";
 
 
-const create = data => {
-    return httpClient.post("/upload", data);
+const create = () => {
+    return httpClient.post("/upload");
 }
 
 const get = id => {
