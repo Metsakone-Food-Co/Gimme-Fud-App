@@ -22,6 +22,7 @@ const ImageUploadComponent = () => {
         const formData = new FormData();
         formData.append("file", imageselected);
         formData.append("upload_preset", "v2klxyfb");
+        
 
         Axios.post("https://api.cloudinary.com/v1_1/gimmefudapp/image/upload", formData).then((response) => {
         console.log(response.data.secure_url)
@@ -29,6 +30,8 @@ const ImageUploadComponent = () => {
             
         });
     };
+
+   
 
 
 

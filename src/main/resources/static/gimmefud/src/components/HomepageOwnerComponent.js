@@ -27,6 +27,7 @@ const HomepageOwner= (props)=> {
               <Link to="/ListCoursesComponent"><button type="button" class="btn background-color:transparent  btn-lg ">Courses</button></Link>
               <Link to="/CreateCoursesComponent"><button type="button" class="btn background-color:transparent  btn-lg ">Create Courses</button></Link>
               <Link to="/CreateRestaurantComponent"><button type="button" class="btn background-color:transparent  btn-lg ">Create restaurant</button></Link>
+              <Link to="/ImageUploadComponent"><button type="button" class="btn background-color:transparent  btn-lg ">Upload image</button></Link>
               <button type = "button" class="btn background-color:transparent btn-lg "onClick={props.logout}> Logout </button></div>
             </>
             :

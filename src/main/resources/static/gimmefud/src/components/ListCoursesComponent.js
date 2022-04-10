@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import CoursesService from '../services/CoursesService';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import SearchCourses from './SearchCourses';
+import '../CoursesPage.css'
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -73,7 +74,7 @@ const ListCoursesComponent = () => {
        <div className="courseTest">
        
 
-        <Row xs={1} md={4} >
+        <Row xs={1} md={3} >
           {filteredCourses.map(course =>(
             <tr key={course.course_name}>
 
@@ -86,7 +87,7 @@ const ListCoursesComponent = () => {
                   <Card.Body >
                       
                       <Image 
-                        src="https://im.mtv.fi/image/3408894/landscape16_9/792/446/b51f396b1ebe045cdc114881f1d55017/Lj/grilli.jpg" 
+                        src={course.img_url} 
                         fluid
                         className='card-image-top'
                         class='courseImage'
