@@ -87,7 +87,7 @@ const ListCoursesComponent = () => {
                   <Card.Body >
                       
                       <Image 
-                        src="https://im.mtv.fi/image/3408894/landscape16_9/792/446/b51f396b1ebe045cdc114881f1d55017/Lj/grilli.jpg" 
+                        src={course.img_url} 
                         fluid
                         className='card-image-top'
                         class='courseImage'
