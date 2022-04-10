@@ -1,47 +1,28 @@
 import React from 'react'
-//TESTI
-import CustomerService from '../services/CustomerService';
-import { useEffect, useState } from 'react';
-//TESTI
+import {useState} from 'react'
+
+
 export default function ShoppingCartComponent(props) {
 
-//TESTI
-const [orderingCustomer, setOrderingCustomer] = useState([]);
 
-  const init = () => {
-    CustomerService.getAll()
-      .then(response => {
-        console.log('Printing customer data', response.data);
-        setOrderingCustomer(response.data);
-      })
-      .catch(error => {
-        console.log('Something went wrong', error);
-      }) 
-  }
-
-  useEffect(() => {
-    init();
-  }, []);
-//TESTI:
+  console.log("JEE: ", props.order)
   return (
     <div>
-        <h3>Hello, dude who's hashed password is {props.uuser}</h3>
-        <div>Customer is: {orderingCustomer.map(orderer => {
-            if(orderer.password === props.uuser){
-                return orderer.fname;
-            } else {
-                console.log("Tyhmä", props.uuser)
-            }
-        })
-        } </div>
-        <ul>
+        <h3>Yo {props.orderer} bruh, your order:</h3>
+
+        <div>
             {props.order.map(orderItem => {
-                return <li>{orderItem.course_name} {orderItem.amount}pcs {orderItem.meal_price}€/meal</li>
+                return <div>
+                    <h3>Restaurant: {orderItem.rname}</h3>
+                    <h4>{orderItem.course_name} {orderItem.amount}pcs {orderItem.meal_price}€/meal</h4>
+                    
+                    </div>
             })}
             
             
 
-        </ul>
+        </div>
+        <div>Total is: {props.total}</div>
 
     </div>
   )

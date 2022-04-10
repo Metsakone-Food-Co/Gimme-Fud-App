@@ -19,7 +19,7 @@ const LoginComponent = (props) => {
         const resivedJWT = response.data.token;
         props.login(resivedJWT);
         navigate("/", {replace: true});
-
+        props.setAsOrderer(username);
     })
     .catch(error => {
         console.log('something went wrong', error);

@@ -50,6 +50,7 @@ const CreateCoursesComponent = () => {
        <div className='rightSide'>
       <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Home</button>
          </div>
+         </div>
 
     <div className="container"> 
         <h1> Create course  </h1>
@@ -131,7 +132,7 @@ onSelect={handleSelect}
                  </div>
         </div>
         </div>
-        </div>
+        
   )
 }
 
