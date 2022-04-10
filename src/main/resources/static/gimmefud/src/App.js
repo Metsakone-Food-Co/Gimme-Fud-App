@@ -19,6 +19,7 @@ import CoursesDetails from './components/CoursesDetails'
 import ShoppingCartComponent from './components/ShoppingCartComponent';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import HomepageOwnerComponent from './components/HomepageOwnerComponent';
+import HistoryComponent from './components/HistoryComponent';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState} from 'react';
@@ -81,10 +82,11 @@ function App() {
       <Route path="ListCustomerComponent" element={<ListCustomerComponent/>}/>
       <Route path="ListOwnerComponent" element={<ListOwnerComponent/>}/>
 
-
+      <Route path="HistoryComponent" element={<HistoryComponent />}/>
       <Route path="ListRestaurantComponent" element={<ListRestaurantComponent />}/>
         <Route path="ListRestaurantComponent/:rname" element = { <RestaurantDetails placeOrder={placeOrderClicked} sumTotal={calculateTotal}/>}/>
           <Route path="ShoppingCartComponent" element = {<ShoppingCartComponent order={orderList} orderer={uuser} total={totalSum}/>}> 
+    
         </Route>
         
       <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
@@ -116,7 +118,7 @@ function App() {
         <Link to="/ListCustomerComponent"><div>Customer list</div></Link>
         <Link to="/ListOwnerComponent"><div>Restaurant owners</div></Link> 
         <Link to="/CreateCoursesComponent"><div>Create Courses</div></Link>
-        <Link to="/CreateRestaurantComponent"><div>Create restaurant</div></Link>
+        <Link to="/HistoryComponent"><div>Order History</div></Link>
         <Link to="/ShoppingCartComponent"><div>Shopping Cart</div></Link>
         <div><button type ="button" onClick={()=>setUserJwt(null)} >LOG OUT</button></div>
     </>
@@ -150,6 +152,9 @@ function App() {
       <Route path="SearchCourses" element={<SearchCourses/>}/>
       <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
       <Route path="HomepageOwnerComponent" element={<HomepageOwnerComponent/>}/>
+      <Route path="HistoryComponent" element={<HistoryComponent />}/>
+
+      
 
     </>
   }
