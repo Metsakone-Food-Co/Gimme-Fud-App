@@ -49,7 +49,7 @@ const CreateCoursesComponent = () => {
 
       Axios.post("https://api.cloudinary.com/v1_1/gimmefudapp/image/upload", formData).then((response) => {
       console.log(response.data.secure_url)
-      
+      setImgUrl(response.data.secure_url)
 
           
       });
@@ -68,6 +68,7 @@ const CreateCoursesComponent = () => {
        <div className='rightSide'>
       <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Home</button>
          </div>
+        </div>
 
     <div className="container"> 
         <h1> Create course  </h1>
@@ -169,7 +170,7 @@ onChange= {(event) => {
                  </div>
         </div>
         </div>
-        </div>
+        
   )
 }
 
