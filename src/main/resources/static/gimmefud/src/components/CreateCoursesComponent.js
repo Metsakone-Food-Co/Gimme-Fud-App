@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import '../CreateCoursesPage.css';
+import  Axios  from "axios";
 
 
 
@@ -15,18 +16,20 @@ const CreateCoursesComponent = () => {
     const[rname, setRname   ] = useState('');
     const[meal_type, setMealType] = useState('');
     const[meal_price, setMealPrice] = useState('');
+    const[img_url, setImgUrl] = useState('');
     const navigate = useNavigate();
 
   const handleSelect=(e) =>{
     console.log(e);
     setMealType(e)
+    
   }
   
 
     const saveCourse = (e) => {
         e.preventDefault();
         
-        const course = { course_name, rname, meal_type, meal_price};
+        const course = { course_name, rname, meal_type, meal_price, img_url};
         CustomerService.create(course)
         .then(response => {
             console.log("Course added successfully", response.data);
@@ -36,6 +39,21 @@ const CreateCoursesComponent = () => {
             console.log('something went wrong', error);
         })
     }
+
+
+
+    const uploadImage = (files) => {
+      const formData = new FormData();
+      formData.append("file", files[0]);
+      formData.append("upload_preset", "v2klxyfb");
+
+      Axios.post("https://api.cloudinary.com/v1_1/gimmefudapp/image/upload", formData).then((response) => {
+      console.log(response.data.secure_url)
+      setImgUrl(response.data.secure_url)
+
+          
+      });
+  };
 
 
 
@@ -50,7 +68,7 @@ const CreateCoursesComponent = () => {
        <div className='rightSide'>
       <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Home</button>
          </div>
-         </div>
+        </div>
 
     <div className="container"> 
         <h1> Create course  </h1>
@@ -110,6 +128,26 @@ onSelect={handleSelect}
   <Dropdown.Item eventKey="Dessert">Dessert</Dropdown.Item>
   <Dropdown.Item eventKey="Drink">Drink</Dropdown.Item>
 </DropdownButton>
+
+
+
+<div class = "col-md-6">
+<div>
+
+<input type = "file"
+onChange= {(event) => {
+    uploadImage(event.target.files);
+}}
+
+
+
+/>
+</div>
+    </div>
+
+    
+
+    
 
 
   <div class="col-12">

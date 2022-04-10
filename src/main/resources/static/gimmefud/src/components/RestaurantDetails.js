@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
  import CoursesService from '../services/CoursesService';
 
  import { useParams,Outlet,Link} from 'react-router-dom'
-import { Card, Button} from 'react-bootstrap';
+import { Card, Button, Image} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row'
 import { BsCartPlus} from "react-icons/bs";
@@ -154,7 +154,12 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
           <Card style={{width: '18rem'}}>
             <Card.Body style={{border: '50px'}}>
               <Card.Title>{course.course_name}</Card.Title>
-              <Card.Text>Tähän annoksen kuva</Card.Text>
+              <Image 
+                        src={course.img_url} 
+                        fluid
+                        className='card-image-top'
+                        class='courseImage'
+                      />
               <Card.Text>
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
@@ -172,7 +177,12 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
           <Card style={{width: '18rem'}}>
             <Card.Body style={{border: '50px'}}>
               <Card.Title>{course.course_name}</Card.Title>
-              <Card.Text>Tähän annoksen kuva</Card.Text>
+              <Image 
+                        src={course.img_url} 
+                        fluid
+                        className='card-image-top'
+                        class='courseImage'
+                      />
               <Card.Text>
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
@@ -190,7 +200,12 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
           <Card style={{width: '18rem'}}>
             <Card.Body style={{border: '50px'}}>
               <Card.Title>{course.course_name}</Card.Title>
-              <Card.Text>Tähän annoksen kuva</Card.Text>
+              <Image 
+                        src={course.img_url} 
+                        fluid
+                        className='card-image-top'
+                        class='courseImage'
+                      />
               <Card.Text>
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
@@ -208,7 +223,12 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
           <Card style={{width: '18rem'}}>
             <Card.Body style={{border: '50px'}}>
               <Card.Title>{course.course_name}</Card.Title>
-              <Card.Text>Tähän annoksen kuva</Card.Text>
+              <Image 
+                        src={course.img_url} 
+                        fluid
+                        className='card-image-top'
+                        class='courseImage'
+                      />
               <Card.Text>
                 <p>Price: {course.meal_price}€</p>
               </Card.Text>
