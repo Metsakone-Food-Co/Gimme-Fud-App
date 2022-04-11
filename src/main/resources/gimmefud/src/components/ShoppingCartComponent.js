@@ -81,9 +81,9 @@ const submitOrder= (rname, username, orderitems, totalsum) => {
           
          </Card.Body>
        </Card>
-
+        <div> <br></br>
        <Button onClick={() => {submitOrder( ravinteli, kayttaja, annokset, totaali)}}>Vahvista tilaus</Button>
-
+       </div>
     </div>
     </div> 
   )
