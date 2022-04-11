@@ -14,6 +14,9 @@ password: Ooke
 username: Sipulimies
 password: Sipuli
 
+username: PuukkoAllu
+password: Blade666
+
 Owner Login :
 
 usernme: Aake
