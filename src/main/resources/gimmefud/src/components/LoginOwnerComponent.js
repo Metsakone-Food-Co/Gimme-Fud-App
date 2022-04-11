@@ -19,7 +19,7 @@ const LoginOwnerComponent = (props) => {
         const resivedJWT = response.data.token;
         props.login(resivedJWT);
         navigate("/HomepageOwnerComponent", {replace: true});
-
+        props.setAsOwner(usernamer);
     })
     .catch(error => {
         console.log('something went wrong', error);
