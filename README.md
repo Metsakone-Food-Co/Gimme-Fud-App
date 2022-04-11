@@ -11,6 +11,9 @@ LOGIN:
 username: Ooke
 password: Ooke
 
+username: Sipulimies
+password: Sipuli
+
 Owner Login :
 
 usernme: Aake
