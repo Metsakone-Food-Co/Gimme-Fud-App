@@ -23,13 +23,16 @@ public class Order {
     @Column(name = "totalsum")
     public String totalsum;
 
+    @Column(name = "order_date")
+    public String date;
 
-    public Order(String orderId, String rname, String username, String orderitems, String totalsum) {
+    public Order(String orderId, String rname, String username, String orderitems, String totalsum, String date) {
         this.orderId = orderId;
         this.rname = rname;
         this.username = username;
         this.orderitems = orderitems;
         this.totalsum = totalsum;
+        this.date = date;
     }
 
     public Order() {
