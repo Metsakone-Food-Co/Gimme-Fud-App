@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
  import RestaurantService from '../services/RestaurantService';
  import CoursesService from '../services/CoursesService';
 
- import { useParams,Outlet,Link} from 'react-router-dom'
+ import { useParams,useNavigate,Link} from 'react-router-dom'
 import { Card, Button, Image} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row'
@@ -16,7 +16,8 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
 
 
  export default function RestaurantDetails(props) {
-
+    
+    const navigate = useNavigate();
     const [restaurant, setRestaurant] = useState([]);
     const [courses, setCourses] = useState([]);
     const [cart, setCart] = useState([
@@ -121,6 +122,20 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
 
 
    return (
+     <div>
+    <div className='navbar'>
+      <div className='leftSide'> 
+        {/* <img className='kuva'src="Logo.png"/>     */}
+         </div>
+       
+       <div className='rightSide'>
+      <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Go back</button>
+
+         </div>
+         </div>
+         
+
+  <div>
   <div className="restaurantPage">
     <h1>{restaurant.rname}</h1>
     <div className="restaurantContainer">
@@ -257,7 +272,8 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
     </div>
      </div>
      </div>
-
+     </div>
+     </div>
     
    ) 
  }

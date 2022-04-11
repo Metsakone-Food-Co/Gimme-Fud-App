@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState} from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link} from 'react-router-dom';
 import OrderService from "../services/OrderService";
 import '../ShoppingCartPage.css'
 import { Card, Button, Image} from 'react-bootstrap';
@@ -55,7 +55,9 @@ const submitOrder= (rname, username, orderitems, totalsum) => {
         <img className='kuva'src="Logo.png"/>    
          </div>
        <div className='rightSide'>
+      <Link to="/HomepageComponent"><button type="button" class="btn background-color:transparent btn-lg ">Home</button></Link>
       <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Go back</button>
+    
     
          </div>  
      </div>
