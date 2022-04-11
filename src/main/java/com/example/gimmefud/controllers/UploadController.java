@@ -5,6 +5,7 @@ package com.example.gimmefud.controllers;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.example.gimmefud.security.CustomerSecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,18 +13,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 
 
 
-@CrossOrigin("*")
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1")
 
 public class UploadController {
+    
+
 
     @PostMapping("/upload")
     public ResponseEntity<Map> UploadPhoto(@RequestParam("file") MultipartFile mfile) {
@@ -36,11 +37,7 @@ public class UploadController {
 
         String imageUrl = "";
 
-        try {
-            Map map = cl.uploader().upload(mfile.getBytes(), ObjectUtils.emptyMap());
-            imageUrl = (String) map.get("url");
-        } catch (IOException e) {
-        }
+
 
         Map urlJson = Collections.singletonMap("img_url", imageUrl);
 

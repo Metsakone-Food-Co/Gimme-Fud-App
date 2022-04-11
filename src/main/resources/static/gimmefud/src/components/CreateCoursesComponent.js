@@ -7,6 +7,8 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import '../CreateCoursesPage.css';
 import  Axios  from "axios";
+import UploadService from "../services/UploadService";
+
 
 
 
@@ -45,10 +47,11 @@ const CreateCoursesComponent = () => {
     const uploadImage = (files) => {
       const formData = new FormData();
       formData.append("file", files[0]);
-      formData.append("upload_preset", "v2klxyfb");
+      formData.append("upload_preset", "grekjcxl");
+      
 
-      Axios.post("https://api.cloudinary.com/v1_1/gimmefudapp/image/upload", formData).then((response) => {
-      console.log(response.data.secure_url)
+      Axios.post("http://localhost:8080/api/v1/upload", formData).then((response) => {
+      console.log(response)
       setImgUrl(response.data.secure_url)
 
           

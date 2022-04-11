@@ -10,6 +10,7 @@ import com.example.gimmefud.data.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -69,6 +70,14 @@ public class CustomerSecurityService {
         }catch(JWTCreationException e){}
 
         return customer;
+    }
+
+
+    protected void configure(HttpSecurity http) throws Exception {
+        http.cors()
+                .and()
+                .authorizeRequests().antMatchers("/resource").permitAll();
+        http.csrf().disable();
     }
 
 
