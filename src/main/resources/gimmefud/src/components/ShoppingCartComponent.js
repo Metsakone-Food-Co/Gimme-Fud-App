@@ -1,6 +1,9 @@
 import React from 'react'
 import {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import OrderService from "../services/OrderService";
+import '../ShoppingCartPage.css'
+import { Card, Button, Image} from 'react-bootstrap';
 
 export default function ShoppingCartComponent(props) {
 
@@ -37,6 +40,7 @@ const submitOrder= (rname, username, orderitems, totalsum) => {
       })
   }
 
+  const navigate = useNavigate();
 //TESTING
 /*const rnameFinder = (ravintelinNimi) => {
     let ravinteli = ravintelinNimi;
@@ -46,23 +50,41 @@ const submitOrder= (rname, username, orderitems, totalsum) => {
   //(console.log("JEE: ", props.order[0].rname)
   return (
     <div>
-        <h3>Yo {props.orderer} bruh, your order:</h3>
+    <div className='navbar'>
+      <div className='leftSide'> 
+        <img className='kuva'src="Logo.png"/>    
+         </div>
+       <div className='rightSide'>
+      <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Go back</button>
+    
+         </div>  
+     </div>
 
-        <div>
-            {props.order.map(orderItem => {
+    <div className='container'>
+
+    <h2>Thankyou {props.orderer}, </h2>
+           <h3>here is your order:</h3>
+           <br></br><hr></hr>
+    <Card style={{width: '18rem'}}>
+         <Card.Body style={{border: '50px', padding:'25px'}}>
+           
+           <Card.Text>{props.order.map(orderItem => {
                 return <div>
-                    <h3>Restaurant: {orderItem.rname}</h3>
-                    <h4>{orderItem.course_name} {orderItem.amount}pcs {orderItem.meal_price}€/meal</h4>
-                    
+                    <h4>Restaurant: </h4>
+                    <p>{orderItem.rname}</p> <hr></hr>
+                    <h4>Order:</h4>
+                    <p>{orderItem.course_name} {orderItem.amount}pcs {orderItem.meal_price}€/meal</p>
                     </div>
-            })}
-            
-            
+           })}</Card.Text> <hr></hr>
+           <Card.Text><h4>Total is: </h4>
+           <p>{props.total} €</p></Card.Text>
+          
+         </Card.Body>
+       </Card>
 
-        </div>
-        <div>Total is: {props.total}</div>
-        <button onClick={() => {submitOrder( ravinteli, kayttaja, annokset, totaali)}}>Vahvista tilaus</button>
+       <Button onClick={() => {submitOrder( ravinteli, kayttaja, annokset, totaali)}}>Vahvista tilaus</Button>
 
     </div>
+    </div> 
   )
 }

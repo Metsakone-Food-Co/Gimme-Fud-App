@@ -39,7 +39,7 @@ const CreateOwner = () => {
             <img className='kuva'src="Logo.png"/>    
              </div>
            <div className='rightSide'>
-          <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Home</button>
+          <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Go back</button>
              </div>  
 
         <div className="container">
