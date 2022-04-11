@@ -1,6 +1,7 @@
 package com.example.gimmefud.data;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "restaurantorder")
@@ -9,7 +10,7 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
-    public String orderId;
+    public String order_id;
 
     @Column(name = "rname")
     public String rname;
@@ -24,15 +25,15 @@ public class Order {
     public String totalsum;
 
     @Column(name = "order_date")
-    public String date;
+    public Date order_date;
 
-    public Order(String orderId, String rname, String username, String orderitems, String totalsum, String date) {
-        this.orderId = orderId;
+    public Order(String order_id, String rname, String username, String orderitems, String totalsum, Date order_date) {
+        this.order_id = order_id;
         this.rname = rname;
         this.username = username;
         this.orderitems = orderitems;
         this.totalsum = totalsum;
-        this.date = date;
+        this.order_date = order_date;
     }
 
     public Order() {

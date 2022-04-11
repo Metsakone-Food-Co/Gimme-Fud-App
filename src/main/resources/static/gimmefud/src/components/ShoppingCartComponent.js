@@ -23,10 +23,10 @@ const totaali = props.total
 
 console.log(tilauksennimi, ravinteli, annokset, kayttaja, totaali)
 
-const submitOrder= (ordername, rname, username, orderitems, totalsum) => {
+const submitOrder= (rname, username, orderitems, totalsum) => {
     //e.preventDefault();
     
-    const order= {ordername, rname, username, orderitems, totalsum};
+    const order= {rname, username, orderitems, totalsum};
     OrderService.create(order)
     .then(response => {
        console.log("Order placed successfully", response.data);
@@ -61,7 +61,7 @@ const submitOrder= (ordername, rname, username, orderitems, totalsum) => {
 
         </div>
         <div>Total is: {props.total}</div>
-        <button onClick={() => {submitOrder(tilauksennimi, ravinteli, kayttaja, annokset, totaali)}}>Klikkaa</button>
+        <button onClick={() => {submitOrder( ravinteli, kayttaja, annokset, totaali)}}>Vahvista tilaus</button>
 
     </div>
   )

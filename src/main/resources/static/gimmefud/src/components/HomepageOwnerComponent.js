@@ -41,7 +41,7 @@ const HomepageOwner= (props)=> {
 
 <div className="home" style={{ backgroundImage:  `url(${foodd})` }}>
     <div className="headerContainer">
-   <h1>Welcome to our App</h1> 
+   <h1>Welcome to our food delivery App</h1> 
 
 
 

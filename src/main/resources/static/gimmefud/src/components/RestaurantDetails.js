@@ -135,8 +135,8 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
              <Button onClick={() => onRemoveFromCart(meals)}>Remove</Button> </p>
            })}</Card.Text>
            <Card.Text>Total: {props.sumTotal(cart)} €</Card.Text>
-           <Button onClick={() => props.placeOrder(cart)}>PLACE ORDER</Button>
-           <Link to="/ShoppingCartComponent">Paina</Link>
+           <Link to="/ShoppingCartComponent"><Button onClick={() => props.placeOrder(cart)}>PLACE ORDER</Button></Link>
+         
           
          </Card.Body>
        </Card>
