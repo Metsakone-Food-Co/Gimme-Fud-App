@@ -80,6 +80,7 @@ function App() {
    <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setOwnerJwt(newJWT)} setAsOwner={whosResta}/> }/>
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
+   <Route path="HomepageOwnerComponent" element ={<HomepageOwnerComponent/>}/>
   
   </>
 

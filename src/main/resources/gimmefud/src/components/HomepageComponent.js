@@ -26,6 +26,7 @@ return (
            <>
                 <Link to="/CreateCustomerComponent"><button type="button" class="btn background-color:transparent btn-lg ">Sign up</button></Link>
                <Link to="/LoginComponent"><button type="button" class="btn background-color:transparentt btn-lg ">Sign in</button></Link>
+               <Link to="/HomepageOwnerComponent"><button type="button" class="btn background-color:transparentt btn-lg ">Owner homepage</button></Link>
          </>
          
         }
