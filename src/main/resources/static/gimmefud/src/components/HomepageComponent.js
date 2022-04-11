@@ -19,7 +19,6 @@ return (
           <>
               <div className="Logout">
               <Link to="/ListRestaurantComponent"><button type="button" class="btn background-color:transparent btn-lg ">Restaurants</button></Link>
-              <Link to="/ListCoursesComponent"><button type="button" class="btn background-color:transparentt  btn-lg ">Courses</button></Link>
              {/*  <Link to="/ShoppingcartComponent"><button type="button" class="btn background-color:transparentt  btn-lg ">Cart<GiShoppingCart/></button></Link> */}
               <Link to="/HistoryComponent"><button type="button" class="btn background-color:transparentt  btn-lg ">Order history</button></Link>
               <button type = "button" class="btn background-color:transparent btn-lg" onClick={props.logout}> Logout </button></div>
