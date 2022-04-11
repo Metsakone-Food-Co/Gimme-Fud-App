@@ -6,6 +6,7 @@ import HomepageComponent from './components/HomepageComponent'
 import ListCustomerComponent from './components/ListCustomerComponent'
 import ListOwnerComponent from './components/ListOwnerComponent'
 import ListRestaurantComponent from './components/ListRestaurantComponent'
+import OwnerListRestaurantComponent from './components/OwnerListRestaurantComponent'
 import CreateCustomerComponent from './components/CreateCustomerComponent'
 import CreateOwnerComponent from './components/CreateOwnerComponent'
 import CreateRestaurantComponent from './components/CreateRestaurantComponent'
@@ -20,6 +21,7 @@ import ShoppingCartComponent from './components/ShoppingCartComponent';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import HomepageOwnerComponent from './components/HomepageOwnerComponent';
 import HistoryComponent from './components/HistoryComponent';
+import RestaurantHistoryComponent from './components/RestaurantHistoryComponent';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState} from 'react';
@@ -33,7 +35,9 @@ function App() {
 
   const [orderList, setOrderList] = useState([]);
   const [uuser, setUuser] = useState('');
+  const [ownerName, setOwnerName] = useState('');
   const [totalSum, setTotalSum] = useState([]);
+  const [orderFrom, setOrderFrom] = useState([]);
 
   const placeOrderClicked = (orderStuff) => {
     console.log("TILAUS ON: ", orderStuff);
@@ -44,6 +48,14 @@ function App() {
     console.log("TILAAJA ON: ", ordererName);
     setUuser(ordererName);
     console.log("UUSER ON: ", uuser)
+  }
+  const whosResta = (nameowner) => {
+    console.log("OWNER OF RESTAURANT IS: ", nameowner);
+    setOwnerName(nameowner);
+  }
+  const whatResta = (restaName) => {
+    console.log("ORDERS FROM RESTAURANT: ", restaName)
+    setOrderFrom(restaName);
   }
   const calculateTotal = (orderStuff) => {
     let sum = 0;
@@ -65,7 +77,7 @@ function App() {
 
   let authRoutes = <>
   <Route path="LoginComponent" element={<LoginComponent login={ (newJWT) => setUserJwt(newJWT) } setAsOrderer={userOrdering}/> }/>
-   <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setOwnerJwt(newJWT) }/> }/>
+   <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setOwnerJwt(newJWT)} setAsOwner={whosResta}/> }/>
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
   
@@ -133,7 +145,7 @@ function App() {
    <Route path="LoginOwnerComponent" element={<LoginOwnerComponent login={ (newJWT) => setOwnerJwt(newJWT) }/> }/>
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
-   <Route path="HomepageOwnerComponent" element={<HomepageOwnerComponent/>}/>
+   <Route path="HomePageOwnerComponent" element={<HomepageOwnerComponent/>}/>
 
   </>
 
@@ -144,6 +156,7 @@ function App() {
       <Route path="ListCustomerComponent" element={<ListCustomerComponent/>}/>
       <Route path="ListOwnerComponent" element={<ListOwnerComponent/>}/>
       <Route path="ListRestaurantComponent" element={<ListRestaurantComponent/>}/>
+      <Route path="OwnerListRestaurantComponent" element={<OwnerListRestaurantComponent ownerMF={ownerName} whatDis={whatResta}/>}/>
       <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
       <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
       <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent/>}/>
@@ -153,6 +166,7 @@ function App() {
       <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>
       <Route path="HomepageOwnerComponent" element={<HomepageOwnerComponent/>}/>
       <Route path="HistoryComponent" element={<HistoryComponent />}/>
+      <Route path="RestaurantHistoryComponent" element={<RestaurantHistoryComponent orderFromThis={orderFrom}/>}/>
 
       
 
