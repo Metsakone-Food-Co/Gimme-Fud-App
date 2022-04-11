@@ -1,17 +1,15 @@
 package com.example.gimmefud.data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "restaurantorder")
 public class Order {
 
     @Id
-    @Column(name = "ordername")
-    public String ordername;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_id")
+    public String orderId;
 
     @Column(name = "rname")
     public String rname;
@@ -26,14 +24,12 @@ public class Order {
     public String totalsum;
 
 
-
-    public Order(String ordername, String rname, String username, String orderitems, String totalsum) {
-        this.ordername = ordername;
+    public Order(String orderId, String rname, String username, String orderitems, String totalsum) {
+        this.orderId = orderId;
         this.rname = rname;
         this.username = username;
         this.orderitems = orderitems;
         this.totalsum = totalsum;
-
     }
 
     public Order() {
