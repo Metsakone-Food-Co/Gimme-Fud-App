@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
 
@@ -23,11 +24,11 @@ import java.util.Map;
 @RequestMapping("/api/v1")
 
 public class UploadController {
-    
 
 
-    @PostMapping("/upload")
-    public ResponseEntity<Map> UploadPhoto(@RequestParam("file") MultipartFile mfile) {
+
+
+    public String UploadImage (@RequestParam("file") MultipartFile mfile) throws IOException {
         Cloudinary cl = new Cloudinary(ObjectUtils.asMap(
                 "cloud_name", "gimmefudapp",
                 "api_key", "925247245444532",
@@ -37,11 +38,13 @@ public class UploadController {
 
         String imageUrl = "";
 
+        Map map = cl.uploader().upload(mfile.getBytes(), ObjectUtils.emptyMap());
+
+        imageUrl = (String)map.get("url");
 
 
-        Map urlJson = Collections.singletonMap("img_url", imageUrl);
-
-        return new ResponseEntity<Map>(urlJson, HttpStatus.OK);
+        System.out.println();
+        return imageUrl;
 
     }
 }
