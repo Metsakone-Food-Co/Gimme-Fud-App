@@ -82,7 +82,7 @@ function App() {
       <Route path="ListCustomerComponent" element={<ListCustomerComponent/>}/>
       <Route path="ListOwnerComponent" element={<ListOwnerComponent/>}/>
 
-      <Route path="HistoryComponent" element={<HistoryComponent />}/>
+      <Route path="HistoryComponent" element={<HistoryComponent orderer={uuser}/>}/>
       <Route path="ListRestaurantComponent" element={<ListRestaurantComponent />}/>
         <Route path="ListRestaurantComponent/:rname" element = { <RestaurantDetails placeOrder={placeOrderClicked} sumTotal={calculateTotal}/>}/>
           <Route path="ShoppingCartComponent" element = {<ShoppingCartComponent order={orderList} orderer={uuser} total={totalSum}/>}> 
