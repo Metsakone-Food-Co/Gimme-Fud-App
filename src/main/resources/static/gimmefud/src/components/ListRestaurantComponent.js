@@ -5,7 +5,7 @@ import SearchRestaurant from './SearchRestaurant';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Card, Button, Badge} from "react-bootstrap";
+import {Card, Button, Badge, Image} from "react-bootstrap";
 import Row from 'react-bootstrap/Row'
 import { BsCartPlus} from "react-icons/bs";
 import { MdFastfood } from "react-icons/md";
@@ -92,7 +92,12 @@ const [restaurants, setRestaurants] = useState([]);
 
                 <Card style={{ width: '18rem'  }} >
                 <Card.Body style={{border: '50px'}}>
-              <Card.Img variant="top" src="https://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/master/w_1280,c_limit/the-ultimate-hamburger.jpg"/>
+                <Image 
+                        src={restaurant.img_url} 
+                        fluid
+                        className='card-image-top'
+                        class='courseImage'
+                      />
             
              <Card.Title>{restaurant.rname} <BsCartPlus/></Card.Title>
 

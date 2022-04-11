@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useParams, useNavigate} from "react-router-dom";
 import RestaurantService from '../services/RestaurantService'
+import  Axios  from "axios";
 
 const CreateRestaurant = () => {
     const[usernamer, setUsernamer] = useState('');
@@ -9,6 +10,7 @@ const CreateRestaurant = () => {
     const[service_hours, setServiceHours] = useState('');
     const[rtype, setRtype] = useState('');
     const[price_range, setPriceRange] = useState('');
+    const[img_url, setImageUrl] = useState('');
     const navigate = useNavigate();
   
 
@@ -17,7 +19,7 @@ const CreateRestaurant = () => {
     const saveRestaurant = (r) => {
         r.preventDefault();
         
-        const restaurant = {usernamer, rname, raddress, service_hours, rtype, price_range};
+        const restaurant = {usernamer, rname, raddress, service_hours, rtype, price_range, img_url};
         RestaurantService.create(restaurant)
         .then(response => {
             console.log("restaurant added successfully", response.data);
@@ -27,6 +29,19 @@ const CreateRestaurant = () => {
             console.log('something went wrong', error);
         })
     }
+
+    const uploadImage = (files) => {
+        const formData = new FormData();
+        formData.append("file", files[0]);
+        formData.append("upload_preset", "v2klxyfb");
+  
+        Axios.post("https://api.cloudinary.com/v1_1/gimmefudapp/image/upload", formData).then((response) => {
+        console.log(response.data.secure_url)
+        setImageUrl(response.data.secure_url)
+  
+            
+        });
+    };
     return(
 
         <div>
@@ -110,6 +125,19 @@ const CreateRestaurant = () => {
                         placeholder="Enter price range"
                     />
                 </div>
+
+                <div class = "col-md-6">
+            <div>
+
+            <input type = "file"
+            onChange= {(event) => {
+                uploadImage(event.target.files);
+            }}
+            />
+            </div>
+                </div>
+
+
                 <div >
                    <button onClick={(r) => saveRestaurant(r)} className="btn btn-primary">Save</button>
                 </div>
