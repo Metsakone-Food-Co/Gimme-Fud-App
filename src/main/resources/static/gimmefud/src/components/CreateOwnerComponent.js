@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useParams} from "react-router-dom";
+import { Link, useParams, useNavigate} from "react-router-dom";
 import OwnerService from '../services/OwnerService'
 
 const CreateOwner = () => {
@@ -10,6 +10,7 @@ const CreateOwner = () => {
     const[address, setAddress] = useState('');
     const[phone_number, setPhone_number] = useState('');
     const[roler, setRoler] = useState("OWNER");
+    const navigate = useNavigate();
 
   
 
@@ -31,6 +32,16 @@ const CreateOwner = () => {
         })
     }
     return(
+
+        <div>
+        <div className='navbar'>
+          <div className='leftSide'> 
+            <img className='kuva'src="Logo.png"/>    
+             </div>
+           <div className='rightSide'>
+          <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Home</button>
+             </div>  
+
         <div className="container">
             <h1>Create Restaurant Owner</h1>
 
@@ -124,6 +135,8 @@ const CreateOwner = () => {
       
             
         </div>
+        </div>  
+        </div>  
     )
 }
 
