@@ -93,7 +93,6 @@ const submitOrder= (rname, username, orderitems, totalsum, order_date) => {
        </Card>
         <div> <br></br>
        <Button onClick={() => {submitOrder(ravinteli, kayttaja, annokset(), totaali, orderDate)}}>Vahvista tilaus</Button>
-       <Button onClick={() => annokset()}>Kokeile</Button>
        </div>
     </div>
     </div> 
