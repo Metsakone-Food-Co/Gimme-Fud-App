@@ -20,10 +20,7 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
     const navigate = useNavigate();
     const [restaurant, setRestaurant] = useState([]);
     const [courses, setCourses] = useState([]);
-    const [cart, setCart] = useState([
-     /* {quantity: 1,course_name: 'hampurilainen', meal_price: '5.00'},
-
-    {quantity: 1, course_name: 'Milk', meal_price: '2.00'}*/]);
+    const [cart, setCart] = useState([]);
     const [qty, setQty] = useState(0);
      
     const result = useParams();
@@ -89,7 +86,7 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
           
          else {
          const remove = cart.map(i => {
-          if (i.course_name === item.course_name && i.amount > 0){
+          if (i.course_name === item.course_name && i.amount > 0) {
             i.amount--;
            
           }
