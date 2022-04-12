@@ -25,9 +25,9 @@ public class Order {
     public String totalsum;
 
     @Column(name = "order_date")
-    public Date order_date;
+    public String order_date;
 
-    public Order(String order_id, String rname, String username, String orderitems, String totalsum, Date order_date) {
+    public Order(String order_id, String rname, String username, String orderitems, String totalsum, String order_date) {
         this.order_id = order_id;
         this.rname = rname;
         this.username = username;

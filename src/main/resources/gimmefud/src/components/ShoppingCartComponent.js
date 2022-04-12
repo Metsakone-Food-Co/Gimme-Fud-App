@@ -15,21 +15,29 @@ const [orderitems, setOrderitems] = useState('');
 const [totalsum, setTotalsum] = useState('');*/
 
 
+
 //testing
 //TESTING
 
 const ravinteli = props.order[0].rname;
-const annokset = (props.order[0].course_name + ' ' + props.order[0].amount)
-const tilauksennimi = '4';
+//const annokset = (props.order[0].course_name + ' ' + props.order[0].amount)
+
 const kayttaja = props.orderer
 const totaali = props.total
+const annokset = () => {
+  let kaikkiAnnokset = [];
+    for(let i=0; i<props.order.length; i++){
+      kaikkiAnnokset[i] = props.order[i].course_name + " " + props.order[i].amount + " pcs ";
+    }
+    console.log(kaikkiAnnokset[0], kaikkiAnnokset[1], kaikkiAnnokset[2])
+    return kaikkiAnnokset.toString();
+}
+const orderDate = new Date().toString();
 
-console.log(tilauksennimi, ravinteli, annokset, kayttaja, totaali)
-
-const submitOrder= (rname, username, orderitems, totalsum) => {
+const submitOrder= (rname, username, orderitems, totalsum, order_date) => {
     //e.preventDefault();
     
-    const order= {rname, username, orderitems, totalsum};
+    const order= {rname, username, orderitems, totalsum, order_date};
     OrderService.create(order)
     .then(response => {
        console.log("Order placed successfully", response.data);
@@ -84,7 +92,8 @@ const submitOrder= (rname, username, orderitems, totalsum) => {
          </Card.Body>
        </Card>
         <div> <br></br>
-       <Button onClick={() => {submitOrder( ravinteli, kayttaja, annokset, totaali)}}>Vahvista tilaus</Button>
+       <Button onClick={() => {submitOrder(ravinteli, kayttaja, annokset(), totaali, orderDate)}}>Vahvista tilaus</Button>
+       <Button onClick={() => annokset()}>Kokeile</Button>
        </div>
     </div>
     </div> 
