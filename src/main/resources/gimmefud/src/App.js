@@ -70,8 +70,7 @@ function App() {
 
 
   const [userJwt, setUserJwt] = useState(null);
-
-   const [ownerJwt, setOwnerJwt] = useState(null);
+  const [ownerJwt, setOwnerJwt] = useState(null);
   
  
 

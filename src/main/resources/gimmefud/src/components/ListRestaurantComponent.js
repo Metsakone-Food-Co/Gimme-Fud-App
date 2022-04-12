@@ -109,7 +109,6 @@ const [restaurants, setRestaurants] = useState([]);
               
       
                 <button type="button" class="btn btn-outline-secondary"> Tilaa <BsCartPlus/></button>
-                <Card.Link href="#">Give Feedback</Card.Link>
                 <Card.Text>
               
                 <Badge bg="light" text="info">{restaurant.rtype}<MdFastfood/></Badge>
