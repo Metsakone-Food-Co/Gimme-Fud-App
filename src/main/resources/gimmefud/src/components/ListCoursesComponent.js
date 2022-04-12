@@ -24,7 +24,7 @@ const ListCoursesComponent = () => {
       .catch(error => {
         console.log('Something went wrong', error);
       }) 
-  }
+  } 
 
   useEffect(() => {
     init();
@@ -37,7 +37,7 @@ const ListCoursesComponent = () => {
   const filterCourses = (courses, query) => {
     if(!query){
       
-      return courses;
+      return courses;   
     }
     return courses.filter((course) => {
      

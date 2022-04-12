@@ -5,7 +5,7 @@ import SearchRestaurant from './SearchRestaurant';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Card, Button, Badge, Image} from "react-bootstrap";
+import {Card, Button, Badge, Image, CardGroup} from "react-bootstrap";
 import Row from 'react-bootstrap/Row'
 import { BsCartPlus} from "react-icons/bs";
 import { MdFastfood } from "react-icons/md";
@@ -78,6 +78,7 @@ const [restaurants, setRestaurants] = useState([]);
    
        </div>
        </div>
+       
        <h3>Type to search for restaurants</h3>
        <SearchRestaurant
        searchQuery={searchQuery}
@@ -89,7 +90,7 @@ const [restaurants, setRestaurants] = useState([]);
             <tr key={restaurant.rname}>
                 
                 <Link to = {restaurant.rname}>
-
+                <CardGroup>
                 <Card style={{ width: '18rem'  }} >
                 <Card.Body style={{border: '50px'}}>
                 <Image 
@@ -120,6 +121,7 @@ const [restaurants, setRestaurants] = useState([]);
      
               </Card.Body>
               </Card>
+              </CardGroup>
               </Link>
             </tr>
           ))
