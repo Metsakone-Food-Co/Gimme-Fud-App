@@ -7,16 +7,7 @@ import { Card, Button, Image} from 'react-bootstrap';
 
 export default function ShoppingCartComponent(props) {
 
-//testing
-//const [ordername, setOrdername] = useState('');
-/*const [rname, setRname] = useState('');
-const [username, setUsername] = useState('');
-const [orderitems, setOrderitems] = useState('');
-const [totalsum, setTotalsum] = useState('');*/
 
-
-//testing
-//TESTING
 
 const ravinteli = props.order[0].rname;
 const annokset = (props.order[0].course_name + ' ' + props.order[0].amount)
@@ -41,13 +32,7 @@ const submitOrder= (rname, username, orderitems, totalsum) => {
   }
 
   const navigate = useNavigate();
-//TESTING
-/*const rnameFinder = (ravintelinNimi) => {
-    let ravinteli = ravintelinNimi;
-    console.log("RAVINTELI ON: ", ravinteli)
-}*/
 
-  //(console.log("JEE: ", props.order[0].rname)
   return (
     <div>
     <div className='navbar'>
@@ -84,7 +69,13 @@ const submitOrder= (rname, username, orderitems, totalsum) => {
          </Card.Body>
        </Card>
         <div> <br></br>
-       <Button onClick={() => {submitOrder( ravinteli, kayttaja, annokset, totaali)}}>Vahvista tilaus</Button>
+       <Button 
+       onClick={() => {
+        submitOrder( ravinteli, kayttaja, annokset, totaali)
+
+           }}>
+         Vahvista tilaus
+        </Button>
        </div>
     </div>
     </div> 

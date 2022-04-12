@@ -22,6 +22,7 @@ import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import HomepageOwnerComponent from './components/HomepageOwnerComponent';
 import HistoryComponent from './components/HistoryComponent';
 import RestaurantHistoryComponent from './components/RestaurantHistoryComponent';
+import Modal from './components/Modal';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState} from 'react';
@@ -80,7 +81,7 @@ function App() {
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
    <Route path="HomepageOwnerComponent" element ={<HomepageOwnerComponent/>}/>
-  
+   <Route path="Modal" element ={<Modal/>}/>
   </>
 
   if (userJwt != null) {
