@@ -90,7 +90,7 @@ const [restaurants, setRestaurants] = useState([]);
                   return(
             <tr key={restaurant.rname}>
                 
-                <Link to="/RestaurantHistoryComponent" onClick={() => {props.whatDis(restaurant.rname)}}><div>Order History</div>
+                <Link to="/RestaurantHistoryComponent" onClick={() => {props.whatDis(restaurant.rname)}}>
 
                 <Card style={{ width: '18rem'  }} >
                 <Card.Body style={{border: '50px'}}>

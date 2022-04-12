@@ -1,0 +1,10 @@
+.ownerOrderHistoryContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    text-align: center;
+}
+.ownerOrderHistoryContainer > h1{
+    color: rgb(255, 81, 0);
+}
