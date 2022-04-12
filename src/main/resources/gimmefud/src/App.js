@@ -22,7 +22,7 @@ import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import HomepageOwnerComponent from './components/HomepageOwnerComponent';
 import HistoryComponent from './components/HistoryComponent';
 import RestaurantHistoryComponent from './components/RestaurantHistoryComponent';
-import Modal from './components/Modal';
+import Popup from './components/Popup';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState} from 'react';
@@ -33,6 +33,7 @@ import {useState} from 'react';
 
 
 function App() {
+
 
   const [orderList, setOrderList] = useState([]);
   const [uuser, setUuser] = useState('');
@@ -68,6 +69,11 @@ function App() {
     return sum;
   }
   
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+}
 
 
   const [userJwt, setUserJwt] = useState(null);
@@ -81,7 +87,11 @@ function App() {
    <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
    <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
    <Route path="HomepageOwnerComponent" element ={<HomepageOwnerComponent/>}/>
-   <Route path="Modal" element ={<Modal/>}/>
+{/*     <Route path="Modal" element ={isOpen &&<Popup handleClose={togglePopup}/>}/> */} 
+   <Route path="Popup" element ={<Popup handleClose={togglePopup}/>}/>
+
+
+
   </>
 
   if (userJwt != null) {
@@ -109,6 +119,7 @@ function App() {
       <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
       <Route path="SearchCourses" element={<SearchCourses/>}/>
      <Route path="ShoppingCartComponent" element={<ShoppingCartComponent order={orderList} />}/>
+     <Route path="Popup" element ={<Popup handleClose={togglePopup}/>}/>
 
   
        
@@ -134,6 +145,7 @@ function App() {
         <Link to="/HistoryComponent"><div>Order History</div></Link>
         <Link to="/ShoppingCartComponent"><div>Shopping Cart</div></Link>
         <div><button type ="button" onClick={()=>setUserJwt(null)} >LOG OUT</button></div>
+    
     </>
   }
 
@@ -199,7 +211,7 @@ ownerLinks =<>
 
   return (
     <BrowserRouter>
-     
+    
     <Routes>
       <Route path="/" element={ <HomepageComponent userLoggedIn={userJwt != null} logout={() =>setUserJwt(null)}/>}/>
       <Route path="/HomepageOwnerComponent" element={ <HomepageOwnerComponent ownerLoggedIn={ownerJwt != null} logout={() =>setOwnerJwt(null)}/>}/>
@@ -207,10 +219,12 @@ ownerLinks =<>
       <Route path="*" element={<HomepageComponent userLoggedIn={userJwt != null}/>}/>
     </Routes>
 
-
   
   </BrowserRouter>
-    
+
+
+
+
   );
 }
 
