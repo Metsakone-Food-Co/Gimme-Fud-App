@@ -25,8 +25,7 @@ import java.util.Map;
 
 public class UploadController {
 
-
-
+    @PostMapping("/upload")
 
     public String UploadImage (@RequestParam("file") MultipartFile mfile) throws IOException {
         Cloudinary cl = new Cloudinary(ObjectUtils.asMap(

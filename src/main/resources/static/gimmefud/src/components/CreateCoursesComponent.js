@@ -8,6 +8,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import '../CreateCoursesPage.css';
 import  Axios  from "axios";
 import UploadService from "../services/UploadService";
+import CoursesService from "../services/CoursesService";
 
 
 
@@ -32,7 +33,7 @@ const CreateCoursesComponent = () => {
         e.preventDefault();
         
         const course = { course_name, rname, meal_type, meal_price, img_url};
-        CustomerService.create(course)
+        CoursesService.create(course)
         .then(response => {
             console.log("Course added successfully", response.data);
             navigate("/CreationSuccesfull");
@@ -40,24 +41,8 @@ const CreateCoursesComponent = () => {
         .catch(error => {
             console.log('something went wrong', error);
         })
+
     }
-
-
-
-    const uploadImage = (files) => {
-      const formData = new FormData();
-      formData.append("file", files[0]);
-      formData.append("upload_preset", "grekjcxl");
-      
-
-      Axios.post("http://localhost:8080/api/v1/upload", formData).then((response) => {
-      console.log(response)
-      setImgUrl(response.data.secure_url)
-
-          
-      });
-  };
-
 
 
 
@@ -135,18 +120,17 @@ onSelect={handleSelect}
 
 
 <div class = "col-md-6">
-<div>
-
-<input type = "file"
-onChange= {(event) => {
-    uploadImage(event.target.files);
-}}
-
-
-
-/>
+    <label htmlFor="courseImage" for = "uploadImage" class="form-label">Image: </label>
+    <input
+    type="file"
+    class="form-control-file"
+    id="img_url"
+    value={img_url}
+    onChange={(e) => setImgUrl(e.target.value)}
+    placeholder="Image"
+    name="s" 
+    />
 </div>
-    </div>
 
     
 

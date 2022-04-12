@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.cloudinary.*;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -20,6 +21,9 @@ public class CoursesService {
 
     @Autowired
     CoursesRepository coursesRepo;
+
+    @Autowired
+    UploadService uploadService;
 
     @PostConstruct
     public void init() {
@@ -46,6 +50,13 @@ public class CoursesService {
         return coursesRepo.save(courses);
 
     }
+
+    public Courses uploadImage(@RequestParam String img_url) {
+        coursesRepo.saveImage(img_url);
+return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+
 
     public ResponseEntity<HttpStatus> deleteCourseById(@PathVariable String course_name) {
         coursesRepo.deleteById(course_name);

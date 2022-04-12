@@ -2,18 +2,22 @@ package com.example.gimmefud;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Map;
 
+@Service
 public class UploadService {
 
-    public String UploadImage (MultipartFile mfile) {
+    public String postImage (MultipartFile mfile) {
 
         String imageUrl = "";
+
         try {
+
             Cloudinary cl = new Cloudinary(ObjectUtils.asMap(
                     "cloud_name", "gimmefudapp",
                     "api_key", "925247245444532",
@@ -21,15 +25,12 @@ public class UploadService {
                     "secure", true
             ));
 
-
             Map map = cl.uploader().upload(mfile.getBytes(), ObjectUtils.emptyMap());
-
-            imageUrl = (String) map.get("url");
+            imageUrl = (String)map.get("url");
         } catch (IOException e) {
             imageUrl = "";
         }
 
-        System.out.println();
         return imageUrl;
 
     }
