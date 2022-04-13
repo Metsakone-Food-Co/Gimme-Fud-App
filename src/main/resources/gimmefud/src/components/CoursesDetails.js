@@ -30,18 +30,6 @@ import {Card, Button, Badge} from "react-bootstrap";
     useEffect(() => {
       init();
     }, []);
-
-
-    //Miksi ei menut tule 
-      //<h1>{courses.rname}</h1>
-      //<h2>{courses.meal_name}</h2>
-     //<h1> {courses.meal_price}</h1>
-     
-
-   
-
-
- 
    return (
      <div className="container">
 

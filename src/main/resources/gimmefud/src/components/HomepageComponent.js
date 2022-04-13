@@ -13,7 +13,7 @@ return (
       <img className='kuva'src="Logo.png"/>    
        </div>
     <div className='rightSide'> 
-      <div> Login status: { props.userLoggedIn ? "is logged in" : "is not logged in" }</div>
+
       
         { props.userLoggedIn ? 
           <>

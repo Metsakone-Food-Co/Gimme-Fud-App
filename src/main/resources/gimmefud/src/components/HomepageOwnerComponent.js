@@ -17,7 +17,7 @@ const HomepageOwner= (props)=> {
         <img className='kuva'src="Logo.png"/>    
          </div>
       <div className='rightSide'> 
-        <div> Login status: { props.ownerLoggedIn ? "is logged in" : "is not logged in" } </div>
+
         
           { props.ownerLoggedIn ? 
             <>

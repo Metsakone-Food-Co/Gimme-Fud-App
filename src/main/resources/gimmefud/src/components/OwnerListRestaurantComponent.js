@@ -40,15 +40,15 @@ const [restaurants, setRestaurants] = useState([]);
   const {searchRestaurant} = window.location;
   const query = new URLSearchParams(searchRestaurant).get('s');
   const [searchQuery, setSearchQuery] = useState(query || '');
-  //const query = 'nakit';
+
 
   const filterRestaurants = (restaurants, query) => {
     if(!query){
-      //console.log("Perse");
+  
       return restaurants;
     }
     return restaurants.filter((restaurant) => {
-      //console.log("Paska");
+  
       const restaurantName = restaurant.rname.toLowerCase();
       return restaurantName.includes(query);
     })

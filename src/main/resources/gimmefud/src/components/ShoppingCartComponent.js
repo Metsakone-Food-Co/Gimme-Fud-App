@@ -1,26 +1,15 @@
 import React from 'react'
-import {useState} from 'react'
 import { useNavigate, Link} from 'react-router-dom';
 import OrderService from "../services/OrderService";
 import '../ShoppingCartPage.css'
-import { Card, Button, Image} from 'react-bootstrap';
+import { Card} from 'react-bootstrap';
 
 export default function ShoppingCartComponent(props) {
 
-//testing
-//const [ordername, setOrdername] = useState('');
-/*const [rname, setRname] = useState('');
-const [username, setUsername] = useState('');
-const [orderitems, setOrderitems] = useState('');
-const [totalsum, setTotalsum] = useState('');*/
 
-
-
-//testing
-//TESTING
 
 const ravinteli = props.order[0].rname;
-//const annokset = (props.order[0].course_name + ' ' + props.order[0].amount)
+
 
 const kayttaja = props.orderer
 const totaali = props.total
@@ -35,7 +24,7 @@ const annokset = () => {
 const orderDate = new Date().toString();
 
 const submitOrder= (rname, username, orderitems, totalsum, order_date) => {
-    //e.preventDefault();
+
     
     const order= {rname, username, orderitems, totalsum, order_date};
     OrderService.create(order)
@@ -49,13 +38,7 @@ const submitOrder= (rname, username, orderitems, totalsum, order_date) => {
   }
 
   const navigate = useNavigate();
-//TESTING
-/*const rnameFinder = (ravintelinNimi) => {
-    let ravinteli = ravintelinNimi;
-    console.log("RAVINTELI ON: ", ravinteli)
-}*/
 
-  //(console.log("JEE: ", props.order[0].rname)
   return (
     <div>
     <div className='navbar'>

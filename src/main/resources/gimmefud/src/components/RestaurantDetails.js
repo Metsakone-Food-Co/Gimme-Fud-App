@@ -96,33 +96,10 @@ import { isCompositeComponentWithType } from 'react-dom/test-utils';
         setCart(remove);
       }
     }
-    
-
-        
-   
-      
-      
-   
-  
-      
-
-      /*function summa(cart){
-        let sum = 0;
-        for(let i = 0; i < cart.length; i++){
-          sum += cart[i].amount * cart[i].meal_price;
-        }
-        return sum;
-
-      
-      }*/
-
-
-
    return (
      <div>
     <div className='navbar'>
       <div className='leftSide'> 
-        {/* <img className='kuva'src="Logo.png"/>     */}
          </div>
        
        <div className='rightSide'>
