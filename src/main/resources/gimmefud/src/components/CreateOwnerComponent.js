@@ -41,7 +41,7 @@ const CreateOwner = () => {
            <div className='rightSide'>
           <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Go back</button>
              </div>  
-
+             </div>  
         <div className="container">
             <h1>Create Restaurant Owner</h1>
 
@@ -136,7 +136,7 @@ const CreateOwner = () => {
             
         </div>
         </div>  
-        </div>  
+       
     )
 }
 

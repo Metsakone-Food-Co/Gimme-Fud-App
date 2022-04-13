@@ -52,6 +52,7 @@ const CreateRestaurant = () => {
        <div className='rightSide'>
       <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Go back</button>
          </div>
+         </div>
 
         <div className="container">
             <h1>Create Restaurant</h1>
@@ -145,7 +146,7 @@ const CreateRestaurant = () => {
           
              </div>
              </div>
-        </div>
+       
     )
 }
 
