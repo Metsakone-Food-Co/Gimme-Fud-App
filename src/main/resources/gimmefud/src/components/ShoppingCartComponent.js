@@ -75,7 +75,7 @@ const submitOrder= (rname, username, orderitems, totalsum, order_date) => {
          </Card.Body>
        </Card>
         <div> <br></br>
-        <Link to="/HomepageComponent"><button  type="button" class="btn btn-primary" onClick={() => {submitOrder(ravinteli, kayttaja, annokset(), totaali, orderDate)}}>Confirm order</button></Link>
+        <Link to="/OrderSuccesfull"><button  type="button" class="btn btn-primary" onClick={() => {submitOrder(ravinteli, kayttaja, annokset(), totaali, orderDate)}}>Confirm order</button></Link>
 
        </div>
     </div>

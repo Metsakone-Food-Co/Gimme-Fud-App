@@ -12,6 +12,7 @@ import CreateOwnerComponent from './components/CreateOwnerComponent'
 import CreateRestaurantComponent from './components/CreateRestaurantComponent'
 import LoginComponent from './components/LoginComponent'
 import CreationSuccesfull from './Messages/CreationSuccesfull';
+import OrderSuccesfull from './Messages/OrderSuccesfull';
 import SearchRestaurant from './components/SearchRestaurant';
 import SearchCourses from './components/SearchCourses'
 import LoginOwnerComponent from './components/LoginOwnerComponent'
@@ -98,13 +99,15 @@ function App() {
       <Route path="ListRestaurantComponent" element={<ListRestaurantComponent />}/>
         <Route path="ListRestaurantComponent/:rname" element = { <RestaurantDetails placeOrder={placeOrderClicked} sumTotal={calculateTotal}/>}/>
           <Route path="ShoppingCartComponent" element = {<ShoppingCartComponent order={orderList} orderer={uuser} total={totalSum}/>}> 
-    
+          <Route path="OrderSuccesfull" element={<OrderSuccesfull/>}/>
+
         </Route>
         
       <Route path="CreateCustomerComponent" element={<CreateCustomerComponent/>}/>
       <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
       <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent/>}/>
       <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
+      <Route path="OrderSuccesfull" element={<OrderSuccesfull/>}/>
       <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
       <Route path="SearchCourses" element={<SearchCourses/>}/>
      <Route path="ShoppingCartComponent" element={<ShoppingCartComponent order={orderList} />}/>
@@ -161,6 +164,7 @@ function App() {
       <Route path="CreateOwnerComponent" element={<CreateOwnerComponent/>}/>
       <Route path="CreateRestaurantComponent" element={<CreateRestaurantComponent/>}/>
       <Route path="CreationSuccesfull" element={<CreationSuccesfull/>}/>
+      <Route path="OrderSuccesfull" element={<OrderSuccesfull/>}/>
       <Route path="SearchRestaurant" element={<SearchRestaurant/>}/>
       <Route path="SearchCourses" element={<SearchCourses/>}/>
       <Route path="CreateCoursesComponent" element={<CreateCoursesComponent/>}/>

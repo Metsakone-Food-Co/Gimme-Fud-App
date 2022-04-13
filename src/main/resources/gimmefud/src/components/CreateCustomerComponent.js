@@ -51,7 +51,7 @@ const CreateCustomerComponent = () => {
        <div className='rightSide'>
       <button type = "button" class="btn background-color:transparent btn-lg " onClick={() => navigate (-1)}> Go back</button>
          </div>  
-
+         </div>  
     <div className="container"> 
         <h1> Create account  </h1>
     <div className="createCustomer">
@@ -157,7 +157,7 @@ const CreateCustomerComponent = () => {
      </div>
      </div>
      </div>  
-     </div>  
+  
   )
 }
 
