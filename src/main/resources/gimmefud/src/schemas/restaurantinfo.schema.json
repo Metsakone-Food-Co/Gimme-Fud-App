@@ -1,0 +1,126 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "restaurants",
+    "type": "array",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": [],
+    "examples": [
+        [
+            {
+                "rname": "Osmo Rilli",
+                "usernamer": "Osmo",
+                "raddress": "Osmo takapiha",
+                "service_hours": "9",
+                "rtype": "Rilli",
+                "price_range": "Euro",
+                "img_url": "https://res.cloudinary.com/gimmefudapp/image/upload/v1649832753/hde0qfco8iysoqcdjkuz.jpg"
+            }
+        ]
+    ],
+    "items": {
+        "$id": "#/items",
+        "anyOf": [
+            {
+                "$id": "#/items/anyOf/0",
+                "type": "object",
+                "title": "The first anyOf schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": {},
+                "examples": [
+                    {
+                        "rname": "Osmo Rilli",
+                        "usernamer": "Osmo",
+                        "raddress": "Osmo takapiha",
+                        "service_hours": "9",
+                        "rtype": "Rilli",
+                        "price_range": "Euro",
+                        "img_url": "https://res.cloudinary.com/gimmefudapp/image/upload/v1649832753/hde0qfco8iysoqcdjkuz.jpg"
+                    }
+                ],
+                "required": [
+                    "rname",
+                    "usernamer",
+                    "raddress",
+                    "service_hours",
+                    "rtype",
+                    "price_range",
+                    "img_url"
+                ],
+                "properties": {
+                    "rname": {
+                        "$id": "#/items/anyOf/0/properties/rname",
+                        "type": "string",
+                        "title": "The rname schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "Osmo Rilli"
+                        ]
+                    },
+                    "usernamer": {
+                        "$id": "#/items/anyOf/0/properties/usernamer",
+                        "type": "string",
+                        "title": "The usernamer schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "Osmo"
+                        ]
+                    },
+                    "raddress": {
+                        "$id": "#/items/anyOf/0/properties/raddress",
+                        "type": "string",
+                        "title": "The raddress schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "Osmo takapiha"
+                        ]
+                    },
+                    "service_hours": {
+                        "$id": "#/items/anyOf/0/properties/service_hours",
+                        "type": "string",
+                        "title": "The service_hours schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "9"
+                        ]
+                    },
+                    "rtype": {
+                        "$id": "#/items/anyOf/0/properties/rtype",
+                        "type": "string",
+                        "title": "The rtype schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "Rilli"
+                        ]
+                    },
+                    "price_range": {
+                        "$id": "#/items/anyOf/0/properties/price_range",
+                        "type": "string",
+                        "title": "The price_range schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "Euro"
+                        ]
+                    },
+                    "img_url": {
+                        "$id": "#/items/anyOf/0/properties/img_url",
+                        "type": "string",
+                        "title": "The img_url schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "https://res.cloudinary.com/gimmefudapp/image/upload/v1649832753/hde0qfco8iysoqcdjkuz.jpg"
+                        ]
+                    }
+                },
+                "additionalProperties": true
+            }
+        ]
+    }
+}

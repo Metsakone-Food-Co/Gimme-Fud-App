@@ -1,7 +1,6 @@
 package com.example.gimmefud.controllers;
 
 import com.example.gimmefud.OrderService;
-import com.example.gimmefud.data.Courses;
 import com.example.gimmefud.data.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

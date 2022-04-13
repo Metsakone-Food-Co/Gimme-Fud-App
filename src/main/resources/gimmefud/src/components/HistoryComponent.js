@@ -65,19 +65,3 @@ export default function HistoryComponent(props) {
     </div>
   )
 }
-/*
-    <div>{orderhistory.map(history => {
-      if(history.username === props.orderer){
-      return <div>
-        <h4>Order date: {history.order_date}</h4>
-        <p>Restaurant: {history.rname}</p>
-        <p>Ordered meals: {history.orderitems} </p>
-        <p>Total sum: {history.totalsum} €</p>
-        <p>Orderer: {history.username}</p>
-      </div>}
-    })}
-
-
-
-
-    </div>*/

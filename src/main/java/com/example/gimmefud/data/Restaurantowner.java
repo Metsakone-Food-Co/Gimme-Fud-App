@@ -28,18 +28,15 @@ public class Restaurantowner {
     @Column(name="phone")
     public String phone_number;
 
-    @Column(name = "roler")
-    @Enumerated(EnumType.STRING)
-    public Role roler;
 
-    public Restaurantowner(String usernamer, String password, String fname, String lname, String address, String phone_number, Role roler) {
+
+    public Restaurantowner(String usernamer, String password, String fname, String lname, String address, String phone_number) {
         this.usernamer = usernamer;
         this.password = password;
         this.fname = fname;
         this.lname = lname;
         this.address = address;
         this.phone_number = phone_number;
-        this.roler = roler;
     }
 
     public Restaurantowner(){}

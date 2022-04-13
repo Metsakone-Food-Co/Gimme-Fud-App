@@ -5,35 +5,37 @@ const expect = chai.expect;
 const chaiJsonSchemaAjv =  require('chai-json-schema-ajv');
 chai.use(chaiJsonSchemaAjv);
 
-const orderInfoSchema = require('../schemas/orderinfo.schema.json');
+const customerInfoSchema = require('../schemas/customerinfo.schema.json');
 
 const serverAddress = 'http://localhost:8080/api/v1';
 
-
-describe('Orders API tests', function() {
-    describe('GET /orders', function() {
-        it('should return all order data', function(done) {
+describe('Customer API tests', function() {
+    describe('GET /customer', function() {
+        it('should return all customer data', function(done) {
            chai.request(serverAddress)
-           .get('/orders')
+           .get('/customers')
               .end(function(err, res) {
                 expect(err).to.be.null;
                 expect(res).to.have.status(200);
-                expect(res.body).to.be.jsonSchema(orderInfoSchema);
+
+                expect(res.body).to.be.jsonSchema(customerInfoSchema);
+             
                 done();
               }) 
         })
     })
-    describe('POST/ new order data', function() {
+    describe('POST/ new customer data', function() {
 
-      it('should accept order data when data is correct', function(done){
+      it('should accept customer data when data is correct', function(done){
         chai.request(serverAddress)
-        .post('/orders')
+        .post('/customers')
         .send({
-          rname: "Aaken traumat",
-          username: "Ooke",
-          orderitems: "Morso 2pcs",
-          totalsum: "100",
-          order_date: "Wed Apr 13 2022 09:40:07 GMT+0300 (Itä-Euroopan kesäaika)"
+          username: "PuukkoAllu",
+          password: "$2a$10$1HcFOzNilhJuJobzIQ475.CFYkMXg4H2g2.T.sKZRhnDI6ZVK9dUu",
+          firstName: "Allu",
+          lastName: "Makkonen",
+          address: "Kaukovainio",
+          phoneNumber: "04006666969"
         })
         .end(function(err, res){
           expect(err).to.be.null;
@@ -43,12 +45,13 @@ describe('Orders API tests', function() {
       })
       it('should reject request with missing  fields from data structure', function(done){
         chai.request(serverAddress)
-        .post('/orders')
+        .post('/customers')
         .send({
-          rname: "Aaken traumat",
-          orderitems: "Morso 2pcs",
-          totalsum: "100",
-          order_date: "Wed Apr 13 2022 09:40:07 GMT+0300 (Itä-Euroopan kesäaika)"
+          username: "PuukkoAllu",
+          password: "$2a$10$1HcFOzNilhJuJobzIQ475.CFYkMXg4H2g2.T.sKZRhnDI6ZVK9dUu",
+          lastName: "Makkonen",
+          address: "Kaukovainio",
+          phoneNumber: "04006666969"
         })
         .end(function(err, res){
           expect(err).to.be.null;
@@ -59,13 +62,14 @@ describe('Orders API tests', function() {
       })
       it('should reject request with incorrect data types', function(done){
         chai.request(serverAddress)
-        .post('/orders')
+        .post('/customers')
         .send({
-          rname: "Aaken traumat",
           username: null,
-          orderitems: "Morso 2pcs",
-          totalsum: "100",
-          order_date: "Wed Apr 13 2022 09:40:07 GMT+0300 (Itä-Euroopan kesäaika)"
+          password: "$2a$10$1HcFOzNilhJuJobzIQ475.CFYkMXg4H2g2.T.sKZRhnDI6ZVK9dUu",
+          firstName: "Allu",
+          lastName: "Makkonen",
+          address: "Kaukovainio",
+          phoneNumber: "04006666969"
         })
         .end(function(err, res){
           expect(err).to.be.null;
@@ -75,7 +79,7 @@ describe('Orders API tests', function() {
       })
       it('should reject empty post requests', function(done){
         chai.request(serverAddress)
-        .post('/orders')
+        .post('/customers')
         .end(function(err, res){
           expect(err).to.be.null;
           expect(res).to.have.status(400);
@@ -84,4 +88,6 @@ describe('Orders API tests', function() {
       })
 
     })
-})
+
+    })
+
