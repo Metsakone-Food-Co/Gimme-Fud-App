@@ -1,0 +1,100 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "courses",
+    "type": "array",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": [],
+    "examples": [
+        [
+            {
+                "course_name": "Osmo Susi",
+                "rname": "Osmo Rilli",
+                "meal_type": "Side",
+                "meal_price": "7",
+                "img_url": "https://res.cloudinary.com/gimmefudapp/image/upload/v1649832838/w7oyd6wxpqrdujymbliw.jpg"
+            }
+        ]
+    ],
+    "items": {
+        "$id": "#/items",
+        "anyOf": [
+            {
+                "$id": "#/items/anyOf/0",
+                "type": "object",
+                "title": "The first anyOf schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": {},
+                "examples": [
+                    {
+                        "course_name": "Osmo Susi",
+                        "rname": "Osmo Rilli",
+                        "meal_type": "Side",
+                        "meal_price": "7",
+                        "img_url": "https://res.cloudinary.com/gimmefudapp/image/upload/v1649832838/w7oyd6wxpqrdujymbliw.jpg"
+                    }
+                ],
+                "required": [
+                    "course_name",
+                    "rname",
+                    "meal_type",
+                    "meal_price",
+                    "img_url"
+                ],
+                "properties": {
+                    "course_name": {
+                        "$id": "#/items/anyOf/0/properties/course_name",
+                        "type": "string",
+                        "title": "The course_name schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "Osmo Susi"
+                        ]
+                    },
+                    "rname": {
+                        "$id": "#/items/anyOf/0/properties/rname",
+                        "type": "string",
+                        "title": "The rname schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "Osmo Rilli"
+                        ]
+                    },
+                    "meal_type": {
+                        "$id": "#/items/anyOf/0/properties/meal_type",
+                        "type": "string",
+                        "title": "The meal_type schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "Side"
+                        ]
+                    },
+                    "meal_price": {
+                        "$id": "#/items/anyOf/0/properties/meal_price",
+                        "type": "string",
+                        "title": "The meal_price schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "7"
+                        ]
+                    },
+                    "img_url": {
+                        "$id": "#/items/anyOf/0/properties/img_url",
+                        "type": "string",
+                        "title": "The img_url schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "https://res.cloudinary.com/gimmefudapp/image/upload/v1649832838/w7oyd6wxpqrdujymbliw.jpg"
+                        ]
+                    }
+                },
+                "additionalProperties": true
+            }
+        ]
+    }
+}

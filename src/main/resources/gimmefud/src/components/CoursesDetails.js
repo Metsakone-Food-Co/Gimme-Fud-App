@@ -59,7 +59,7 @@ import {Card, Button, Badge} from "react-bootstrap";
             ))}
         </Row>
         </div>
-         <Outlet />
+
          
      </div>
    )

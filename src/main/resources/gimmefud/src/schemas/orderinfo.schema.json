@@ -1,0 +1,113 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "order",
+    "type": "array",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": [],
+    "examples": [
+        [
+            {
+                "order_id": "50",
+                "rname": "Aaken traumat",
+                "username": "Ooke",
+                "orderitems": "Morso 2pcs",
+                "totalsum": "100",
+                "order_date": "Wed Apr 13 2022 09:40:07 GMT+0300 (Itä-Euroopan kesäaika)"
+            }
+        ]
+    ],
+    "items": {
+        "$id": "#/items",
+        "anyOf": [
+            {
+                "$id": "#/items/anyOf/0",
+                "type": "object",
+                "title": "The first anyOf schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": {},
+                "examples": [
+                    {
+                        "order_id": "50",
+                        "rname": "Aaken traumat",
+                        "username": "Ooke",
+                        "orderitems": "Morso 2pcs",
+                        "totalsum": "100",
+                        "order_date": "Wed Apr 13 2022 09:40:07 GMT+0300 (Itä-Euroopan kesäaika)"
+                    }
+                ],
+                "required": [
+                    "order_id",
+                    "rname",
+                    "username",
+                    "orderitems",
+                    "totalsum",
+                    "order_date"
+                ],
+                "properties": {
+                    "order_id": {
+                        "$id": "#/items/anyOf/0/properties/order_id",
+                        "type": "string",
+                        "title": "The order_id schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "50"
+                        ]
+                    },
+                    "rname": {
+                        "$id": "#/items/anyOf/0/properties/rname",
+                        "type": "string",
+                        "title": "The rname schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "Aaken traumat"
+                        ]
+                    },
+                    "username": {
+                        "$id": "#/items/anyOf/0/properties/username",
+                        "type": "string",
+                        "title": "The username schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "Ooke"
+                        ]
+                    },
+                    "orderitems": {
+                        "$id": "#/items/anyOf/0/properties/orderitems",
+                        "type": "string",
+                        "title": "The orderitems schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "Morso 2pcs"
+                        ]
+                    },
+                    "totalsum": {
+                        "$id": "#/items/anyOf/0/properties/totalsum",
+                        "type": "string",
+                        "title": "The totalsum schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "100"
+                        ]
+                    },
+                    "order_date": {
+                        "$id": "#/items/anyOf/0/properties/order_date",
+                        "type": "string",
+                        "title": "The order_date schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "Wed Apr 13 2022 09:40:07 GMT+0300 (Itä-Euroopan kesäaika)"
+                        ]
+                    }
+                },
+                "additionalProperties": true
+            }
+        ]
+    }
+}
