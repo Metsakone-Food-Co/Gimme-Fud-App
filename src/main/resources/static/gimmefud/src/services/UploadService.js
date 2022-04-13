@@ -1,19 +1,19 @@
-import httpClient from "../http-common";
+import http from "../http-common";
 
+class UploadService {
+    upload(file, onUploadProgress) {
+        let formData = new FormData();
+        formData.append("file", file);
+        return http.post("/upload", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          onUploadProgress,
+        });
+      }
+      getFiles() {
+        return http.get("/files");
+      }
+    }
 
-const create = data => {
-    return httpClient.post("/upload", data);
-}
-
-const get = id => {
-    return httpClient.get(`/courses/${id}`);
-}
-
-const update = data => {
-    return httpClient.put('/courses', data);
-}
-
-const remove = id => {
-    return httpClient.delete(`/courses/${id}`);
-}
-export default {create, get, update, remove };
+export default new UploadService();

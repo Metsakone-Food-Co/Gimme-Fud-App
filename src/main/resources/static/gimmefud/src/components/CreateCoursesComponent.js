@@ -44,6 +44,25 @@ const CreateCoursesComponent = () => {
 
     }
 
+      
+
+    const onFileChangeHandler = (e) => {
+      e.preventDefault();
+      this.setState({
+          selectedFile: e.target.files[0]
+      });
+      const formData = new FormData();
+      formData.append('file', this.state.selectedFile);
+      UploadService.upload(formData)
+          .then(res => {
+                  console.log(res.data);
+                  alert("File uploaded successfully.")
+          })
+  };
+
+
+    
+
 
 
   return (
@@ -120,16 +139,10 @@ onSelect={handleSelect}
 
 
 <div class = "col-md-6">
-    <label htmlFor="courseImage" for = "uploadImage" class="form-label">Image: </label>
-    <input
-    type="file"
-    class="form-control-file"
-    id="img_url"
-    value={img_url}
-    onChange={(e) => setImgUrl(e.target.value)}
-    placeholder="Image"
-    name="s" 
-    />
+                      <div className="form-group files color">
+                            <label>Upload Your File </label>
+                            <input type="file" name="file" onChange={(e) => {UploadService(e.target.files[0]);}}/>
+                        </div>
 </div>
 
     
@@ -161,4 +174,4 @@ onSelect={handleSelect}
   )
 }
 
-export default CreateCoursesComponent;
+export default CreateCoursesComponent

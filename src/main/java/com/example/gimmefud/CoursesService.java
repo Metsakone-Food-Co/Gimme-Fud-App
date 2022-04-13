@@ -22,14 +22,13 @@ public class CoursesService {
     @Autowired
     CoursesRepository coursesRepo;
 
-    @Autowired
-    UploadService uploadService;
+    //@Autowired
+    //UploadService uploadService;
 
     @PostConstruct
     public void init() {
         
     }
-
 
 
     public List<Courses> getCourse(String rname) {
@@ -41,22 +40,16 @@ public class CoursesService {
 
     }
 
-    public Courses createCourse(@RequestBody Courses courses) {
+    public String createCourse(Courses courses) {
+        coursesRepo.save(courses);
+        return "test";
+    }
+
+
+    public Courses updateCourse(Courses courses) {
         return coursesRepo.save(courses);
 
     }
-
-    public Courses updateCourse(@RequestBody Courses courses) {
-        return coursesRepo.save(courses);
-
-    }
-
-    public Courses uploadImage(@RequestParam String img_url) {
-        coursesRepo.saveImage(img_url);
-return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-
-
 
     public ResponseEntity<HttpStatus> deleteCourseById(@PathVariable String course_name) {
         coursesRepo.deleteById(course_name);

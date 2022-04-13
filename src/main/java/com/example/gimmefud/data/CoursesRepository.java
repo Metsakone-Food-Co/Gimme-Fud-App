@@ -7,6 +7,5 @@ import java.util.List;
 
 public interface CoursesRepository extends JpaRepository<Courses, String> {
    List<Courses>findByRname(String rname);
-   List<Courses>saveImage(String img_url);
 
 }

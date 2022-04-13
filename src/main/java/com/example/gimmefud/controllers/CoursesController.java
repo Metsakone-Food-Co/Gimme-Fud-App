@@ -7,12 +7,15 @@ import com.example.gimmefud.UploadService;
 import com.example.gimmefud.data.CoursesRepository;
 import com.example.gimmefud.data.Courses;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.yaml.snakeyaml.util.ArrayUtils;
 
 import javax.print.attribute.standard.Media;
 import java.io.IOException;
@@ -21,10 +24,12 @@ import java.util.List;
 import java.util.Map;
 
 
+
 @CrossOrigin
 @RestController
 @RequestMapping("/api/v1")
 public class CoursesController {
+
 
     @Autowired
     CoursesService coursesService;
@@ -39,8 +44,9 @@ public class CoursesController {
         return coursesService.getAllCourses() ;
     }
 
+
     @PostMapping(path = "/courses", consumes = {"application/json"})
-    public Courses createCourse(@RequestBody Courses courses){
+    public String createCourse(@RequestBody Courses courses){
         return coursesService.createCourse(courses);
     }
 
@@ -48,11 +54,12 @@ public class CoursesController {
     public List<Courses> getCourse(@PathVariable String rname)
     {return coursesService.getCourse(rname);}
 
+
     @PostMapping("/courses")
-    public List<Courses> imageUpload(@RequestParam("file") MultipartFile mfile ){
-        String imageUrl = uploadService.postImage(mfile);
-        System.out.println(imageUrl);
-        return coursesService.createCourse(imageUrl);
+    public String imageUpload(@RequestParam("file") MultipartFile mfile){
+        String img_url = uploadService.postImage(mfile);
+        System.out.println(img_url);
+        return img_url;
     }
 
     @PutMapping("/courses")
