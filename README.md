@@ -24,3 +24,6 @@ password: Aake666
 
 username : Juustopää
 password: Juusto69
+
+username: Osmo
+password: Osmo
