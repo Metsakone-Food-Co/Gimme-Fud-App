@@ -4,6 +4,7 @@ import RestaurantService from '../services/RestaurantService';
 import SearchRestaurant from './SearchRestaurant';
 
 
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Button, Badge, Image, CardGroup} from "react-bootstrap";
 import Row from 'react-bootstrap/Row'

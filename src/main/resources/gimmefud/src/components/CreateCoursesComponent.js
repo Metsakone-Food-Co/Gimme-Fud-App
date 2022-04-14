@@ -5,7 +5,8 @@ import CustomerService from "../services/CoursesService";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-import '../CreateCoursesPage.css';
+
+
 import  Axios  from "axios";
 
 
@@ -116,8 +117,12 @@ const CreateCoursesComponent = () => {
     name="s" 
     />
 </div>
+<div>
+<div class = "col-md-6">
+
 <div>Use dropdown menu below to choose type of meal</div>
-<DropdownButton
+<div className="center">
+<DropdownButton 
 alignRight
 title={meal_type}
 id="dropdown-menu-align-right"
@@ -129,9 +134,11 @@ onSelect={handleSelect}
   <Dropdown.Item eventKey="Drink">Drink</Dropdown.Item>
 </DropdownButton>
 
+</div>
+</div>
+</div>
 
-
-<div class = "col-md-6">
+<div class = "col-md-4">
 <div>
 
 <input type = "file"
