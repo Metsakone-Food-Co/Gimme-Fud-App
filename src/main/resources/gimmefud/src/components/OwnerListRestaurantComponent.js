@@ -108,18 +108,11 @@ const [restaurants, setRestaurants] = useState([]);
               <Card.Text>
               <p>Price Range: {restaurant.price_range} </p> 
               </Card.Text>
-              
-      
-                <button type="button" class="btn btn-outline-secondary"> Tilaa <BsCartPlus/></button>
-                <Card.Link href="#">Give Feedback</Card.Link>
                 <Card.Text>
               
                 <Badge bg="light" text="info">{restaurant.rtype}<MdFastfood/></Badge>
                   
                 </Card.Text>
-           
-                
-             
      
               </Card.Body>
               </Card>
