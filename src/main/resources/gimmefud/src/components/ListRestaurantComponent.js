@@ -86,10 +86,10 @@ const [restaurants, setRestaurants] = useState([]);
        setSearchQuery={setSearchQuery}/>
        
 
-        <Row xs={1} md={3} className="g-4">
+        <Row xs={1} md={2} className="g-4">
           {filteredRestaurants.map(restaurant =>(
             <tr key={restaurant.rname}>
-                
+                 <br></br>
                 <Link to = {restaurant.rname}>
                 <CardGroup>
                 <Card style={{ width: '18rem'  }} >
@@ -101,7 +101,7 @@ const [restaurants, setRestaurants] = useState([]);
                         class='courseImage'
                       />
             
-             <Card.Title>{restaurant.rname} <BsCartPlus/></Card.Title>
+             <Card.Title>{restaurant.rname} </Card.Title>
 
               <Card.Text>
               <p>Opening hours: {restaurant.service_hours}</p> </Card.Text>
@@ -110,7 +110,6 @@ const [restaurants, setRestaurants] = useState([]);
               </Card.Text>
               
       
-                <button type="button" class="btn btn-outline-secondary"> Tilaa <BsCartPlus/></button>
                 <Card.Text>
               
                 <Badge bg="light" text="info">{restaurant.rtype}<MdFastfood/></Badge>

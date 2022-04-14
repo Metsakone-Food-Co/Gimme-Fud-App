@@ -82,14 +82,15 @@ const [restaurants, setRestaurants] = useState([]);
        <SearchRestaurant
        searchQuery={searchQuery}
        setSearchQuery={setSearchQuery}/>
-       
 
-        <Row xs={1} md={3} className="g-4">
+     
+
+        <Row xs={1} md={2} className="g-4">
           {filteredRestaurants.map(restaurant => {
               if(restaurant.usernamer === props.ownerMF){
                   return(
             <tr key={restaurant.rname}>
-                
+                  <br></br>
                 <Link to="/RestaurantHistoryComponent" onClick={() => {props.whatDis(restaurant.rname)}}>
                 <CardGroup>
                 <Card style={{ width: '18rem'  }} >
@@ -101,25 +102,18 @@ const [restaurants, setRestaurants] = useState([]);
                         class='courseImage'
                       />
             
-             <Card.Title>{restaurant.rname} <BsCartPlus/></Card.Title>
+             <Card.Title>{restaurant.rname}</Card.Title>
 
               <Card.Text>
               <p>Opening hours: {restaurant.service_hours}</p> </Card.Text>
               <Card.Text>
               <p>Price Range: {restaurant.price_range} </p> 
               </Card.Text>
-              
-      
-                <button type="button" class="btn btn-outline-secondary"> Tilaa <BsCartPlus/></button>
-                <Card.Link href="#">Give Feedback</Card.Link>
                 <Card.Text>
               
                 <Badge bg="light" text="info">{restaurant.rtype}<MdFastfood/></Badge>
                   
                 </Card.Text>
-           
-                
-             
      
               </Card.Body>
               </Card>
