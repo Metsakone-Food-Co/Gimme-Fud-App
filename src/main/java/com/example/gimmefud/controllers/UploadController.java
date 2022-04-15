@@ -23,11 +23,12 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/v1")
 
+
 public class UploadController {
 
-    @PostMapping("/upload")
+    @PostMapping("/uploadCHECK")
 
-    public String UploadImage (@RequestParam("file") MultipartFile mfile) throws IOException {
+    public ResponseEntity<Map> UploadImage (@RequestParam("file") MultipartFile mfile){
         Cloudinary cl = new Cloudinary(ObjectUtils.asMap(
                 "cloud_name", "gimmefudapp",
                 "api_key", "925247245444532",
@@ -37,13 +38,17 @@ public class UploadController {
 
         String imageUrl = "";
 
+        try{
         Map map = cl.uploader().upload(mfile.getBytes(), ObjectUtils.emptyMap());
+        imageUrl = (String)map.get("url");}
+        catch (IOException e) {
 
-        imageUrl = (String)map.get("url");
+        }
 
+        Map urlJson = Collections.singletonMap("img_url", imageUrl);
 
         System.out.println();
-        return imageUrl;
+        return new ResponseEntity<Map>(urlJson, HttpStatus.OK);
 
     }
 }

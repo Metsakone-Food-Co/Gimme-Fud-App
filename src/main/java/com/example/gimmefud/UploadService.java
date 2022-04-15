@@ -12,7 +12,7 @@ import java.util.Map;
 @Service
 public class UploadService {
 
-    public String postImage (MultipartFile mfile) {
+    public String postImage (@RequestParam("file") MultipartFile mfile) {
 
         String imageUrl = "";
 

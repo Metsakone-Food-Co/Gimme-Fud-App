@@ -46,21 +46,26 @@ const CreateCoursesComponent = () => {
 
       
 
-    const onFileChangeHandler = (e) => {
-      e.preventDefault();
-      this.setState({
-          selectedFile: e.target.files[0]
-      });
-      const formData = new FormData();
-      formData.append('file', this.state.selectedFile);
-      UploadService.upload(formData)
-          .then(res => {
-                  console.log(res.data);
-                  alert("File uploaded successfully.")
-          })
-  };
+    
 
+    
+      const [imageselected, setImageSelected] = useState("");
+  
+      const uploadImage = (file) => {
+          const formData = new FormData();
+          formData.append("file", file[0]);
 
+        Axios.post("http://localhost:8080/api/v1/upload", formData, {headers: { 'Content-Type': 'multipart/form-data' } }).then((response) => {
+          console.log(response.data);
+          setImgUrl(response.data)
+
+          
+          });
+
+        }
+
+      
+    
     
 
 
@@ -139,11 +144,17 @@ onSelect={handleSelect}
 
 
 <div class = "col-md-6">
-                      <div className="form-group files color">
-                            <label>Upload Your File </label>
-                            <input type="file" name="file" onChange={(e) => {UploadService(e.target.files[0]);}}/>
-                        </div>
+                      
+        <input type = "file"
+                    onChange= {(event) => {
+                        uploadImage(event.target.files);
+                    }}
+                    
+                    />
+                    
 </div>
+                        
+
 
     
 
@@ -161,7 +172,7 @@ onSelect={handleSelect}
     </div>
   </div>
 <div class="col-12">
-<button  onClick={(e) => saveCourse(e)} type="submit" class = "btn btn-primary">Add course</button>
+<button  onClick={(e) =>saveCourse(e)}type="submit" class = "btn btn-primary">Add course</button>
 
     </div>   
     </form>

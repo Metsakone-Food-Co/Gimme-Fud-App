@@ -40,9 +40,9 @@ public class CoursesService {
 
     }
 
-    public String createCourse(Courses courses) {
-        coursesRepo.save(courses);
-        return "test";
+    public Courses createCourse(@RequestBody  Courses courses) {
+
+        return coursesRepo.save(courses);
     }
 
 
