@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.cloudinary.*;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -21,11 +22,11 @@ public class CoursesService {
     @Autowired
     CoursesRepository coursesRepo;
 
+
     @PostConstruct
     public void init() {
-        
-    }
 
+    }
 
 
     public List<Courses> getCourse(String rname) {
@@ -37,12 +38,13 @@ public class CoursesService {
 
     }
 
-    public Courses createCourse(@RequestBody Courses courses) {
-        return coursesRepo.save(courses);
+    public Courses createCourse(@RequestBody  Courses courses) {
 
+        return coursesRepo.save(courses);
     }
 
-    public Courses updateCourse(@RequestBody Courses courses) {
+
+    public Courses updateCourse(Courses courses) {
         return coursesRepo.save(courses);
 
     }
@@ -53,4 +55,3 @@ public class CoursesService {
 
     }
 }
-

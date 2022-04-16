@@ -43,18 +43,20 @@ const CreateCoursesComponent = () => {
 
 
 
-    const uploadImage = (files) => {
-      const formData = new FormData();
-      formData.append("file", files[0]);
-      formData.append("upload_preset", "v2klxyfb");
+    
+  
+      const uploadImage = (file) => {
+          const formData = new FormData();
+          formData.append("file", file[0]);
 
-      Axios.post("https://api.cloudinary.com/v1_1/gimmefudapp/image/upload", formData).then((response) => {
-      console.log(response.data.secure_url)
-      setImgUrl(response.data.secure_url)
+        Axios.post("http://localhost:8080/api/v1/upload", formData, {headers: { 'Content-Type': 'multipart/form-data' } }).then((response) => {
+          console.log(response.data);
+          setImgUrl(response.data)
 
           
-      });
-  };
+          });
+
+        }
 
 
 
@@ -138,19 +140,16 @@ onSelect={handleSelect}
 </div>
 </div>
 
-<div class = "col-md-4">
-<div>
-
-<input type = "file"
-onChange= {(event) => {
-    uploadImage(event.target.files);
-}}
-
-
-
-/>
+<div class = "col-md-6">
+                      
+        <input type = "file"
+                    onChange= {(event) => {
+                        uploadImage(event.target.files);
+                    }}
+                    
+                    />
+                    
 </div>
-    </div>
 
     
 
