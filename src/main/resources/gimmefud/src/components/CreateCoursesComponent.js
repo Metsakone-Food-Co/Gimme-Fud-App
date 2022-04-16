@@ -140,14 +140,21 @@ onSelect={handleSelect}
 </div>
 </div>
 
-<div class = "col-md-6">
+<div class = "col-md-3">
+
+  <div>
                       
-        <input type = "file"
+      <label for="upload">Choose course image:</label>
+                    <input type = "file"
+                    className="form-control "
+                    name="upload"
+                    id="upload"
                     onChange= {(event) => {
                         uploadImage(event.target.files);
                     }}
                     
                     />
+  </div>
                     
 </div>
 

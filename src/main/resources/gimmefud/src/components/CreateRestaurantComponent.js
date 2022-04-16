@@ -127,14 +127,21 @@ const CreateRestaurant = () => {
                     />
                 </div>
 
-                <div class = "col-md-6">
+                <div class = "col-md-3">
+                    <div>
+                      <label for="upload">Choose restaurant profile image:</label>
                       
                       <input type = "file"
+                      className="form-control "
+                      name="upload"
+                      id="upload"
+                      
                                   onChange= {(event) => {
                                       uploadImage(event.target.files);
                                   }}
                                   
                                   />
+                    </div>
                                   
               </div>
 
