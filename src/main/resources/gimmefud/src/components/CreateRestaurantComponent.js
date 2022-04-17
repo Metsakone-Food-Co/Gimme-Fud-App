@@ -127,10 +127,9 @@ const CreateRestaurant = () => {
                     />
                 </div>
 
-                <div class = "col-md-3">
+                <div class = "col-md-6">
                     <div>
                       <label for="upload">Choose restaurant profile image:</label>
-                      
                       <input type = "file"
                       className="form-control "
                       name="upload"
