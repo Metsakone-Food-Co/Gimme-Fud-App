@@ -34,7 +34,7 @@ const CreateRestaurant = () => {
         const formData = new FormData();
         formData.append("file", file[0]);
 
-      Axios.post("http://localhost:8080/api/v1/upload", formData, {headers: { 'Content-Type': 'multipart/form-data' } }).then((response) => {
+      Axios.post("https://gimme-fud-app.herokuapp.com/api/v1/upload", formData, {headers: { 'Content-Type': 'multipart/form-data' } }).then((response) => {
         console.log(response.data);
         setImageUrl(response.data)
 
