@@ -104,7 +104,7 @@ const [restaurants, setRestaurants] = useState([]);
              <Card.Title>{restaurant.rname} </Card.Title>
 
               <Card.Text>
-              <p>Opening hours: {restaurant.service_hours}</p> </Card.Text>
+              <p>Service hours: {restaurant.service_hours}</p> </Card.Text>
               <Card.Text>
               <p>Price Range: {restaurant.price_range} </p> 
               </Card.Text>
