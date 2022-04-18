@@ -13,7 +13,6 @@ const CreateCustomerComponent = () => {
     const[lastName, setLastName] = useState('');
     const[address, setAddress] = useState('');
     const[phoneNumber, setPhoneNumber] = useState('');
-    const[role, setRole] = useState('');
     const navigate = useNavigate();
   
    
@@ -24,11 +23,11 @@ const CreateCustomerComponent = () => {
     const saveCustomer = (e) => {
         e.preventDefault();
         
-        const customer = { username, password, firstName, lastName,address, phoneNumber, role };
-        CustomerService.create(customer,setRole === "CUSTOMER" )
+        const customer = { username, password, firstName, lastName,address, phoneNumber };
+        CustomerService.create(customer)
         .then(response => {
             console.log("customer added successfully", response.data);
-            
+            navigate("/Customercreated");
       
             
         })
