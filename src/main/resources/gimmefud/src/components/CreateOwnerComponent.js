@@ -23,6 +23,7 @@ const CreateOwner = () => {
         .then(response => {
             console.log("restaurant owner added successfully", response.data);
             setRoler("OWNER");
+            navigate("/CreationSuccesfull");
             
            
         })
