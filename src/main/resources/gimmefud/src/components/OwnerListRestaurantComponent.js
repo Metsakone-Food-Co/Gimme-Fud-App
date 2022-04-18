@@ -83,8 +83,8 @@ const [restaurants, setRestaurants] = useState([]);
        <SearchRestaurant
        searchQuery={searchQuery}
        setSearchQuery={setSearchQuery}/></div>
-
-     
+ 
+     <h3> Click restaurant to view order history</h3>
 
         <Row xs={1} md={2} className="g-4">
           {filteredRestaurants.map(restaurant => {
