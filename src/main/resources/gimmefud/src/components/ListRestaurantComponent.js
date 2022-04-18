@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import RestaurantService from '../services/RestaurantService';
 import SearchRestaurant from './SearchRestaurant';
-
+import '../ListRestaurant.css'
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -81,9 +81,10 @@ const [restaurants, setRestaurants] = useState([]);
        </div>
        
        <h3>Type to search for restaurants</h3>
+       <div className="searchBarContainer">
        <SearchRestaurant
        searchQuery={searchQuery}
-       setSearchQuery={setSearchQuery}/>
+       setSearchQuery={setSearchQuery}/></div>
        
 
         <Row xs={1} md={2} className="g-4">
