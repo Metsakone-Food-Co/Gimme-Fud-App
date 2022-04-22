@@ -1,8 +1,4 @@
 # gimme-fud-app
-Niko Naumanen: Niibix
-Jaakko Malmi: JaakkoMal
-Trinh Le: Trinkku
-Joonas Metsäniemi: jmetsaniemi
 
 Johdanto 
 
@@ -33,25 +29,25 @@ Ryhmä ja vastuualueet
 
  
 
-Trinh Le: 
+Trinh Le(Trinkku): 
 
 Vastuualueina olivat käyttöliittymän pohjan luominen Figmaan sekä sovelluksen näkymien lopullinen tyylittely. Toiminnallisuudet, jotta asiakas pystyy selailemaan ravintoloita ja tekemään tilauksen menusta.  
 
  
 
-Jaakko Malmi:  
+Jaakko Malmi(JaakkoMal):  
 
 Vastuualueina olivat ravintolan omistajan profiilin sekä ravintolan profiilin luomiseen tarkoitettujen komponenttien ohjelmointi, ravintoloiden selaus ja haku asiakkaana kirjautuneena, ravintolan profiilisivun luominen, asiakkaan ja ravintolan tilaushistorian selaamiseen tarkoitetun sivun luominen, asiakkaan ostoskorin ja sen toiminnallisuuksien luominen sekä osittain eri näkymien tyylittely. 
 
   
 
-Niko Naumanen: 
+Niko Naumanen(Niibix): 
 
 Vastuualueina olivat tietokannan luonti ja sen päivitys, asiakkaan ja ravintoloitsijan kirjautuminen sovellukseen ja tietojen oikeellisuuden varmistaminen, asiakkaan ostoskorin luominen ja sen toiminnallisuuksien toteuttaminen, sovelluksen ajaminen Heroku-palveluun ja sen toiminnan varmistaminen, yleisesti Java-palvelimen toiminnan varmistaminen ja rajapintatestausten kirjoittaminen ja ajaminen.  
 
  
 
-Joonas Metsäniemi: 
+Joonas Metsäniemi: (jmetsaniemi)
 
  
 
