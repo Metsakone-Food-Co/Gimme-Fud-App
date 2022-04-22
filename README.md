@@ -10,10 +10,24 @@ Projektin aiheena oli web-pohjainen ruokatilaussovellus. Tavoitteena oli luoda t
 
 Yleiskuvaus 
 
-Sovelluksella on kaksi käyttäjätyyppiä, jossa asiakas voi tilata ruokaa ja omistaja voi luoda ravintolan ja annokset. Asiakas voi luoda sovellukseen itselleen tilin, jolla hän voi kirjautua sovellukseen. Kirjauduttuaan Asiakas voi etsiä ravintolalistasta itselleen mieluisan ravintolan, josta haluaa tilata itselleen ruokaa. Kun sopiva ravintola on valittu, voi asiakas valita ravintolan ruokalistalta haluamiaan annoksia ja lisätä ne ostoskoriin. Kun asiakas on valinnut sopivan määrän tuotteita, voi hän tehdä tilauksen painamalla ostoskorissa olevaa tilauspainiketta. Asiakkaalle esitellään tilauksen sisältö ja tilauksen kokonaishinta. Jos kaikki on oikein, voi asiakas vahvistaa tilauksensa. Asiakas voi myös tarkastella omaa tilaushistoriaansa sivuillaan.
+Sovelluksella on kaksi käyttäjätyyppiä, jossa asiakas voi tilata ruokaa ja omistaja voi luoda ravintolan ja annokset. Asiakas voi luoda sovellukseen itselleen tilin, jolla hän voi kirjautua sovellukseen. Kirjauduttuaan Asiakas voi etsiä ravintolalistasta itselleen mieluisan ravintolan, josta haluaa tilata itselleen ruokaa. Kun sopiva ravintola on valittu, voi asiakas valita ravintolan ruokalistalta haluamiaan annoksia ja lisätä ne ostoskoriin. Kun asiakas on valinnut sopivan määrän tuotteita, voi hän tehdä tilauksen painamalla ostoskorissa olevaa tilauspainiketta. Asiakkaalle esitellään tilauksen sisältö ja tilauksen kokonaishinta. Jos kaikki on oikein, voi asiakas vahvistaa tilauksensa. Asiakas voi myös tarkastella omaa tilaushistoriaansa sivuillaan(kuva 1).
+
+![image](https://user-images.githubusercontent.com/91590725/164628386-2386af83-8b22-4439-8b74-e4a027fe7183.png)
+
+Kuva 1
+
+Ravintolan omistaja voi sovelluksessa luoda itselleen ravintolan ja ravintolaan ruokalistan. Ravintoloitsija pääsee myös ravintolakohtaisesti tarkastelemaan omien ravintoloidensa tilaushistoriaa. Ravintoloitsija voi lisätä sovellukseen kuvauksen omasta ravintolastaan ja kuvan ravintolasta sekä annoksista, joita ravintolassa tarjoillaan. 
 
 
-Ravintolan omistaja voi sovelluksessa luoda itselleen ravintolan ja ravintolaan ruokalistan. Ravintoloitsija pääsee myös ravintolakohtaisesti tarkastelemaan omien ravintoloidensa tilaushistoriaa. Ravintoloitsija voi lisätä sovellukseen kuvauksen omasta ravintolastaan ja kuvan ravintolasta sekä annoksista, joita ravintolassa tarjoillaan.  
+
+Sovelluksen käyttöönotto
+
+Sovellusta voi käyttää joko suoraan palvelimelta tai lataamalla projekti Githubin kautta, kloonaamalla repositorio omalle koneelle. Kun repositorio on haettu koneelle:
+1)	Avaa kloonattu repositorio esimerkiksi IntelliJ:llä ja käynnistä palvelin (Run - > GimmeFudApplication).
+2)	Avaa selainosion Javascript (\gimme-fud-app\src\main\resources\gimmefud) esimerkiksi Visual Studio Codella.
+3)	Avaa konsoli ja kirjoita “npm install.” 
+4)	Pakettien asennusten jälkeen konsoliin voi kirjoittaa ”npm start” ja sovellus käynnistyy.
+
 
 Ryhmä ja vastuualueet 
 
