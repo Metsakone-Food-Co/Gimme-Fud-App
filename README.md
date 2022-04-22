@@ -1,4 +1,4 @@
-# gimme-fud-app
+# Gimme-fudd-application
 
 Johdanto 
 
@@ -55,38 +55,24 @@ Vastuualueina olivat REST-rajapinnan suunnittelu Stoplight-työkalulla, ravintol
 
 
 
-
-
-
 Linkit sovellukseen ja suunnitelmiin 
 
- 
 
 Sovellus on ajossa Heroku palvelussa: 
 
 Alla olevilla tunnuksilla pääset kokeilemaan sovellusta tai voit halutessasi luoda uuden tunnuksen itsellesi
 
-LOGIN:
+Login:
 
 username: Ooke
 password: Ooke
 
-username: Sipulimies
-password: Sipuli
-
-username: PuukkoAllu
-password: Blade666
 
 Owner Login :
 
 usernme: Aake
 password: Aake666
 
-username : Juustopää
-password: Juusto69
-
-username: Osmo
-password: Osmo
 
 https://gimme-fud-app.herokuapp.com 
 
